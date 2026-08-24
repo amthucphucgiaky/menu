@@ -1,0 +1,1672 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#8b0000">
+
+<title>Ẩm thực Phúc Gia Ký 福家记 - Menu đặt món</title>
+
+<style>
+:root {
+    --red: #8b0000;
+    --dark-red: #5b0000;
+    --gold: #d4af37;
+    --cream: #fff8e7;
+    --white: #ffffff;
+    --text: #2c1b12;
+    --gray: #777;
+    --shadow: 0 8px 25px rgba(0,0,0,.12);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(212,175,55,.08) 0 2px, transparent 3px),
+        radial-gradient(circle at 80% 80%, rgba(139,0,0,.05) 0 2px, transparent 3px),
+        #f7efe0;
+    color: var(--text);
+}
+
+/* ================= HEADER ================= */
+
+header {
+    background:
+        linear-gradient(rgba(80,0,0,.94), rgba(80,0,0,.94)),
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 10px,
+            rgba(212,175,55,.08) 10px,
+            rgba(212,175,55,.08) 20px
+        );
+    color: white;
+    padding: 25px 15px 30px;
+    text-align: center;
+    border-bottom: 4px solid var(--gold);
+}
+
+.logo-symbol {
+    width: 70px;
+    height: 70px;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    color: var(--gold);
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.logo {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.chinese-name {
+    color: var(--gold);
+    font-size: 23px;
+    margin-top: 4px;
+}
+
+.slogan {
+    margin-top: 8px;
+    font-size: 14px;
+    opacity: .9;
+}
+
+.opening {
+    display: inline-block;
+    margin-top: 12px;
+    background: var(--gold);
+    color: #5b0000;
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* ================= SEARCH ================= */
+
+.search-area {
+    max-width: 1100px;
+    margin: 20px auto 10px;
+    padding: 0 15px;
+}
+
+.search-box {
+    position: relative;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 15px 45px 15px 18px;
+    border: 2px solid #ead8ad;
+    border-radius: 30px;
+    font-size: 15px;
+    outline: none;
+    background: white;
+}
+
+.search-box input:focus {
+    border-color: var(--gold);
+}
+
+.search-icon {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+/* ================= CATEGORY ================= */
+
+.categories {
+    max-width: 1100px;
+    margin: 15px auto;
+    padding: 0 15px;
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.categories::-webkit-scrollbar {
+    display: none;
+}
+
+.category-btn {
+    flex: 0 0 auto;
+    border: 1px solid #d8b979;
+    background: #fffaf0;
+    color: var(--dark-red);
+    padding: 10px 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.category-btn.active,
+.category-btn:hover {
+    background: var(--red);
+    color: white;
+    border-color: var(--red);
+}
+
+/* ================= MENU ================= */
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 10px 15px 130px;
+}
+
+.section-title {
+    font-family: Georgia, serif;
+    text-align: center;
+    margin: 25px 0 20px;
+    color: var(--dark-red);
+}
+
+.section-title h2 {
+    font-size: 25px;
+}
+
+.section-title p {
+    margin-top: 5px;
+    font-size: 13px;
+    color: var(--gray);
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.food-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: .2s;
+    border: 1px solid rgba(139,0,0,.08);
+    position: relative;
+}
+
+.food-card.sold-out {
+    opacity: 0.6;
+}
+
+.food-card.sold-out::after {
+    content: "TẠM HẾT MÓN";
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.food-card:hover {
+    transform: translateY(-3px);
+}
+
+.food-image {
+    height: 190px;
+    overflow: hidden;
+    background: #eee;
+}
+
+.food-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .3s;
+}
+
+.food-card:hover img {
+    transform: scale(1.05);
+}
+
+.food-info {
+    padding: 15px;
+}
+
+.food-name {
+    color: var(--dark-red);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.food-desc {
+    color: #777;
+    font-size: 13px;
+    margin: 7px 0;
+    line-height: 1.5;
+    min-height: 38px;
+}
+
+.food-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 12px;
+}
+
+.price {
+    color: var(--red);
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.add-btn {
+    background: var(--red);
+    color: white;
+    border: none;
+    padding: 9px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.add-btn:hover {
+    background: var(--dark-red);
+}
+
+.add-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.card-quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff8e7;
+    border: 1px solid #d5bd8a;
+    border-radius: 20px;
+    padding: 3px 8px;
+}
+
+.card-quantity-control button {
+    width: 26px;
+    height: 26px;
+    border: none;
+    background: var(--red);
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-quantity-control span {
+    font-weight: bold;
+    color: var(--dark-red);
+    min-width: 16px;
+    text-align: center;
+}
+
+/* ================= CART FLOATING ================= */
+
+.cart-floating {
+    position: fixed;
+    right: 18px;
+    bottom: 20px;
+    z-index: 1000;
+}
+
+.cart-button {
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    border: 3px solid white;
+    background: var(--red);
+    color: white;
+    box-shadow: 0 6px 20px rgba(0,0,0,.3);
+    cursor: pointer;
+    font-size: 25px;
+    position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -3px;
+    background: var(--gold);
+    color: #5b0000;
+    min-width: 23px;
+    height: 23px;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1999;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+}
+
+.cart-backdrop.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ================= CART PANEL ================= */
+
+.cart-panel {
+    position: fixed;
+    z-index: 2000;
+    right: -450px;
+    top: 0;
+    width: 420px;
+    max-width: 100%;
+    height: 100vh;
+    background: #fffaf2;
+    box-shadow: -5px 0 30px rgba(0,0,0,.25);
+    transition: .3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-panel.open {
+    right: 0;
+}
+
+.cart-header {
+    background: var(--red);
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid var(--gold);
+}
+
+.cart-header h3 {
+    font-family: Georgia, serif;
+}
+
+.close-cart {
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.cart-items {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px;
+}
+
+.empty-cart {
+    text-align: center;
+    padding: 60px 20px;
+    color: #888;
+}
+
+.cart-item {
+    background: white;
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.07);
+}
+
+.cart-item-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.cart-item-name {
+    font-weight: bold;
+    color: var(--dark-red);
+}
+
+.remove-item {
+    border: none;
+    background: none;
+    color: #b00000;
+    cursor: pointer;
+}
+
+.cart-item-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantity button {
+    width: 28px;
+    height: 28px;
+    border: 1px solid #d5bd8a;
+    background: #fff8e7;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.cart-footer {
+    border-top: 1px solid #ddd;
+    padding: 15px;
+    background: white;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 20px;
+    color: var(--red);
+    margin-bottom: 15px;
+}
+
+.checkout-btn {
+    width: 100%;
+    padding: 14px;
+    background: var(--red);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* ================= MODAL ================= */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.65);
+    z-index: 3000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+.modal {
+    width: 600px;
+    max-width: 100%;
+    max-height: 92vh;
+    overflow-y: auto;
+    background: #fffaf2;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0,0,0,.4);
+}
+
+.modal-header {
+    background: var(--red);
+    color: white;
+    padding: 18px;
+    text-align: center;
+    border-bottom: 3px solid var(--gold);
+}
+
+.modal-header h2 {
+    font-family: Georgia, serif;
+}
+
+.form {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: var(--dark-red);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d8c69e;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+    background: white;
+}
+
+.form-group textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.delivery-options {
+    display: flex;
+    gap: 10px;
+}
+
+.delivery-option {
+    flex: 1;
+    border: 1px solid #d8c69e;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    background: white;
+}
+
+.delivery-option input {
+    width: auto;
+    margin-right: 5px;
+}
+
+.order-preview {
+    background: #fff4d9;
+    border: 1px dashed #c99f39;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.order-preview h3 {
+    color: var(--dark-red);
+    margin-bottom: 10px;
+}
+
+.preview-line {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 14px;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.modal-buttons button {
+    flex: 1;
+    padding: 13px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.cancel-btn {
+    background: #ddd;
+}
+
+.confirm-btn {
+    background: var(--red);
+    color: white;
+}
+
+/* ================= SUCCESS ================= */
+
+.success-box {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.success-icon {
+    font-size: 55px;
+    margin-bottom: 10px;
+}
+
+.success-box h2 {
+    color: var(--red);
+    font-family: Georgia, serif;
+}
+
+.order-code {
+    background: #fff1ca;
+    border: 1px dashed #c99f39;
+    padding: 12px;
+    margin: 15px 0;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.copy-btn,
+.zalo-btn,
+.sms-btn,
+.call-btn,
+.share-btn {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.copy-btn {
+    background: #333;
+    color: white;
+}
+
+.zalo-btn {
+    background: #0068ff;
+    color: white;
+}
+
+.sms-btn {
+    background: #138a36;
+    color: white;
+}
+
+.call-btn {
+    background: #a56a00;
+    color: white;
+}
+
+.share-btn {
+    background: #7b1fa2;
+    color: white;
+}
+
+.order-help {
+    background: #fff8e7;
+    border: 1px solid #e5cc93;
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin: 12px 0 4px;
+    color: #5b0000;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.close-success {
+    width: 100%;
+    margin-top: 8px;
+    padding: 12px;
+    background: #ddd;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* ================= TOAST ================= */
+
+.toast {
+    position: fixed;
+    left: 50%;
+    bottom: 25px;
+    transform: translate(-50%, 100px);
+    background: #222;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 30px;
+    z-index: 5000;
+    transition: .3s;
+    opacity: 0;
+}
+
+.toast.show {
+    transform: translate(-50%, 0);
+    opacity: 1;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 850px) {
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 560px) {
+    header {
+        padding-top: 20px;
+    }
+
+    .logo {
+        font-size: 23px;
+    }
+
+    .chinese-name {
+        font-size: 20px;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .food-image {
+        height: 220px;
+    }
+
+    .cart-panel {
+        width: 100%;
+    }
+
+    .delivery-options {
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+    <div class="logo-symbol">福</div>
+    <div class="logo">ẨM THỰC PHÚC GIA KÝ</div>
+    <div class="chinese-name">福家记</div>
+    <div class="slogan">Gia truyền vị Hoa – Trọn vị sum vầy</div>
+    <div class="opening">🕐 PHỤC VỤ XUYÊN ĐÊM</div>
+</header>
+
+<!-- ================= SEARCH ================= -->
+
+<div class="search-area">
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="🔍 Tìm món ăn bạn yêu thích..." oninput="searchFood()">
+        <span class="search-icon">🥢</span>
+    </div>
+</div>
+
+<!-- ================= CATEGORY ================= -->
+
+<div class="categories">
+    <button class="category-btn active" onclick="filterCategory('all', this)">Tất cả</button>
+    <button class="category-btn" onclick="filterCategory('mon-hap', this)">🥟 Món Hấp</button>
+    <button class="category-btn" onclick="filterCategory('mon-chien', this)">🧆 Món Chiên</button>
+    <button class="category-btn" onclick="filterCategory('mi-tuoi', this)">🍜 Mì Tươi</button>
+    <button class="category-btn" onclick="filterCategory('mien-dong', this)">🍲 Miến Dong</button>
+    <button class="category-btn" onclick="filterCategory('nui', this)">🍝 Nui</button>
+    <button class="category-btn" onclick="filterCategory('sup-nuoc', this)">🥣 Súp Nước</button>
+    <button class="category-btn" onclick="filterCategory('mon-khac', this)">🍱 Món Khác</button>
+    <button class="category-btn" onclick="filterCategory('mon-chao', this)">🥣 Món Cháo)</button>
+    <button class="category-btn" onclick="filterCategory('mon-tam-bo', this)">🫕 Món Tẩm Bổ</button>
+    <button class="category-btn" onclick="filterCategory('nuoc-giat-khat', this)">🥤 Nước Giải Khát</button>
+</div>
+
+<!-- ================= MENU ================= -->
+
+<main class="container">
+    <div class="section-title">
+        <h2>🥢 THỰC ĐƠN PHÚC GIA KÝ 🥢</h2>
+        <p>Hương vị Hoa truyền thống – Nấu bằng cả tâm tình</p>
+    </div>
+    <div class="menu-grid" id="menuGrid"></div>
+</main>
+
+<!-- ================= CART BUTTON ================= -->
+
+<div class="cart-floating">
+    <button class="cart-button" onclick="openCart()">
+        🛒
+        <span class="cart-count" id="cartCount">0</span>
+    </button>
+</div>
+
+<div class="cart-backdrop" id="cartBackdrop" onclick="closeCart()"></div>
+
+<!-- ================= CART PANEL ================= -->
+
+<div class="cart-panel" id="cartPanel">
+    <div class="cart-header">
+        <h3>🛒 Giỏ món ăn</h3>
+        <button class="close-cart" onclick="closeCart()">×</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer">
+        <div class="total-row">
+            <span>Tổng cộng</span>
+            <span id="cartTotal">0đ</span>
+        </div>
+        <button class="checkout-btn" onclick="openCheckout()">🧧 TIẾN HÀNH ĐẶT MÓN</button>
+    </div>
+</div>
+
+<!-- ================= CHECKOUT MODAL ================= -->
+
+<div class="modal-overlay" id="checkoutModal">
+    <div class="modal">
+        <div class="modal-header">
+            <h2>🧧 XÁC NHẬN ĐẶT MÓN</h2>
+            <p>福家记 – Phúc Gia Ký</p>
+        </div>
+        <div class="form">
+            <div class="order-preview">
+                <h3>🥢 Món bạn đã chọn</h3>
+                <div id="checkoutItems"></div>
+                <div style="margin-top:10px;text-align:right;font-size:18px;font-weight:bold;color:#8b0000;" id="checkoutTotal"></div>
+            </div>
+
+            <div class="form-group">
+                <label>👤 Tên khách hàng *</label>
+                <input type="text" id="customerName" placeholder="Nhập tên của bạn">
+            </div>
+
+            <div class="form-group">
+                <label>📞 Số điện thoại *</label>
+                <input type="tel" id="customerPhone" placeholder="Nhập số điện thoại">
+            </div>
+
+            <div class="form-group">
+                <label>🚚 Hình thức nhận món</label>
+                <div class="delivery-options">
+                    <label class="delivery-option">
+                        <input type="radio" name="delivery" value="Giao tận nơi" checked onchange="toggleAddress()">
+                        🛵 Giao tận nơi (Có phí Ship)
+                    </label>
+                    <label class="delivery-option">
+                        <input type="radio" name="delivery" value="Khách đến lấy" onchange="toggleAddress()">
+                        🛍️ Khách đến lấy
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group" id="addressGroup">
+                <label>📍 Địa chỉ giao hàng *</label>
+                <textarea id="customerAddress" placeholder="Nhập địa chỉ nhận món"></textarea>
+                <small style="color: #666; display: block; margin-top: 4px;">* Phí giao hàng sẽ được quán kiểm tra và thông báo khi xác nhận đơn.</small>
+            </div>
+
+            <div class="form-group">
+                <label>📝 Ghi chú</label>
+                <textarea id="customerNote" placeholder="Ví dụ: Ít cay, thêm nước chấm..."></textarea>
+            </div>
+
+            <div class="modal-buttons">
+                <button class="cancel-btn" onclick="closeCheckout()">Quay lại</button>
+                <button class="confirm-btn" onclick="confirmOrder()">✓ XÁC NHẬN ĐẶT MÓN</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ================= SUCCESS MODAL ================= -->
+
+<div class="modal-overlay" id="successModal">
+    <div class="modal">
+        <div class="success-box">
+            <div class="success-icon">🧧</div>
+            <h2>ĐẶT MÓN THÀNH CÔNG!</h2>
+            <p style="margin-top:10px;">Cảm ơn quý khách đã ủng hộ <b>Phúc Gia Ký 福家记</b></p>
+            <div class="order-code" id="orderCode"></div>
+
+            <div class="order-help">
+                ✅ Đơn hàng đã được tạo thành công.<br>
+                Bạn có thể <b>sao chép</b> nội dung rồi gửi cho quán qua Zalo/SMS.
+            </div>
+
+            <button class="copy-btn" onclick="copyOrder()">📋 Sao chép nội dung đơn hàng</button>
+            <button class="zalo-btn" onclick="sendZalo()">💬 Mở Zalo & Dán đơn hàng</button>
+            <button class="sms-btn" onclick="sendSMS()">📱 Mở SMS & Dán đơn hàng</button>
+            <button class="call-btn" onclick="callShop()">☎️ Gọi cho quán</button>
+            <button class="share-btn" onclick="shareOrder()">📤 Chia sẻ đơn hàng</button>
+            <button class="close-success" onclick="closeSuccess()">Đóng</button>
+        </div>
+    </div>
+</div>
+
+<!-- ================= TOAST ================= -->
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* =====================================================
+   DANH SÁCH MÓN ĂN CHI TIẾT (129 MÓN)
+===================================================== */
+const foods = [
+    // --- 1. MÓN HẤP (30 món) ---
+    { id: 1, name: "Há Cảo Tôm - Hấp", category: "mon-hap", price: 30000, image: "https://scontent.fdad3-4.fna.fbcdn.net/v/t1.15752-9/774361124_2155196651711120_1096273552785838824_n.png?stp=dst-png&cstp=mx941x627&ctp=s941x627&_nc_cat=104&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeHagJMKx8UYgCI4uJmwnCaqEKOaNLB2Hi8Qo5o0sHYeL-JmhHJWwGsJ3qu8l_5jJAtgzhTAQaRu39JsSMtkC-bL&_nc_ohc=vYdvYrRdLrcQ7kNvwGZYxSl&_nc_oc=Ado5O2meiJ7VIr2kKzkTR4jJihr4CEA7cpv1IIXD4dzsj3YUYcbsd2NbrufpN0rJvt-kjIqdiYDEuzSPT3lYY_SQ&_nc_zt=23&_nc_ht=scontent.fdad3-4.fna&_nc_ss=7b2a8&oh=03_Q7cD6AFCoEI2LQFZF9wg0MBBsDx5pDXCKMr3Mfmgn0RibZmStg&oe=6AAF0135", desc: "(6 viên nhỏ)", isAvailable: true },
+    { id: 2, name: "Há Cảo Thịt - Hấp", category: "mon-hap", price: 30000, image: "https://scontent.fdad3-1.fna.fbcdn.net/v/t1.15752-9/768038876_28410428598589265_380515426070386233_n.png?stp=dst-png_s552x414&_nc_cat=108&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeFGsfcYRD0deW34LwaDKh6nzTS_sbB4DSjNNL-xsHgNKNDDksqwGtIng3ZCIYp0b5h9t4N5qT3TYiB0vnKUe2dS&_nc_ohc=zLKLdN1ktHYQ7kNvwGZsrG6&_nc_oc=AdqRc_7IcCJ1pFIbBu3v3HeuBarc1vGESK2a5yhaV3YfRemO7N6XyNVBdPyXwbYZGOVmHOEL7fxmk1qz8pZn3Emt&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-1.fna&_nc_ss=7a22e&oh=03_Q7cD6AHyNOjcCruMFDCoSUelAbMrgrzeOoLDWKyrIUwpZwz_kQ&oe=6AAED49C", desc: "(6 viên nhỏ)", isAvailable: true },
+    { id: 3, name: "Há Cảo Bó Xôi - Hấp", category: "mon-hap", price: 35000, image: "https://scontent.fdad3-5.fna.fbcdn.net/v/t1.15752-9/779815990_1701274777625402_4695445881672442176_n.png?stp=dst-png_s552x414&_nc_cat=111&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeEa8AkOycVCTdl0oOAFqmOrsv2YaeNSJD-y_Zhp41IkPz130WU1RHC_v2eTH0Lvof-Wbwx4jyWN9oShlri-8dTD&_nc_ohc=lU2az33C8-YQ7kNvwHatinL&_nc_oc=AdqpBRLBqGTyvJk32DsdD-IgubwRZiFQfIva-mZyvWkTRjqHYSWWAS5hnmzND1mFZQ_zXJr7bbFPR3ACAT1nPjUv&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-5.fna&_nc_ss=7a22e&oh=03_Q7cD6AHH_bFo4Jt1ghO_wYhqAsFuK3Ac36jCY27WEG25pOH99Q&oe=6AAF73EF", desc: "(4 viên trung)", isAvailable: false },
+    { id: 4, name: "Há Cảo Hẹ - Hấp", category: "mon-hap", price: 35000, image: "https://scontent.fdad3-1.fna.fbcdn.net/v/t1.15752-9/777946412_1062138549909129_2543028515609178008_n.png?stp=dst-png_s552x414&_nc_cat=110&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeE7MJx8PpDbUqHfJxgJc8n_WKX_xFzt6KdYpf_EXO3op8eYL7kE5cYkDfz36ag8W_JtHCsEhNiJxA909MZwoqOH&_nc_ohc=lDY5BjX46C4Q7kNvwFfbEAg&_nc_oc=AdqpoKQtIFSq_8iyS8dyC6bGImlX5F4A0v2r9DImegaIcTb4ilyhOmeSERrJ4jQml3vvvHeZBanoSQiePZULLdRb&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-1.fna&_nc_ss=7a22e&oh=03_Q7cD6AGRkGx9H1ukMAoZGCjS709Hu3susSQzL_fI8TfkPYEa_Q&oe=6AAF8353", desc: "(4 viên trung)", isAvailable: true },
+    { id: 5, name: "Há Cảo Cà Rốt - Hấp", category: "mon-hap", price: 35000, image: "https://scontent.fdad3-1.fna.fbcdn.net/v/t1.15752-9/777259795_1006767542394343_3244129774740982682_n.jpg?stp=dst-jpg_s552x414_tt6&_nc_cat=108&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeHxUctlah4FoTrFW6sJpYjNMLYyTpcNfOAwtjJOlw184InIqr6vxgJ2Ahe3kOz6bTf5dCRZ0NRyxUJ5zIxbzp-D&_nc_ohc=jjjLgWcTDEgQ7kNvwE9TCPp&_nc_oc=Adrs7ujOb5a9fTk369SAhQfRdXOHC3OTDw8p6KadsH3o81LwqJDzIH-36kbSIhlG8fdfBLLUoxnrZULzqeqTVJqH&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-1.fna&_nc_ss=7a22e&oh=03_Q7cD6AGXLkUA00K5lvbFpTLHYEeZYrkDO8j-H_KB-LEXd_2Bxw&oe=6AAF7E21", desc: "(4 viên trung)", isAvailable: false },
+    { id: 6, name: "Há Cảo Bắp - Hấp", category: "mon-hap", price: 35000, image: "https://scontent.fdad3-8.fna.fbcdn.net/v/t1.15752-9/778868048_1056700820429625_3340577175362274109_n.png?stp=dst-png_s552x414&_nc_cat=100&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeH8z_uwPuWRvZOesNQOoa8brC9MRpA2-JisL0xGkDb4mPjcHA4ecxXtdQk2jihn2Mr7A_-C8se5PW05DqzLOjrJ&_nc_ohc=j0M285ktwRkQ7kNvwGpw0T-&_nc_oc=AdpqOV3xxpT4MXg3kPlN99r2zTl107x1Wo2StjoNk0tSEEX9n-WlhvJ-Oe-kMHrTXvVtQjwd2ycb1PLn4kpLkOWN&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-8.fna&_nc_ss=7a22e&oh=03_Q7cD6AFEKxClTlM6m0JLI-YzHPbhTjr1zMjiPm9DSh2SoDok7Q&oe=6AAF955C", desc: "(4 viên trung)", isAvailable: true },
+    { id: 7, name: "Há Cảo Nấm Đông Cô - Hấp", category: "mon-hap", price: 35000, image: "https://scontent.fdad3-1.fna.fbcdn.net/v/t1.15752-9/780619626_1077925594677346_2775649751018607924_n.png?stp=dst-png_s552x414&_nc_cat=103&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeHiV6ZGHyUtlOPzdQL7F8gK_CsGZAmuXsz8KwZkCa5ezL4dhL_X-UUcf9CdKGNSmqYY9SucEU8kEdMFKLywQe37&_nc_ohc=ZKIUFGS126sQ7kNvwGemtlL&_nc_oc=AdqYpOApJiQ09lJsT8SzsSyLhr9TKHEuLo3qLR82rCiVsw_PXqs68UL7LxH5QH_OA7iThdfowonObBfCOunFqRRd&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-1.fna&_nc_ss=7a22e&oh=03_Q7cD6AGb-ZKqzE37ouJTJRy2pQZ1RLBvvrGhjfRyJvHSm87iQA&oe=6AAF74F9", desc: "(4 viên trung)", isAvailable: true },
+    { id: 8, name: "Há Cảo Thủy Tinh Đậu - Hấp", category: "mon-hap", price: 35000, image: "https://scontent.fdad3-1.fna.fbcdn.net/v/t1.15752-9/778950385_2186971592242104_1679491311129774958_n.jpg?stp=dst-jpg_s552x414_tt6&_nc_cat=110&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeEBOcYw56X5rJ2imo-EGjnovziKz3R6b4C_OIrPdHpvgMRZKKwM6o87A9zo1dD8MaN0f4Aq94hZ-mR_ows8LX0f&_nc_ohc=cn6N54-QHwsQ7kNvwFoXtAL&_nc_oc=AdqkRDKFG0WXsX6xnJaNS3yuAiq9km5S8lB4jLlR1Wv2dmXncx11Tp-wVIoaaUohm6qle3VycO_9fz3R5Kjc8baY&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-1.fna&_nc_ss=7a22e&oh=03_Q7cD6AHJaWrF88gsuReCLZYtKvFTI1FCIjaoTawQ66njDzTE4g&oe=6AB05CAA", desc: "(4 viên trung)", isAvailable: false },
+    { id: 9, name: "Há Cảo Trứng Muối - Hấp", category: "mon-hap", price: 35000, image: "https://scontent.fdad3-1.fna.fbcdn.net/v/t1.15752-9/781678203_1617180816679753_6366930268551227614_n.jpg?stp=dst-jpg_s552x414_tt6&_nc_cat=108&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeHHV5iva0m00y1AqRRFNOvZqDnoWLHGmz6oOehYscabPld_xF3k7KCdM0JZIGUUWoEiHjl1voNVo5GVRHYnl3Wo&_nc_ohc=vCN6er5iqjUQ7kNvwGmb7ei&_nc_oc=Adrmd6ujza6Hxn-d295aAQr6u1Jdtq_RoAHP80LvGFFQpF0HDa-t4SKdEojjZaxCMGBRsC0yud0xZzXjaKhxRZ2P&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-1.fna&_nc_ss=7a22e&oh=03_Q7cD6AGsVc3E8FNmZ7e7Z-kTxILwmxuoYSdr5Iaibx54xFUqeA&oe=6AB095FC", desc: "(4 viên trung).", isAvailable: true },
+    { id: 10, name: "Há Cảo Than Tre - Hấp", category: "mon-hap", price: 35000, image: "https://scontent.fdad3-4.fna.fbcdn.net/v/t1.15752-9/781053224_1042757875229190_792948778180033664_n.jpg?stp=dst-jpg_s552x414_tt6&_nc_cat=107&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeE5sePgoZJG5N2QGKwigD4-ISzRcB6ju3QhLNFwHqO7dI8s9jDhvzfwf1CCmTxxcXhFBsYC0EBj87LtW9M798xD&_nc_ohc=YMgbX0LkEy0Q7kNvwE9P1Nd&_nc_oc=AdrzC3schDXLUWglZpaTlIkEAcaCqAm4EiA-u4ydCHPcCgJpW-Vrf7fldbAfmrJh4G3SRXOO0JuuqqXJeM7_soOw&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-4.fna&_nc_ss=7a22e&oh=03_Q7cD6AFD4FZo5eB8C8ozgPcBhlZWb-tccKgCkqAPU0lX5l8NBQ&oe=6AB09336", desc: "(4 viên trung).", isAvailable: false },
+    { id: 11, name: "Há Cảo Thanh Cua - Hấp", category: "mon-hap", price: 35000, image: "https://scontent.fdad3-5.fna.fbcdn.net/v/t1.15752-9/781976543_1322473629710297_1447711094448815050_n.png?stp=dst-png_s552x414&_nc_cat=111&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeGFM35117KyjT245lieZiJpRe9qEj93iptF72oSP3eKm59XAXVJ5-Mt1Qr8v5eBFLEpea03chyPXrvzTKuYjUiq&_nc_ohc=VxvNMpilID8Q7kNvwFizc5k&_nc_oc=AdoBdX5u03pbMYdL12Gcdj4HL4oh7vwm_Kcq5ELXvx5CDzgFIDhho8fpkf081T-KaNN1oRCDyAQkM60X862UkHX_&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-5.fna&_nc_ss=7a22e&oh=03_Q7cD6AFy3V03iE5GEVA0LdIt2Mx_N9d3UprThcnJTkoAI1oSgw&oe=6AB0900E", desc: "(4 viên trung).", isAvailable: true },
+    { id: 12, name: "Há Cảo Gà - Hấp", category: "mon-hap", price: 35000, image: "https://scontent.fdad3-5.fna.fbcdn.net/v/t1.15752-9/777777945_1840203764025260_2203797462173411822_n.png?stp=dst-png_s552x414&_nc_cat=109&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeE-8eaVc-j1wZ2_NrGj3xzsppc0b4B9tT-mlzRvgH21Px0JZan2S0d9A1DCWM-SE_hAYgA6nQt1ipQ2cqT7B-Ct&_nc_ohc=zmERVYuYJNMQ7kNvwH7XycC&_nc_oc=AdrDw-kNfxTV3TcaJwUTOMXrNMc1MKBWuTynKMN4DjkKX78WAWwXvAmR49jkz20uJHGIqIUnfLyNl-YsgcgU5C1I&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-5.fna&_nc_ss=7a22e&oh=03_Q7cD6AHGZs9GPcpmMzFf3RSB-K7rY5zGpiCBXuKZwA6wsrCxCA&oe=6AB08ED9", desc: "(4 viên trung).", isAvailable: true },
+    { id: 13, name: "Há Cảo Mực - Hấp", category: "mon-hap", price: 35000, image: "https://scontent.fdad3-8.fna.fbcdn.net/v/t1.15752-9/780342087_890115540559102_1627306380770009265_n.png?stp=dst-png_s552x414&_nc_cat=106&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeGJeleehwuY76Uxdt8hS3J9Sr9lnDiycXBKv2WcOLJxcGWSH8JfZVNctFP13S-r0AraNKPZ9I7nbSa4FvNG2X55&_nc_ohc=NBQ_pU7c71cQ7kNvwHKTvpB&_nc_oc=AdrjsKoD1HkLwk4Sf0IFI2TpEcA5rhD2UWvy198cOW9ojmNj2hiM23E8Ruyj61MO17w3kHoKDKOEDIY6yVkrn7hW&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-8.fna&_nc_ss=7a22e&oh=03_Q7cD6AFFH3ednqxw0VWRlclhw3ElNuaGvwVKgIqdRdrS0KYAbw&oe=6AB09FCF", desc: "(4 viên trung).", isAvailable: true },
+    { id: 14, name: "Há Cảo Sò Điệp - Hấp", category: "mon-hap", price: 35000, image: "https://scontent.fdad3-8.fna.fbcdn.net/v/t1.15752-9/780023688_29294175456848942_4319840103330468533_n.png?stp=dst-png_s552x414&_nc_cat=105&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeEJYgS3r4PJKqvitKQbqXecDU1cL3la2A4NTVwveVrYDt3fdOySZh5x7o1VgL7xt7-rImeCtLXgQ6UoG8MKY0Xv&_nc_ohc=S1H_ltupTSUQ7kNvwGyi0dA&_nc_oc=AdoIoK7lfqXeBOh12-dRks4J41md6FhNrr_rGdilQjs2hAUpaglZBs2LSIarQM0K6HxCuxVLYRWFvBNN18ZF5f_E&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-8.fna&_nc_ss=7a22e&oh=03_Q7cD6AEqvhP2FgzspBJ16B2sz34feMFPfD68O-PA3Zt17d5LIw&oe=6AB09C2F", desc: "(4 viên trung).", isAvailable: true },
+    { id: 15, name: "Xíu Mại Thanh Cua - Hấp ", category: "mon-hap", price: 35000, image: "https://scontent.fdad3-5.fna.fbcdn.net/v/t1.15752-9/783331326_922481177024047_2449354227118199928_n.png?stp=dst-png_s552x414&_nc_cat=109&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeHFT-lyFhjcBuc9cOliNhODWsz3NgFraptazPc2AWtqm5YzxrymgGRoc3WsPEp3fxRbO1qA6ux52thhLwAQOwnm&_nc_ohc=SmLoG-5XlvMQ7kNvwFhDcZZ&_nc_oc=Adqv36jFDsCYQerNo-KlEWzmTnikb8y2oXVNS22DVyMmIpWEHFclOh3GwnXlo576_0Q6cin83AS9zuJ3jbrDax3L&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-5.fna&_nc_ss=7a22e&oh=03_Q7cD6AH5xCvuL6srSoTGz3tQiFzVl-DdjaAZvsuXzMOLnAX3wg&oe=6AB0AD60", desc: "(4 viên trung).", isAvailable: true },
+    { id: 16, name: "Xíu Mại Tôm - Hấp ", category: "mon-hap", price: 35000, image: "https://scontent.fdad3-8.fna.fbcdn.net/v/t1.15752-9/779974776_1466291128658561_5937466687377167168_n.png?stp=dst-png_s552x414&_nc_cat=100&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeGTsNF7K3t0ycRhCnWwCrIx-EetMbmFbiv4R60xuYVuK814rthFdvWG_P0Koz-AAB2bThQU57_0SxHsmKtB0WH6&_nc_ohc=uRIuKQZaH_0Q7kNvwEwBQI0&_nc_oc=AdoCWd82rK0hWB0REfcN0AmjJvSg0AKKHqFCtU3XehBVvNhYPSl34oA40MsS7l1RTsg-MENjsuqXhemOOMoh6q6S&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-8.fna&_nc_ss=7a22e&oh=03_Q7cD6AGj0snoDWLOotm2F3509-j609rQj_m6kQF6b8DsKH7VIw&oe=6AB088D5", desc: "(4 viên trung).", isAvailable: true },
+    { id: 17, name: "Xíu Mại Trứng Cút - Hấp ", category: "mon-hap", price: 35000, image: "https://scontent.fdad3-4.fna.fbcdn.net/v/t1.15752-9/778624383_1456059306354030_554272242970595720_n.png?stp=dst-png_s552x414&_nc_cat=104&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeH65I2SLqzVSdwhSFDeu3hOfITSvbB-hl18hNK9sH6GXf4nZlQOfAems02iJpNwa40lr_rEFxg6vjBjGqh0YfKE&_nc_ohc=5K5Zb_ADFtEQ7kNvwERgMqL&_nc_oc=AdrONvTXLqXUhRWOHBSRQPI6IAeHeOD3C3cxaFF4Z_gkM6qakzK9R2h90GPm5vpUalbdExO3W8sbD19cifce1DTj&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-4.fna&_nc_ss=7a22e&oh=03_Q7cD6AG1g2gTBLyCv6JhHvoO3lZD-7R2mR-0x7gFvOpRsmZW0A&oe=6AB09ACE", desc: "(4 viên trung).", isAvailable: true },
+    { id: 18, name: "Xíu Mại Trứng Muối - Hấp ", category: "mon-hap", price: 35000, image: "https://scontent.fdad3-4.fna.fbcdn.net/v/t1.15752-9/783897977_1064680806046315_3739321497915821125_n.png?stp=dst-png_s552x414&_nc_cat=101&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeHx6vN5Nr7CY-uTgiPBmcnIHKz4sytvbO4crPizK29s7n3wsBFpvXS-MMyqPRh60TNAEUvDiQyKpR0Xs4w9J-Mc&_nc_ohc=D_KJFgajOGoQ7kNvwEypjvM&_nc_oc=AdrNFM1GnOSsI2kZESVW7rnQ5Zs-qzH5QUWgP2Uw68WSk9MWY5u0bDWz-ODKjSP069PmudV_rtnHCCpAkeAdP4Rf&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-4.fna&_nc_ss=7a22e&oh=03_Q7cD6AEosyHQVwAxFTVnZvWqzFZR0aJucuL4DIqnJxo0lga6ig&oe=6AB09509", desc: "(4 viên trung).", isAvailable: true },
+    { id: 19, name: "Xíu Mại Rong Biển Thanh Cua - Hấp", category: "mon-hap", price: 35000, image: "https://scontent.fdad3-8.fna.fbcdn.net/v/t1.15752-9/779995389_1077697411467725_3462111828696590245_n.jpg?stp=dst-jpg_s552x414_tt6&_nc_cat=100&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeFodu-EsmFBHWAAnt_YLi2PXTwryawbfwddPCvJrBt_B0kDRaXISVW-91_cuaiZMWlJ7AYhvhoUm_11OfASQXqj&_nc_ohc=2sRUP5bX8YEQ7kNvwHSgIQB&_nc_oc=AdrOv5xC_e8bZw0W9O7Ng9tHbu3pQxtJ6wF6433jHS2La8YlyN32omXS_SFFls7mqCT5QtLOF9gxNvRXmIJRI3t7&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-8.fna&_nc_ss=7a22e&oh=03_Q7cD6AFue9lk9zu9ZSnL8N03LAdmQXY0h-Uf9arffEzq5aKnNw&oe=6AB0A1B8", desc: "(4 viên trung).", isAvailable: false },
+    { id: 20, name: "Sủi Cảo Tôm - Hấp", category: "mon-hap", price: 45000, image: "https://scontent.fdad3-4.fna.fbcdn.net/v/t1.15752-9/781760127_1534263811720012_35692985092889261_n.png?stp=dst-png_s552x414&_nc_cat=104&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeH3xtSz4iPSUkNXIR4lTLDSYcOwVANL4RBhw7BUA0vhECW4I3QGFCBElC9NbNfizzbUvQ0N2hWNkWeBAK6qop2I&_nc_ohc=eRhnOFE47MkQ7kNvwGn65Dy&_nc_oc=AdpPT-XC2PUvU6sf-7O-RoVVKZQCwZE31SeEzP6wg23F73e9zNEgQ_JsrY6BGe9nZF2ctyLO4uxf8NXiw1KdwEiw&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-4.fna&_nc_ss=7a22e&oh=03_Q7cD6AEYUxk0pLy6HGldxqKj1LbSfdyM7Ep5U4jBJZsi8RaPAQ&oe=6AB09E2D", desc: "(4 viên trung).", isAvailable: true },
+    { id: 21, name: "Sủi Cảo Mực - Hấp", category: "mon-hap", price: 45000, image: "https://scontent.fdad3-4.fna.fbcdn.net/v/t1.15752-9/781760127_1534263811720012_35692985092889261_n.png?stp=dst-png_s552x414&_nc_cat=104&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeH3xtSz4iPSUkNXIR4lTLDSYcOwVANL4RBhw7BUA0vhECW4I3QGFCBElC9NbNfizzbUvQ0N2hWNkWeBAK6qop2I&_nc_ohc=eRhnOFE47MkQ7kNvwGn65Dy&_nc_oc=AdpPT-XC2PUvU6sf-7O-RoVVKZQCwZE31SeEzP6wg23F73e9zNEgQ_JsrY6BGe9nZF2ctyLO4uxf8NXiw1KdwEiw&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-4.fna&_nc_ss=7a22e&oh=03_Q7cD6AEYUxk0pLy6HGldxqKj1LbSfdyM7Ep5U4jBJZsi8RaPAQ&oe=6AB09E2D", desc: "(4 viên trung).", isAvailable: true },
+    { id: 22, name: "Sủi Cảo Sò Điệp - Hấp", category: "mon-hap", price: 45000, image: "https://scontent.fdad3-4.fna.fbcdn.net/v/t1.15752-9/781760127_1534263811720012_35692985092889261_n.png?stp=dst-png_s552x414&_nc_cat=104&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeH3xtSz4iPSUkNXIR4lTLDSYcOwVANL4RBhw7BUA0vhECW4I3QGFCBElC9NbNfizzbUvQ0N2hWNkWeBAK6qop2I&_nc_ohc=eRhnOFE47MkQ7kNvwGn65Dy&_nc_oc=AdpPT-XC2PUvU6sf-7O-RoVVKZQCwZE31SeEzP6wg23F73e9zNEgQ_JsrY6BGe9nZF2ctyLO4uxf8NXiw1KdwEiw&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-4.fna&_nc_ss=7a22e&oh=03_Q7cD6AEYUxk0pLy6HGldxqKj1LbSfdyM7Ep5U4jBJZsi8RaPAQ&oe=6AB09E2D", desc: "(4 viên trung).", isAvailable: true },
+    { id: 23, name: "Sủi Cảo Thầp Cẩm - Hấp", category: "mon-hap", price: 45000, image: "https://scontent.fdad3-4.fna.fbcdn.net/v/t1.15752-9/781760127_1534263811720012_35692985092889261_n.png?stp=dst-png_s552x414&_nc_cat=104&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeH3xtSz4iPSUkNXIR4lTLDSYcOwVANL4RBhw7BUA0vhECW4I3QGFCBElC9NbNfizzbUvQ0N2hWNkWeBAK6qop2I&_nc_ohc=eRhnOFE47MkQ7kNvwGn65Dy&_nc_oc=AdpPT-XC2PUvU6sf-7O-RoVVKZQCwZE31SeEzP6wg23F73e9zNEgQ_JsrY6BGe9nZF2ctyLO4uxf8NXiw1KdwEiw&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-4.fna&_nc_ss=7a22e&oh=03_Q7cD6AEYUxk0pLy6HGldxqKj1LbSfdyM7Ep5U4jBJZsi8RaPAQ&oe=6AB09E2D", desc: "(4 viên trung).", isAvailable: true },
+    { id: 24, name: "Há Cảo Tôm Thịt Đăt Biệt - Hấp ", category: "mon-hap", price: 49000, image: "https://scontent.fdad3-4.fna.fbcdn.net/v/t1.15752-9/779112090_1064530079321333_139477428220752632_n.png?stp=dst-png_s552x414&_nc_cat=104&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeFxOTwtxSBKDTUoi_vKn_e4irBqmrr-1q6KsGqauv7WruDP4BvFpKDUXVREjDF7l0tmKuCtRS2JUS_jSwy7Maa8&_nc_ohc=TiewtSAN-iwQ7kNvwHFM0PY&_nc_oc=AdpQqNCh71jGkdpSIiOCL_oxUmwMcbS3UTQA1uHSdDUXqoHL58L4mrr4x4Yh7IFgnt-h3bbWB3aXCNBmY8lx4ZMo&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-4.fna&_nc_ss=7a22e&oh=03_Q7cD6AG2Xhz9WDrCCJwXbVtfbcC6-d8qJs4S-KxQZsxcT2Q1Kw&oe=6AB097AB", desc: "(3 viên lớn).", isAvailable: true },
+    { id: 25, name: "Rong Biển Cuộn Tôm Thịt - Hấp ", category: "mon-hap", price: 49000, image: "https://scontent.fdad3-8.fna.fbcdn.net/v/t1.15752-9/777946349_3474876009342324_8236455120676075956_n.png?stp=dst-png_s552x414&_nc_cat=106&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeFtfzhT5Y9teMkgKvjKeDu-Ism0WJU_LSciybRYlT8tJ99vo8MvkcAnGElDeuyld96xH2S6u_zhFHI4WnioPXaP&_nc_ohc=LGKiymVXO88Q7kNvwGRlkO4&_nc_oc=AdqlNlgQFOWbYWO136NNmS3LPfo68-4uWhyRDcywp_tZxtbEs802LcmxxCq4fYkS0s-Ziza02-Vh6YVLMYeFyZRO&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-8.fna&_nc_ss=7a22e&oh=03_Q7cD6AGhteDgGSDKRi2XXXvl3W6xGgrTMd9sOoHsvJ3D9tZkEw&oe=6AB08D01", desc: "(3 viên lớn).", isAvailable: true },
+    { id: 26, name: "Hoành Thánh Cuộn Tôm Thịt - Hấp", category: "mon-hap", price: 49000, image: "https://scontent.fdad3-4.fna.fbcdn.net/v/t1.15752-9/782207581_1085964947324928_1036865165737693955_n.png?stp=dst-png_s552x414&_nc_cat=107&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeGeSPkDVCt6WfZvzOn2bLao5gXBLOy5wg_mBcEs7LnCD4HGttLOlgq7gY3RcE7jQbjk4JIrsBJSfSn_IYcW1xfl&_nc_ohc=WvBa6XCGNQcQ7kNvwGo33e6&_nc_oc=AdpTWV9Z4-tgoRKwvoZYB7jK_EygVF-lFJML7zjJ3cz68rke6H4b67XWfZNlVaM7p5pTT6USz1wY3ufb-bRHMNqu&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-4.fna&_nc_ss=7a22e&oh=03_Q7cD6AG93TRu2FDTJ3IRahxZY3jKbG-Pjlld3sEr5F_ktHkdtQ&oe=6AB09D3C", desc: "(3 viên lớn).", isAvailable: true },
+    { id: 27, name: "Bánh Xếp Tôm Thịt - Hấp", category: "mon-hap", price: 45000, image: "https://scontent.fdad3-8.fna.fbcdn.net/v/t1.15752-9/779354946_1784038065934978_8624951719186795035_n.png?stp=dst-png_s552x414&_nc_cat=105&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeEpEhMW0zkhxFWT5xdBED4WcD3xXdhZwSJwPfFd2FnBIuYDpj-ZlplfBN-eFPCozDO1wQrBCaUQDoX7K7_dX14q&_nc_ohc=6XTz1ROUaSUQ7kNvwHf1BR7&_nc_oc=AdpEYOYl0-TfJmEB_KBkswoMiukksYvQcyffJNthErkhoyNbtBKHs05M-B1CtILZxVsW_wAZqddLhqRGhOcHMPu4&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-8.fna&_nc_ss=7a22e&oh=03_Q7cD6AGWPLBBv6UYySL61W6R_ywf3nrQq9Ul8qh5Vu75N5jeZg&oe=6AB0BBC1", desc: "(5 viên trung).", isAvailable: true },
+    { id: 28, name: "Chân Gà Hầm Tàu Xì", category: "mon-hap", price: 49000, image: "https://scontent.fdad3-5.fna.fbcdn.net/v/t1.15752-9/780393295_912830981882876_320644587926154203_n.png?stp=dst-png_s552x414&_nc_cat=102&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeGJS7WahG7YzYitcOc9XgV-gsZ7_YxJtYqCxnv9jEm1iglOvckZTeCNfQSG0DdnbyB4vpfwVahkzE-lJ0UKUT36&_nc_ohc=6yDiQkSLR-EQ7kNvwGXUzMc&_nc_oc=AdrSBr8AFHjW1PqdRhDnwMjmqUpNCCSnioLFTA3x2YSk1NE9W4fRHQyDT2aCaR9FA3ThzAODZ0Egod9hyoHf_r4b&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-5.fna&_nc_ss=7a22e&oh=03_Q7cD6AFxtAkif8rQIujR01FrSnIFxe4FqOM5dmQ1cYTXV2yYGg&oe=6AB08A04", desc: "(Chân Gà Hầm Tàu Xì).", isAvailable: true },
+    { id: 29, name: "Bánh Bao Thịt 2 Trứng Cút - Hấp", category: "mon-hap", price: 22000, image: "https://scontent.fdad3-8.fna.fbcdn.net/v/t1.15752-9/779974782_1040137402243756_3543581426169587837_n.png?stp=dst-png_s552x414&_nc_cat=105&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeE0SKUN9gxa0k2T7fto59P2BYPT1bYcWg8Fg9PVthxaD9ZAFeyWQb1EhfnlycR4bXjCxub2q_J7vercC3tnfW-t&_nc_ohc=3f9K1S_PYiYQ7kNvwHlvf_8&_nc_oc=AdoyLT15aqBNsDcPxNU6l3BA1zclMNw7f1G0c_b-JydeNe-z6MV8UiQuHlSWeGN5UYVseePENOixrHgFFEz0XM59&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-8.fna&_nc_ss=7a22e&oh=03_Q7cD6AGRgFxTmAFA6EVvnlQWjbJf43ONZrvF-2czaqN_hsTTKw&oe=6AB099E4", desc: "(1 cái lớn kèm nước chấm, đồ chua).", isAvailable: true },
+    { id: 30, name: "Bánh Bao Xúc Xích Phô Mai - Hấp", category: "mon-hap", price: 22000, image: "https://scontent.fdad3-5.fna.fbcdn.net/v/t1.15752-9/782086096_2142828026665356_298779421347848946_n.png?stp=dst-png_s552x414&_nc_cat=109&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeGnOmrzfR7LuKGhpVDpMNQdRyJZMTnmIitHIlkxOeYiK4Sd-Wn4Lfh-C36qiuGDhPljaDEdE9xrpV69l1Xo94iV&_nc_ohc=vFNMMp8EelUQ7kNvwGa0YGC&_nc_oc=AdqAigos1Zwgjz1gJjRXbS1L2qAZHqZv0IjtMsXEj_7pK-HzV8ilq4RG86VuCTs9NELku6ye9oPHAhZRLlnz6wEZ&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-5.fna&_nc_ss=7a22e&oh=03_Q7cD6AEf4QCfILrC6zKQF5swILo6XHAB2RHszcN-XMPetOer9w&oe=6AB09C55", desc: "(1 cái lớn kèm nước chấm, đồ chua).", isAvailable: true },
+
+    // --- 2. MÓN CHIÊN (15 món) ---
+    { id: 31, name: "Hoành Thánh Lá - Chiên ", category: "mon-chien", price: 30000, image: "https://scontent.fdad3-1.fna.fbcdn.net/v/t1.15752-9/780322483_1080382794482206_6243138296387257003_n.png?stp=dst-png_s552x414&_nc_cat=108&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeFSptGJfmng8hjXR4SPPswjlYe0TlRXk3SVh7ROVFeTdNSynTPYw_DcZdTC4gVZ2_lMLgPgcXwjWcuc761E0W2G&_nc_ohc=_I2XGfeU2lgQ7kNvwGvAd7X&_nc_oc=AdpDCmdvZ8n-sohrfl7GWGtRpEiTbAnfh3ws0GTOY6qg2Ni7QZaqZzAvpg0BiovjTupR2tDW6UFpiD7mNf_4fIF4&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-1.fna&_nc_ss=7a22e&oh=03_Q7cD6AFR-orND3CNsqnr6abIs1TAiCwdnkQjYoXGsTvJ0s4xfg&oe=6AB0C40F", desc: "(6 lá).", isAvailable: true },
+    { id: 32, name: "Xíu Mại Mini - Chiên", category: "mon-chien", price: 30000, image: "https://scontent.fdad3-1.fna.fbcdn.net/v/t1.15752-9/780840609_1391369949807212_6833614385084309127_n.png?stp=dst-png_s552x414&_nc_cat=108&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeGovUMrstaTDpwx6bhNBn07Ltrwic2DHZMu2vCJzYMdkzHaPGLfmu0Hhp3I729hfL7BocjTyj3jxAmzw00_a00r&_nc_ohc=kWuPAUMGCt8Q7kNvwFKNkUW&_nc_oc=AdqxVXSVOUK0lyZeZj9yJZ4gX_74DW3jVyPXaC59oQM4DnfO2GT4MxxCRvusLX8Fcuks-H8i-lboYVSRpFB51Ilc&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-1.fna&_nc_ss=7a22e&oh=03_Q7cD6AHTpRHom9W4rywN2fAAemxOpV3a4kQk_YnFKTxK_69NwA&oe=6AB0AE62", desc: "(6 viên nhỏ)", isAvailable: true },
+    { id: 33, name: "Sủi Cảo Mini - Chiên", category: "mon-chien", price: 30000, image: "https://scontent.fdad3-1.fna.fbcdn.net/v/t1.15752-9/782251879_1532042198134876_474577572831871261_n.png?stp=dst-png_s552x414&_nc_cat=108&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeFK4qKx9wBcLIZ82x_AT_vJ6W5vZlXXlNLpbm9mVdeU0tsKHNRiPMyjE9dvZPTn8eepsyR7UkiO5-EbVnIOFLY2&_nc_ohc=5c06yBkvyfUQ7kNvwEQaz1r&_nc_oc=AdrwWbnsDUMnvW087MuUEGpIOL1-avj_x3u66VUaVFLuVJyKJg6rLpLNrQicGrGO8OCdBQ4UqpKymMG6cM3gKmFU&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-1.fna&_nc_ss=7a22e&oh=03_Q7cD6AErZyeqh91NfaaysyVmBaLkTXHJ12MaGKzmbta-BezEXA&oe=6AB0B624", desc: "(8 viên nhỏ).", isAvailable: true },
+    { id: 34, name: "Xíu Mại Thanh Cua - Chiên", category: "mon-chien", price: 35000, image: "https://scontent.fdad3-1.fna.fbcdn.net/v/t1.15752-9/778453663_1070260619029605_2032625016076666054_n.png?stp=dst-png_s552x414&_nc_cat=110&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeG5A3bUXN14iV1866gIVMX35lwoEJ3Edw3mXCgQncR3DWs1dtVckoXamiWZVc2CtvjtnR0P9jZpBhqrV8VojjFj&_nc_ohc=tXKNVmgOkwkQ7kNvwGCr1RK&_nc_oc=AdpR5diJPz5SVtenQ71_GsMgvN3RzvpH-m56pu9aOPkzaaPTseZ5moCieeMW2huqDVB2tfFEITZ2dxRiQfF01cDo&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-1.fna&_nc_ss=7a22e&oh=03_Q7cD6AHS_9G5LtTzRTi9lvJGAeEDp1ozemuWPwaR7UU2Kr8lHA&oe=6AB0AECC", desc: "(4 viên trung).", isAvailable: true },
+    { id: 35, name: "Xíu Mại Tôm - Chiên", category: "mon-chien", price: 35000, image: "https://scontent.fdad3-1.fna.fbcdn.net/v/t1.15752-9/784074437_1610033744166840_750898965161481329_n.png?stp=dst-png_s552x414&_nc_cat=108&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeG-9vURDil8I530n0HXEBzZwAVWiaH31tTABVaJoffW1BuwUY75P8vg9m5oJPt4osj-daJtdVgBS93WiWhTlHzn&_nc_ohc=OxaUJroHC58Q7kNvwE2A6MK&_nc_oc=Adoqk7AKE9sILFoAexbvxY1VFWAcieqLP2WL5VTSMlZyimhenvQLsZzMNEwAULwpiYlLLsrADiSbL7HFznt_YPvR&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-1.fna&_nc_ss=7a22e&oh=03_Q7cD6AG-la6oOXEVm1IP_4ZacjiEExkIRqWgE-74e2tOY0kjHg&oe=6AB0C6A8", desc: "(4 viên trung).", isAvailable: true },
+    { id: 36, name: "Xíu Mại Trứng Cút - Chiên", category: "mon-chien", price: 35000, image: "https://scontent.fdad3-5.fna.fbcdn.net/v/t1.15752-9/780402875_3355846641263286_1811194166978661745_n.png?stp=dst-png_s552x414&_nc_cat=111&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeEncOlzP38dIZf0NebcbHTVw7Or3AX7rjLDs6vcBfuuMv5IPtA0dAZGoaYSHUkT0ivh998cKLt6vYQQ0SrpWeeX&_nc_ohc=hQT1KHbHHaQQ7kNvwHPozaB&_nc_oc=AdrSgy7VXyK9dYdwR1BuFygzfd7hK3FuWFxDC1uG4ayiFMOCw-34yePxU9EbnsBE9n1p5OezD5jC6dK4VdryjlN5&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-5.fna&_nc_ss=7a22e&oh=03_Q7cD6AFZVUwD6i0oPi7WE1z6Rk7Z6RHmor6ns5q8yHN2Vs3FZA&oe=6AB0CAA9", desc: "(4 viên trung).", isAvailable: true },
+    { id: 37, name: "Xíu Mại Trứng Muối - Chiên", category: "mon-chien", price: 35000, image: "https://scontent.fdad3-4.fna.fbcdn.net/v/t1.15752-9/780086599_2287215782029531_1350351187199343744_n.png?stp=dst-png_s552x414&_nc_cat=107&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeHhK63Md6Bw3EDhow_oMEsdhx3Zcma73DeHHdlyZrvcN34QqlMK6WQH2ctFyztB1xow4AatGIDxSzf02sjBkLpu&_nc_ohc=YStSb21XknUQ7kNvwFUpLNc&_nc_oc=AdqCp3as7jPVMeLHXEZJpb6wgZo3dV0vV8E-oCImUNfUqDZSeQ9RQqmX6x5JjvwtUXMel2ZpW6h3bFyYeHErjYI0&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-4.fna&_nc_ss=7a22e&oh=03_Q7cD6AGRq39bU1xnDVVtURBzgfFso9gtIzrxqbRG9aYVTHvY7Q&oe=6AB0BDC1", desc: "(4 viên trung).", isAvailable: true },
+    { id: 38, name: "Xíu Mại Rong Biển Thanh Cua - Chiên", category: "mon-chien", price: 35000, image: "https://scontent.fdad3-5.fna.fbcdn.net/v/t1.15752-9/780073793_3271354726390879_1085353938710772860_n.jpg?stp=dst-jpg_s552x414_tt6&_nc_cat=111&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeGmuPVZ57qpGDMcgjR7Pzv4efYpSyK08xh59ilLIrTzGMEvR6capOo5QJW5L1FSOCEoAaufEmiHGdYMOlTS3OdF&_nc_ohc=hCcslFNQescQ7kNvwHrLDqT&_nc_oc=AdqvfKyhgqZvzNkVvwpSYykA6DStljmJgCi4vd7-LX8PIGc_0mIbab-SRmKfdkCwA8fszT3E7yE7A5l3RHksladi&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-5.fna&_nc_ss=7a22e&oh=03_Q7cD6AE16GKIlGtb5At2VbJooAztaAfQdrB6QdqPeBYBI_U4zA&oe=6AB0BF85", desc: "(4 viên trung).", isAvailable: false },
+    { id: 39, name: "Sủi Cảo Tôm - Chiên", category: "mon-chien", price: 45000, image: "https://scontent.fdad3-4.fna.fbcdn.net/v/t1.15752-9/782412579_1760671035277111_2478640248662020772_n.png?stp=dst-png_s552x414&_nc_cat=104&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeExSMp2vHbladBtI2svC9sLMW0d0e9xJrMxbR3R73EmsyvmQs3V17JPh6RTkAkCXnecBNFWbJlG_BUjJkSyTZiI&_nc_ohc=viTCr1x9BSAQ7kNvwHGL8ij&_nc_oc=Adph3Xw7fu6nlLeQYqapvP891PhXky4rXKgbKRpHAzcSRGEt9AIYmTHPI0KpBiqt27aeXh0RMqVKFG_q892HgmTL&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-4.fna&_nc_ss=7a22e&oh=03_Q7cD6AExUATF1LYrtocmyy9RsWw31tu0_WcjGrser-kbg3imDg&oe=6AB0C8BB", desc: "(4 viên trung).", isAvailable: true },
+    { id: 40, name: "Sủi Cảo Mực - Chiên", category: "mon-chien", price: 45000, image: "https://scontent.fdad3-4.fna.fbcdn.net/v/t1.15752-9/782412579_1760671035277111_2478640248662020772_n.png?stp=dst-png_s552x414&_nc_cat=104&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeExSMp2vHbladBtI2svC9sLMW0d0e9xJrMxbR3R73EmsyvmQs3V17JPh6RTkAkCXnecBNFWbJlG_BUjJkSyTZiI&_nc_ohc=viTCr1x9BSAQ7kNvwHGL8ij&_nc_oc=Adph3Xw7fu6nlLeQYqapvP891PhXky4rXKgbKRpHAzcSRGEt9AIYmTHPI0KpBiqt27aeXh0RMqVKFG_q892HgmTL&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-4.fna&_nc_ss=7a22e&oh=03_Q7cD6AExUATF1LYrtocmyy9RsWw31tu0_WcjGrser-kbg3imDg&oe=6AB0C8BB", desc: "(4 viên trung).", isAvailable: true },
+    { id: 41, name: "Sủi Cảo Sò Điệp - Chiên", category: "mon-chien", price: 45000, image: "https://scontent.fdad3-4.fna.fbcdn.net/v/t1.15752-9/782412579_1760671035277111_2478640248662020772_n.png?stp=dst-png_s552x414&_nc_cat=104&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeExSMp2vHbladBtI2svC9sLMW0d0e9xJrMxbR3R73EmsyvmQs3V17JPh6RTkAkCXnecBNFWbJlG_BUjJkSyTZiI&_nc_ohc=viTCr1x9BSAQ7kNvwHGL8ij&_nc_oc=Adph3Xw7fu6nlLeQYqapvP891PhXky4rXKgbKRpHAzcSRGEt9AIYmTHPI0KpBiqt27aeXh0RMqVKFG_q892HgmTL&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-4.fna&_nc_ss=7a22e&oh=03_Q7cD6AExUATF1LYrtocmyy9RsWw31tu0_WcjGrser-kbg3imDg&oe=6AB0C8BB", desc: "(4 viên trung).", isAvailable: true },
+    { id: 42, name: "Rong Biển Cuộn Tôm Thịt - Chiên", category: "mon-chien", price: 49000, image: "https://scontent.fdad3-5.fna.fbcdn.net/v/t1.15752-9/783087507_27841123258830878_2704005215459501235_n.png?stp=dst-png_s552x414&_nc_cat=111&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeERRGunKMoZZMplkx8IpxMQnW7AorjjM-mdbsCiuOMz6ZgdXvpTDJMuc8c46efFB417XM66qizfM3FUou3oo4L8&_nc_ohc=jdyNnWOVpSsQ7kNvwGSAbjZ&_nc_oc=AdppPm-NZVLRljONdqsKbx4095HfjsAa2HuoDJIAl-9wRgVvgAK3OLyCCSWDQ18JnO3vxUrIO9qOlhLf-SHBwxQY&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-5.fna&_nc_ss=7a22e&oh=03_Q7cD6AFbBOdgi7Nt4udO4pNvVAMkcNiP9Oe-a3pieKiRiZwnhw&oe=6AB0D420", desc: "(3 viên lớn).", isAvailable: true },
+    { id: 43, name: "Hoành Thánh Cuộn Tôm Thịt - Chiên", category: "mon-chien", price: 49000, image: "https://scontent.fdad3-5.fna.fbcdn.net/v/t1.15752-9/781976542_1369307868085108_5046813055520463761_n.png?stp=dst-png_s552x414&_nc_cat=111&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeHR4LjiswOV2_keh4kNXcsxn0wPDagP5ZqfTA8NqA_lmpXgIWfdLBlIfkmz-ot9gt2Wm-mJmFFh6Fse1fNRmoQI&_nc_ohc=KjJSgbAvSYoQ7kNvwFt0gQw&_nc_oc=Ado_7QXlb2cgO99i21GCoufmnbLHgkDUwLvPUO9xBviNFN-e8sdNEs3lCMKDt_HnpNHs8OPo4VXDteroOHrvZA9l&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-5.fna&_nc_ss=7a22e&oh=03_Q7cD6AF5lPLCjvX_CE4Vv-k7p_ZZCP0lFcfvR80QNjT4po6q2g&oe=6AB0D25C", desc: "(3 viên lớn).", isAvailable: true },
+    { id: 44, name: "Bánh Bao Thịt 2 Trứng Cút - Chiên", category: "mon-chien", price: 22000, image: "https://scontent.fdad3-8.fna.fbcdn.net/v/t1.15752-9/778138966_1837178600988510_3963354085153695022_n.png?stp=dst-png_s552x414&_nc_cat=100&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeHbpaePbaGw85jJHZ_JqXUdouHjlbp1_LCi4eOVunX8sPjxhNRd2k2lo27i1MH8AzhTwsjSatLeCofkuhtuVAy7&_nc_ohc=mH_grNerd0kQ7kNvwGbpHdN&_nc_oc=AdpZKlr23uCt43GreNfmWebXVFku0ssVzXkRnMTv8ESPHmSBg6IfLncsHkOWvYZyXUcpkxE0PYvl1Ln2U1rAMb8d&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-8.fna&_nc_ss=7a22e&oh=03_Q7cD6AEySia1yogWLvRegepRAP75MqCaNl3mz5PdS3FKseXW0w&oe=6AB0D1DE", desc: "(1 cái lớn).", isAvailable: true },
+    { id: 45, name: "Bánh Bao Xúc Xích Phô Mai - Chiên", category: "mon-chien", price: 22000, image: "https://scontent.fdad3-8.fna.fbcdn.net/v/t1.15752-9/780520356_1417272000315288_8704379415783608963_n.png?stp=dst-png_s552x414&_nc_cat=106&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeGP2FG2c6YM5iNJHJmcZFajBwhMabhBdAQHCExpuEF0BMm7zQCyZNsTlCwrHRsDRk7ea6V2Fcb6dv9qF8y9rHvT&_nc_ohc=ccRFughL2GcQ7kNvwEBHNpV&_nc_oc=Adra_semFBH_mN16DiKyrKSycElLnH5gDa12RyIoaJ7NgSMuVcsFoyDOTepM-RMWTBnS5WhQ-9kqp1xZoNhixl8b&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-8.fna&_nc_ss=7a22e&oh=03_Q7cD6AEp9qIf2n52PiYplkzvI6uSrthkLsWDjheltuqWy0ILug&oe=6AB0CC93", desc: "(1 cái lớn).", isAvailable: true },
+
+    // --- 3. MÌ TƯƠI (15 món) ---
+    { id: 46, name: "Mì Cay Hoành Thánh Lá Nhân Thịt Tứ Xuyên", category: "mi-tuoi", price: 39000, image: "https://scontent.fdad3-4.fna.fbcdn.net/v/t1.15752-9/780543365_2484339781992798_1859721703957673619_n.png?stp=dst-png_s552x414&_nc_cat=101&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeGrBDBxfX9SZKCEApXP80KDn6mk8tsWZeufqaTy2xZl69s-nAZshkIjXgW1p0SmLBuunMxdbjLyx4Dh9_tO--Vo&_nc_ohc=Kxwvc6wCsf8Q7kNvwEnfWjD&_nc_oc=AdqB1WTFaV0uG4p3z1ey1w6bCe6tttlU2KmPTVvFbyn3d9geym4kUNl9unBGuDfSKcTkPQ75qpRT8a0b1VbMYDV4&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-4.fna&_nc_ss=7a22e&oh=03_Q7cD6AGuIvCQ4JAtS5ML_qtveSiBtsEk69WdFVpYhQc9J-dtSw&oe=6AB0DE03", desc: "(6 lá cuộn).", isAvailable: true },
+    { id: 47, name: "Mì Cay Xíu Mại Thịt Cuộn Tứ Xuyên", category: "mi-tuoi", price: 45000, image: "https://scontent.fdad3-5.fna.fbcdn.net/v/t1.15752-9/779305500_1418194423840389_6316629459936636156_n.png?stp=dst-png_s552x414&_nc_cat=111&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeFHixJP7A5h2KV5a7MT62QrZA1mgDoTe7VkDWaAOhN7tT7BtXOMR_E_Eytew6A-wAKerqpMA7kzEudiqwewgI6A&_nc_ohc=Leva6cizS5IQ7kNvwEaqG0i&_nc_oc=Adr2lfCjFDJCga79Cwe8wmreHK7uJGbcL9X70IURtI40_Xcr6bSDDoGt0HtOis_N9PCZjYt06DbIHieP6pqMfdeC&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-5.fna&_nc_ss=7a22e&oh=03_Q7cD6AFd4p2g_lfOjsXtjFAjFgLICrzquHVDhRumiG65eXK_bA&oe=6AB0DF69", desc: "(6 viên nhỏ).", isAvailable: true },
+    { id: 48, name: "Mì Cay Xíu Mại Thanh Cua Tứ Xuyên", category: "mi-tuoi", price: 49000, image: "https://scontent.fdad3-4.fna.fbcdn.net/v/t1.15752-9/784074387_2931302523877438_3943687202204740814_n.png?stp=dst-png_s552x414&_nc_cat=101&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeGRlH4yWWJx1xahlr1tBwINgYAxH-Q7iP6BgDEf5DuI_uY6qgEdwFtmEiH4LIichyNDAE_vtOtEhDhUoLGDqNpt&_nc_ohc=NUhFnSFPgrIQ7kNvwGaqC-5&_nc_oc=AdrWY-nPCsTHdSqBfeXUD7Fjt1JQBewvwRPV3kJG8nJqcxCZpspj3Svo47knNLcIkKnsIUKrGsQ3783yLneAZ__N&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-4.fna&_nc_ss=7a22e&oh=03_Q7cD6AEY3eGiOtNPAV1RNum-XMkpyteck2YDcFzM65V7N4JeiA&oe=6AB0BEA0", desc: "(4 viên trung).", isAvailable: true },
+    { id: 49, name: "Mì Cay Xíu Mại Tôm Tứ Xuyên", category: "mi-tuoi", price: 49000, image: "https://scontent.fdad3-5.fna.fbcdn.net/v/t1.15752-9/782571519_1671968223897673_4627367973239500457_n.png?stp=dst-png_s552x414&_nc_cat=102&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeGdi-CZK9Ta5Scdq5u8S8XI3mMHe7XBGy_eYwd7tcEbL3hlsaGNLV_BbltDrvl2t2BYyiIyt2hGBdi0R-0BxfOH&_nc_ohc=OVpfFZpaxpUQ7kNvwFqhuJf&_nc_oc=AdpjhfST16YP70P9X-5gjR5zQudz0e52AhSFNolf2Qaywh2OuvkQLFlnGAggPbtmIvdbXix6kRGUedaK8kbQ3bds&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-5.fna&_nc_ss=7a22e&oh=03_Q7cD6AFTRspL23ZlKvy9kyIe6ue7Rk-TNuh3MJJIiCXqtd-d4w&oe=6AB0C91F", desc: "(4 viên trung).", isAvailable: true },
+    { id: 50, name: "Mì Cay Xíu Mại Trứng Cút Tứ Xuyên", category: "mi-tuoi", price: 49000, image: "https://scontent.fdad3-8.fna.fbcdn.net/v/t1.15752-9/782598905_2178595899671458_7237617305955580182_n.png?stp=dst-png_s552x414&_nc_cat=106&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeEDjA8eaAE04wE-_QjLqdLctVBqosN1Xoe1UGqiw3VehwiofbLvVnHoD7kUgFp2iF2bGZ7QK9wkJbxFRe45r0wm&_nc_ohc=HMKushwWnQgQ7kNvwHPxL8c&_nc_oc=AdrlSs98XEvb7XghkeU7h1i-83UKjQHUXpKCwqVd0-cyE142eLd3oatkehooO2g54vkxvrWDN378r9yJ7ARCnHqa&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-8.fna&_nc_ss=7a22e&oh=03_Q7cD6AGSq7R7D7LhTBvvxGA1-_IjkaAunaB8ANA7XH6M-kQHQA&oe=6AB0E091", desc: "(4 viên trung).", isAvailable: true },
+    { id: 51, name: "Mì Cay Xíu Mại Trứng Muối Tứ Xuyên", category: "mi-tuoi", price: 49000, image: "https://scontent.fdad3-1.fna.fbcdn.net/v/t1.15752-9/778779207_1052723957500380_3324399531983419959_n.png?stp=dst-png_s552x414&_nc_cat=103&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeF7gRTgjMqigGFFwWU_SidLUm6XXSMkDutSbpddIyQO6wOP-mP2My1aAZYnwICk18zwka_D6XpvdDqDxm1Ip-d1&_nc_ohc=_azRO8CcSkQQ7kNvwHN-BoB&_nc_oc=Adrttl_uqNtsmcX9IEcpvrJuTS7P6kchSxwAFiImgJ9aGM4rdfxOBCOeOp_M_h2nuBELLxzdGPkKQrB6OCGJ85sv&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-1.fna&_nc_ss=7a22e&oh=03_Q7cD6AHY-FIUArjdIhTbXxr0do8KNrmS4DMH_gQ70yxqK32Jyw&oe=6AB0E9C8", desc: "(4 viên trung).", isAvailable: true },
+    { id: 52, name: "Mì Cay Xíu Mại Rong Biển Thanh Cua", category: "mi-tuoi", price: 49000, image: "https://scontent.fdad3-5.fna.fbcdn.net/v/t1.15752-9/780949253_966488366213928_2965980068989357874_n.jpg?stp=dst-jpg_s552x414_tt6&_nc_cat=111&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeE2MCzgBK-Ue3wPPzl56OajNR-2astoOQs1H7Zqy2g5CzAkKpUrY38UlISZf5OAO2j9T8wI38ocReLj7K4yyBG-&_nc_ohc=DH4_QUF5t4UQ7kNvwF8sP63&_nc_oc=AdrrYftAq9in872ng7Gg8CkzRTZGU14iyS6ON4cEysvrI28I1Zeca-AiBTUd3aRWLBeTrzWN4zMxfdOM1qli8r3d&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-5.fna&_nc_ss=7a22e&oh=03_Q7cD6AE1lS5WhJOrFqqPGPMEBB0b_ZD2p7ApMeuFvfj5d0S5bQ&oe=6AB0E338", desc: "(4 viên trung).", isAvailable: false },
+    { id: 53, name: "Mì Cay Sủi Cảo Tôm Tứ Xuyên", category: "mi-tuoi", price: 49000, image: "https://scontent.fdad3-4.fna.fbcdn.net/v/t1.15752-9/780456666_1394341699294930_7594603481902887548_n.png?stp=dst-png_s552x414&_nc_cat=104&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeGWHnT02LiMfjvI_kfI6Xg77brdyarIidHtut3JqsiJ0Xj2OY1leN0m5XYXwsM3e9vsPNU1JqyRJNXKibgNMDAi&_nc_ohc=0EVqm8i1LVUQ7kNvwEZkfnt&_nc_oc=Adq_4UaGrUzTbMnVdkdYFKv3Ak-52S-C3gp3qT_pO-Tk7fsiAVUg7GgMllQcEu5Da41hfB27FlctmU2qgZjR5kH-&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-4.fna&_nc_ss=7a22e&oh=03_Q7cD6AEWlg5wbIKMtvfA75dDyX69j0vVNcrM1Ojir0ZWZZjzLw&oe=6AB0F0DC", desc: "(4 viên trung).", isAvailable: true },
+    { id: 54, name: "Mì Cay Sủi Cảo Mực Tứ Xuyên", category: "mi-tuoi", price: 49000, image: "https://scontent.fdad3-4.fna.fbcdn.net/v/t1.15752-9/780456666_1394341699294930_7594603481902887548_n.png?stp=dst-png_s552x414&_nc_cat=104&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeGWHnT02LiMfjvI_kfI6Xg77brdyarIidHtut3JqsiJ0Xj2OY1leN0m5XYXwsM3e9vsPNU1JqyRJNXKibgNMDAi&_nc_ohc=0EVqm8i1LVUQ7kNvwEZkfnt&_nc_oc=Adq_4UaGrUzTbMnVdkdYFKv3Ak-52S-C3gp3qT_pO-Tk7fsiAVUg7GgMllQcEu5Da41hfB27FlctmU2qgZjR5kH-&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-4.fna&_nc_ss=7a22e&oh=03_Q7cD6AEWlg5wbIKMtvfA75dDyX69j0vVNcrM1Ojir0ZWZZjzLw&oe=6AB0F0DC", desc: "(4 viên trung).", isAvailable: true },
+    { id: 55, name: "Mì Cay Sủi Cảo Sò Điệp Tứ Xuyên", category: "mi-tuoi", price: 49000, image: "https://scontent.fdad3-4.fna.fbcdn.net/v/t1.15752-9/780456666_1394341699294930_7594603481902887548_n.png?stp=dst-png_s552x414&_nc_cat=104&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeGWHnT02LiMfjvI_kfI6Xg77brdyarIidHtut3JqsiJ0Xj2OY1leN0m5XYXwsM3e9vsPNU1JqyRJNXKibgNMDAi&_nc_ohc=0EVqm8i1LVUQ7kNvwEZkfnt&_nc_oc=Adq_4UaGrUzTbMnVdkdYFKv3Ak-52S-C3gp3qT_pO-Tk7fsiAVUg7GgMllQcEu5Da41hfB27FlctmU2qgZjR5kH-&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-4.fna&_nc_ss=7a22e&oh=03_Q7cD6AEWlg5wbIKMtvfA75dDyX69j0vVNcrM1Ojir0ZWZZjzLw&oe=6AB0F0DC", desc: "(4 viên trung).", isAvailable: true },
+    { id: 56, name: "Mì Cay Rong Biển Cuộn Tôm Thịt Tứ Xuyên", category: "mi-tuoi", price: 55000, image: "https://scontent.fdad3-8.fna.fbcdn.net/v/t1.15752-9/778586223_1568428901684744_7747920396172816935_n.png?stp=dst-png_s552x414&_nc_cat=100&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeG5tkbHR_Ra5tXisNPl2Oz81TCzRjdEdf3VMLNGN0R1_XWgi6Qa25SA6OZOHxY626Ha1Jd95fitdbv55_2nNX1y&_nc_ohc=fAN9P4FSixkQ7kNvwEezxv6&_nc_oc=AdoLzYZDtw-_AQ8mFqriux6M3wHHE48uhAJEUDcsWMYR8MQ3AHjy4_e10rZctgZFsuLAmjbTmRjqcUWqB2hAPwMc&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-8.fna&_nc_ss=7a22e&oh=03_Q7cD6AH3sZ_VuN6Ebvucje_GMDrT-evbZytHN_FwmSzhBB4Rrw&oe=6AB0D61D", desc: "(2 viên lớn).", isAvailable: true },
+    { id: 57, name: "Mì Cay Hoành Thánh Cuộn Tôm Thịt Tứ Xuyên", category: "mi-tuoi", price: 55000, image: "https://scontent.fdad3-5.fna.fbcdn.net/v/t1.15752-9/778813761_900746502717578_61391851113994938_n.png?stp=dst-png_s552x414&_nc_cat=111&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeGKYqt7W_uPzkRNQ83hxYYGqToRZgrQDRupOhFmCtANG6n-bn7bZ2OK131ZiAaVkf7XW5FZzIUz8Qx5H7Ya3k6p&_nc_ohc=94Dj-SmqUzsQ7kNvwG6_bJN&_nc_oc=AdpGZvcnCSikfgI3aoEwjAZKCp17CMKh7dBqYz1dnhmexEXfj8Z-Hp6444fLuWfDw-aafiejWv5ZUWXxXoxb36A7&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-5.fna&_nc_ss=7a22e&oh=03_Q7cD6AEOqhIHsRH_QMUOSOZKHJjFewQ6em8D6ySX8c80s0bTiA&oe=6AB0D041", desc: "(2 viên lớn).", isAvailable: true },
+    { id: 58, name: "Mì Gà Cay Tứ Xuyên", category: "mi-tuoi", price: 89000, image: "https://scontent.fdad3-1.fna.fbcdn.net/v/t1.15752-9/779158147_1077614771908817_8363560891692693075_n.png?stp=dst-png_s552x414&_nc_cat=110&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeFFPClUog5Jkc6KJsws3Udfl7NrMc2fXwqXs2sxzZ9fCqicP1DQZgE5NNrLUV4lCUF2q22xYFYL8HpUnKiNgC1Z&_nc_ohc=oTi2-f5377oQ7kNvwF6hC82&_nc_oc=AdpGx_r6-mSl2NcEpevHxDmeASAYsEHlu6fMiEdREqRa4GpyaoINilHGptt5CkINZS-FZ_B4U57vDjA484WjiISe&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-1.fna&_nc_ss=7a22e&oh=03_Q7cD6AFGKJ45HW2N_dGXokD2AqyM3ie26YMc00-KFhID9c5ePw&oe=6AB0D750", desc: "(Gà Ác nguyên con).", isAvailable: true },
+    { id: 59, name: "Mì Gà Hắc Kim Thảo", category: "mi-tuoi", price: 99000, image: "https://scontent.fdad3-4.fna.fbcdn.net/v/t1.15752-9/784614428_930130516183805_8096165774132781221_n.png?stp=dst-png_s552x414&_nc_cat=101&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeGNlbqEoU8xZW8aVVWVvb3t_-zBNyaRy9__7ME3JpHL3wkNmEUztYIHhhIUBGBW8xLPC3ve-w8vgnlcCpIzc2u0&_nc_ohc=97q0ptwM1lgQ7kNvwFvK_ro&_nc_oc=Adr7iacL-Wtv-ou26hSHzigbIIUZUX7rUlByc7qTj41WgOFfmnT7_eytTwQg9mB5CouOKU7voP_cliEOByrKkjWy&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-4.fna&_nc_ss=7a22e&oh=03_Q7cD6AFzv2VW4sMT4HF-gYhPJmQ9iZzesFysHDL7-AoY4FoU4Q&oe=6AB0D478", desc: "(Gà Ác nguyên con).", isAvailable: true },
+    { id: 60, name: "Mì Gà Hắc Kim Thảo Đặt Biệt", category: "mi-tuoi", price: 179000, image: "https://scontent.fdad3-1.fna.fbcdn.net/v/t1.15752-9/782123843_928505423642600_4540453835988938820_n.png?stp=dst-png_s552x414&_nc_cat=103&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeFS4GLvOWzF-l3UwydZVrqmcbODrGD0tB1xs4OsYPS0HeuxHo0Ucm_W4kOAk8iB6YeuSg9cxzjUeWXvM64G7_8v&_nc_ohc=QvrFSBVCywsQ7kNvwGZEW2Z&_nc_oc=AdrX9aPzliTpq5RXZ9otLK8DI8G8rCVFF_8xP-my_spMjJDVgnP35Q5BYyt1wqyWyx1Vwyvc0em-Ze3kpF8HAzr-&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-1.fna&_nc_ss=7a22e&oh=03_Q7cD6AGQKx22y6C6aOmXN1pFwxG20bpX9_oEACBlZprKfwcKRA&oe=6AB0F39E", desc: "(Gà Ác nguyên con, Bào ngư, Tôm, Sò điệp).", isAvailable: true },
+
+    // --- 4. MIẾN DONG (15 món) ---
+    { id: 61, name: "Miến Cay Hoành Thánh Lá Nhân Thịt Tứ Xuyên", category: "mien-dong", price: 44000, image: "https://scontent.fdad3-8.fna.fbcdn.net/v/t1.15752-9/779305500_1597491295367901_5218687021933340752_n.png?stp=dst-png_s552x414&_nc_cat=100&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeEFbP16r6bmxbAX2XZX0wWE6LYYf8tyleHothh_y3KV4fhIgMyBBQ-V0x-S4g3sz5JlO_1hd8w1akjkX7j19F6S&_nc_ohc=WX6pPEHgI9QQ7kNvwFDTBeg&_nc_oc=AdqnsCoiwPUweOPxgTcI8HXwMoeFwi7AV2VqkvZ0GNlvlaB9QAtoNA224M8yZGJsO-xwOd4mWBrksjIwmHlrZTQQ&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-8.fna&_nc_ss=7a22e&oh=03_Q7cD6AG7NQ4Mak22y7orvCC7UzpnexxQMLkqCl6QwxKLBH6PkA&oe=6AB0DA04", desc: "(6 lá cuộn).", isAvailable: true },
+    { id: 62, name: "Miến Cay Xíu Mại Thịt Cuộn Tứ Xuyên", category: "mien-dong", price: 49000, image: "https://scontent.fdad3-1.fna.fbcdn.net/v/t1.15752-9/778963528_1862129568090128_2812780113133057233_n.png?stp=dst-png_s552x414&_nc_cat=103&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeG40TyiVRWU13_RjYFRJAmxzTJ78BxCwOTNMnvwHELA5POtZpfbdvWrF_xTTszuHm02HkMHyBcVEz7gCywypnxO&_nc_ohc=1vjf3VtBAOkQ7kNvwFJa1IK&_nc_oc=AdqeX7JkG3LqsWvpXC9C5vG3catNNisn4IXEpVILUP-K9yz6CLREpiU0NO8T7sihx0lkrTogjd-hJIG19DHIVnkz&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-1.fna&_nc_ss=7a22e&oh=03_Q7cD6AEn6YSIElnUmTm_C7gsNpcY6JhqeE1LVBt4eODBmdVK5g&oe=6AB0D800", desc: "(6 viên nhỏ).", isAvailable: true },
+    { id: 63, name: "Miến Cay Xíu Mại Tôm Tứ Xuyên", category: "mien-dong", price: 54000, image: "https://scontent.fdad3-8.fna.fbcdn.net/v/t1.15752-9/778793539_1393873359509167_4535116026580441619_n.png?stp=dst-png_s552x414&_nc_cat=100&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeHCpiBhcvjHRu70ZfQQOznyzSrWAOWKOU_NKtYA5Yo5T2A0bf7NFl3FvmRb9nQdIfm4R4JAkaEzflHGrCfoJPYb&_nc_ohc=5dUhS6AvA2sQ7kNvwHyfFeG&_nc_oc=AdrWrxha4N_xa7lrt-DbRhRevHZhb0Q8p57onko8hW75Q_kX0T-eTQ_4gf3LZpUb9EdNhg5vjWaALZr5TxsrvfP5&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-8.fna&_nc_ss=7a22e&oh=03_Q7cD6AHUUlEXEgJSmJP-10JXfzzEPcaoyFNV4qSzMLHWyOy_lQ&oe=6AB0F243", desc: "(4 viên trung).", isAvailable: true },
+    { id: 64, name: "Miến Cay Xíu Mại Thanh Cua Tứ Xuyên", category: "mien-dong", price: 54000, image: "https://scontent.fdad3-8.fna.fbcdn.net/v/t1.15752-9/778155708_1719625350166482_4559962678417068683_n.png?stp=dst-png_s552x414&_nc_cat=105&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeFvaRJgCCfinIQC8HTaeWR0Dc-t-bxtDLANz635vG0MsJLEcDi3UMwnbIogvmjF1AJI_lg6_SJDo_PeCs9-4EM-&_nc_ohc=33ZsZbX6GTYQ7kNvwFFnxRi&_nc_oc=Ado-mvNlTjiSJNk5PeT2R_ZQ-CEm8n_OErxJHRzSXSuDIIZshqAzGs7NahUs1B6oDCdETYbC3bTBmbEds1sMV0kE&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-8.fna&_nc_ss=7a22e&oh=03_Q7cD6AER05UnsqEFD_PhNm1tHAL3bhPGAd9UA2JLTs5ALGKbWg&oe=6AB0E8A8", desc: "(4 viên trung).", isAvailable: true },
+    { id: 65, name: "Miến Cay Xíu Mại Trứng Cút Tứ Xuyên", category: "mien-dong", price: 54000, image: "https://scontent.fdad3-5.fna.fbcdn.net/v/t1.15752-9/780908956_1427208549252240_989889727071964946_n.png?stp=dst-png_s552x414&_nc_cat=109&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeHx5uiS0g7bxzCWleF3T5zWuUOBlUCSQUO5Q4GVQJJBQ1sPnnZXVTH1_kYr54gw2-iezNSxUGp63i3H2f2kMwwc&_nc_ohc=aeBhmN8uSzcQ7kNvwGjRw3y&_nc_oc=AdrO76XCdROIrPstZLOopqdG4SI9zXY7LGRbcdA8NvikWl9lxwbSz2pYMyaUsK4IoBHNiwmUtaGIs4VDEwZa7j65&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-5.fna&_nc_ss=7a22e&oh=03_Q7cD6AEln8MUopx0_pP278WkwAEWr3teJGRq5jf-P1jvKkkGDw&oe=6AB0F275", desc: "(4 viên trung).", isAvailable: true },
+    { id: 66, name: "Miến Cay Xíu Mại Trứng Muối Tứ Xuyên", category: "mien-dong", price: 54000, image: "https://scontent.fdad3-1.fna.fbcdn.net/v/t1.15752-9/783727221_1084095544174900_1127195340960539590_n.png?stp=dst-png_s552x414&_nc_cat=110&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeGXwHjEeyuSraUV8aJYyrq9N2RLAq926jY3ZEsCr3bqNtx9RAuL8pV5AG8dWV0p7F4iTqD8yYfSF7E_aydhSZI1&_nc_ohc=TcFIRdyjfuoQ7kNvwH-fTuE&_nc_oc=AdrhcoZTfe7JimqWNGv2iua3RmhQSy2QTICWsAh_VuHF2FTXpN0bsIkFX--DqH_25ohLJoy3evSDNOokCtsORDAf&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-1.fna&_nc_ss=7a22e&oh=03_Q7cD6AFv8jiy3fdAOnmXZmnYsLu9JjDFQH5PberlGNhlzM_IxA&oe=6AB0E4EB", desc: "(4 viên trung).", isAvailable: true },
+    { id: 67, name: "Miến Cay Xíu Mại Rong Biển Thanh Cua Tứ Xuyên", category: "mien-dong", price: 54000, image: "https://scontent.fdad3-1.fna.fbcdn.net/v/t1.15752-9/779995391_1101533062536260_5239576128552143368_n.jpg?stp=dst-jpg_s552x414_tt6&_nc_cat=108&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeHcvwhDp-NynE7rfezHEofUM8pks32oXTczymSzfahdNwMBuDvnfohFsYdTQAFGpKru_EdSrDh7hdH2XCCf5ujs&_nc_ohc=QOPBoQcYCccQ7kNvwEU3sgt&_nc_oc=AdouOPcIeml7YWKqaVEJ5o7V0T3qMnlIsddFCgNAaTXIpuWb-q_5a5g5_gJe3vcQfz8c4PL2uiRhTATaU94hFinv&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-1.fna&_nc_ss=7a22e&oh=03_Q7cD6AHE--m9ECNGGv5PO4738Pboqaubh6Swh__cAb20KKkYxg&oe=6AB0FDA4", desc: "(4 viên trung).", isAvailable: false },
+    { id: 68, name: "Miến Cay Sủi Cảo Tôm Tứ Xuyên", category: "mien-dong", price: 54000, image: "https://scontent.fdad3-5.fna.fbcdn.net/v/t1.15752-9/779273382_1053703457589031_5830673218117547806_n.png?stp=dst-png_s552x414&_nc_cat=102&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeHPcNQ8zFS6xgQA-zo-iinYH96ivCXEmnkf3qK8JcSaebQr0kyFWLCLfEirof-lqB7K8ZORvmD_-9tn1b3wIGVe&_nc_ohc=GEiQEBfbmAMQ7kNvwG2C0l0&_nc_oc=AdojOfkK8AHF5XiOFfIMWSOJGs58qi3R8PWAe3lls3BNCLyn-ntBw9YofGd5buO44Z-MOZHOKe7Tzpdj1qTqrNym&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-5.fna&_nc_ss=7a22e&oh=03_Q7cD6AHHLXRVQUI5RZl8q6sR4gkTk4ulyIP4Vj_adqXwdh2-hg&oe=6AB10861", desc: "(4 viên trung).", isAvailable: true },
+    { id: 69, name: "Miến Cay Sủi Cảo Mực Tứ Xuyên", category: "mien-dong", price: 54000, image: "https://scontent.fdad3-5.fna.fbcdn.net/v/t1.15752-9/779273382_1053703457589031_5830673218117547806_n.png?stp=dst-png_s552x414&_nc_cat=102&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeHPcNQ8zFS6xgQA-zo-iinYH96ivCXEmnkf3qK8JcSaebQr0kyFWLCLfEirof-lqB7K8ZORvmD_-9tn1b3wIGVe&_nc_ohc=GEiQEBfbmAMQ7kNvwG2C0l0&_nc_oc=AdojOfkK8AHF5XiOFfIMWSOJGs58qi3R8PWAe3lls3BNCLyn-ntBw9YofGd5buO44Z-MOZHOKe7Tzpdj1qTqrNym&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-5.fna&_nc_ss=7a22e&oh=03_Q7cD6AHHLXRVQUI5RZl8q6sR4gkTk4ulyIP4Vj_adqXwdh2-hg&oe=6AB10861", desc: "(4 viên trung).", isAvailable: true },
+    { id: 70, name: "Miến Cay Sủi Cảo Sò Điệp Tứ Xuyên", category: "mien-dong", price: 54000, image: "https://scontent.fdad3-5.fna.fbcdn.net/v/t1.15752-9/779273382_1053703457589031_5830673218117547806_n.png?stp=dst-png_s552x414&_nc_cat=102&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeHPcNQ8zFS6xgQA-zo-iinYH96ivCXEmnkf3qK8JcSaebQr0kyFWLCLfEirof-lqB7K8ZORvmD_-9tn1b3wIGVe&_nc_ohc=GEiQEBfbmAMQ7kNvwG2C0l0&_nc_oc=AdojOfkK8AHF5XiOFfIMWSOJGs58qi3R8PWAe3lls3BNCLyn-ntBw9YofGd5buO44Z-MOZHOKe7Tzpdj1qTqrNym&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-5.fna&_nc_ss=7a22e&oh=03_Q7cD6AHHLXRVQUI5RZl8q6sR4gkTk4ulyIP4Vj_adqXwdh2-hg&oe=6AB10861", desc: "(4 viên trung).", isAvailable: true },
+    { id: 71, name: "Miến Cay Rong Biển Cuộn Tôm Thịt Tứ Xuyên", category: "mien-dong", price: 59000, image: "https://scontent.fdad3-4.fna.fbcdn.net/v/t1.15752-9/781161793_1727864508259598_3598969150422489248_n.png?stp=dst-png_s552x414&_nc_cat=104&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeEAIc-ZBeHa2KDXF_zTpqGMLRgTQ1Xr8bgtGBNDVevxuHBlN6MOa25iyskj6mfymrtw6VwDbT6Ef4SyQUZlTbBR&_nc_ohc=Ldc-G1BYJnQQ7kNvwHGavtJ&_nc_oc=Adp5hAbG62PAr2j-mwmp1y5sTcWLX_u0M1sUtc52OBEV4VYgXRNLz8Nq3wKLwzRgH8H_34hjDrcfHAOPEf2qx0Hr&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-4.fna&_nc_ss=7a22e&oh=03_Q7cD6AGScShnIe0VN7DE7aFiJsAqa2G8cGjwHFTwGU0LYFWEnA&oe=6AB10B00", desc: "(2 viên lớn).", isAvailable: true },
+    { id: 72, name: "Miến Cay Hoành Thánh Cuộn Tôm Thịt Tứ Xuyên", category: "mien-dong", price: 59000, image: "https://scontent.fdad3-8.fna.fbcdn.net/v/t1.15752-9/778138965_1090925663485274_2792951198269652535_n.png?stp=dst-png_s552x414&_nc_cat=100&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeGacbqvPA33s0CzugmT-ZhFrlSmSpEXFxOuVKZKkRcXE7jYgS2C55C7gcDgTGjjJcwNHfqT2tmUXUgNXw591t2e&_nc_ohc=0Aap_9Y7ThkQ7kNvwGZOi3O&_nc_oc=Adrps097yXf6oavjIDPdBMS5Ca1xuMT2QMDOBlpp9N8YAt1V5PLOGQVJcOEvNQrXVGyWfum3gOSTJf5pvQ51OUUl&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-8.fna&_nc_ss=7a22e&oh=03_Q7cD6AGJtIonEnIMmJe1ErgZjKsSTg7pApyGV_ihXAZXGvSj1A&oe=6AB0F12F", desc: "(2 viên lớn).", isAvailable: true },
+    { id: 73, name: "Miến Gà Cay Tứ Xuyên", category: "mien-dong", price: 84000, image: "https://scontent.fdad3-1.fna.fbcdn.net/v/t1.15752-9/779995387_2007761529866925_7992668749473260130_n.png?stp=dst-png_s552x414&_nc_cat=103&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeHE7bVxst-QLH7r_ESDcE1Tg6NWsxeV4myDo1azF5XibPun5WxKI-aohlfXFc4kwi93iZm2MhE1V1nhRMcpzuAD&_nc_ohc=Gp4GLMNJmBQQ7kNvwES8FfQ&_nc_oc=AdofpqxkcucOcituCHOJ9Im3hiy_e7c0Bh8cWg2QcHf85kmDRF-M8ACTnN2sPsjTJlNnT9JysaxUHhGttdondbry&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-1.fna&_nc_ss=7a22e&oh=03_Q7cD6AFt3k_z57-oyxrMRd4MANbQwGzvgXg6Od6Pv-GTFjNgeA&oe=6AB0FE6D", desc: "(Gà Ác nguyên con).", isAvailable: true },
+    { id: 74, name: "Miến Gà Hắc Kim Thảo", category: "mien-dong", price: 104000, image: "https://scontent.fdad3-8.fna.fbcdn.net/v/t1.15752-9/781678213_1808710853629146_4993748091139518590_n.png?stp=dst-png_s552x414&_nc_cat=106&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeFVrOMLTtHO47egC-T_eMmwsxx4GoJuYHWzHHgagm5gdfMQjm82zErkBw9TOVPZdA0b2qVR81gUmrUAXYH7hlsJ&_nc_ohc=aXzuX81gBd8Q7kNvwH2JOq2&_nc_oc=Adrv5plA7AWS_hOGvF4aebGcLcjvE69rk2ItdJNu8TWWereuY1nFpiosshfsyWcZ-7BAS2u9HtXlGEQjaD6Fhc3C&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-8.fna&_nc_ss=7a22e&oh=03_Q7cD6AE7dC9OvNl-ihTbjWN3UQnik73MSJZBjqL-WGQa9pYqQg&oe=6AB1109B", desc: "(Gà Ác nguyên con).", isAvailable: true },
+    { id: 75, name: "Mì Gà Hắc Kim Thảo Đặt Biệt", category: "mien-dong", price: 184000, image: "https://scontent.fdad3-8.fna.fbcdn.net/v/t1.15752-9/779995389_2740864426297991_7059655001309401170_n.png?stp=dst-png_s552x414&_nc_cat=105&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeHsjjwKMdVUdauVfE3_Olh-VNg6c7-6KJRU2Dpzv7oolH8P4l-PHP_Ov5ANKNJ4VKxmaYk0Vce8temEGJ3D3k-1&_nc_ohc=3ORQozzojXkQ7kNvwElMw87&_nc_oc=AdrAEYTKU-lhh1PxIWtekuTYYhqI276Af0WOrGaWyP0vrtRrP0_Z4yNxU6ilbEEu26jtsfDchQJJjdFf9_Qn2T6e&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-8.fna&_nc_ss=7a22e&oh=03_Q7cD6AH9xfSJhxiqAQgK9WWUfgzZQIAI5FEqIHp-fuoL-vTnUQ&oe=6AB10C3F", desc: "(Gà Ác nguyên con, Bào ngư, Tôm, Sò điệp).", isAvailable: true },
+
+    // --- 5. NUI (15 món) ---
+    { id: 76, name: "Nui Xào Bò Lúc Lắc", category: "nui", price: 65000, image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=500&q=80", desc: "Bò Úc mềm ngọt xào nui mềm ngon.", isAvailable: true },
+    { id: 77, name: "Nui Xào Hải Sản Sốt Cà", category: "nui", price: 68000, image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=500&q=80", desc: "Chua ngọt vừa vị hải sản tươi.", isAvailable: true },
+    { id: 78, name: "Nui Nấu Sườn Non", category: "nui", price: 55000, image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=500&q=80", desc: "Nước dùng xương hầm trong thanh ngọt.", isAvailable: true },
+    { id: 79, name: "Nui Nấu Giò Heo", category: "nui", price: 58000, image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=500&q=80", desc: "Giò heo giòn béo ngậy khoái khoái.", isAvailable: true },
+    { id: 80, name: "Nui Xào Xá Xíu Trứng Chiên", category: "nui", price: 55000, image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=500&q=80", desc: "Món ăn yêu thích của trẻ nhỏ.", isAvailable: true },
+    { id: 81, name: "Nui Nấu Gà Xé Nấm Hương", category: "nui", price: 52000, image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=500&q=80", desc: "Thanh nhẹ dễ ăn cho bữa sáng/đêm.", isAvailable: true },
+    { id: 82, name: "Nui Xào Tôm Bơ Tỏi", category: "nui", price: 70000, image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=500&q=80", desc: "Thơm lừng vị bơ tỏi.", isAvailable: true },
+    { id: 83, name: "Nui Nấu Chả Cá Phúc Gia", category: "nui", price: 50000, image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=500&q=80", desc: "Chả cá thát lát dai ngon tự làm.", isAvailable: true },
+    { id: 84, name: "Nui Xào Thập Cẩm Quán", category: "nui", price: 62000, image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=500&q=80", desc: "Đầy đủ topping thịt bò, xá xíu, tôm.", isAvailable: true },
+    { id: 85, name: "Nui Nấu Mực Cơm", category: "nui", price: 60000, image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=500&q=80", desc: "Mực cơm tươi đậm đà vị biển.", isAvailable: true },
+    { id: 86, name: "Nui Xào Chay Rau Củ", category: "nui", price: 45000, image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=500&q=80", desc: "Đầy đủ dưỡng chất từ rau củ.", isAvailable: true },
+    { id: 87, name: "Nui Đút Lò Phô Mai Bò Bằm", category: "nui", price: 75000, image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=500&q=80", desc: "Phô mai kéo sợi thơm phức béo béo.", isAvailable: true },
+    { id: 88, name: "Nui Nấu Bò Viên Hồng Kông", category: "nui", price: 52000, image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=500&q=80", desc: "Bò viên gân giòn sần sật.", isAvailable: true },
+    { id: 89, name: "Nui Xào Sa Tế Càng Cua", category: "nui", price: 78000, image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=500&q=80", desc: "Cay nhẹ đượm vị thịt cua tươi.", isAvailable: true },
+    { id: 90, name: "Nui Nấu Hoành Thánh Tôm", category: "nui", price: 58000, image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=500&q=80", desc: "Kết hợp giữa nui và hoành thánh.", isAvailable: true },
+
+    // --- 6. SÚP NƯỚC (14 món) ---
+    { id: 91, name: "Súp Xíu Mại Thịt Cuộn Cay Tê", category: "sup-nuoc", price: 45000, image: "https://scontent.fdad3-1.fna.fbcdn.net/v/t1.15752-9/778155708_1373774144952955_5233112630356492345_n.png?stp=dst-png_s552x414&_nc_cat=108&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeEoNLxGeNYea27GLlXwb3rxFzqN7Cvma84XOo3sK-ZrzmVcEeXgi-Uz12CeX0gNQ2xrU0RmN_IUBMWT-qRhJXsW&_nc_ohc=LLH-hVw9VNUQ7kNvwHXGcOR&_nc_oc=AdrJcZQ0khQrDMbGS-jgFScyoeLYsrL3e13-5rM_P_g7-Y-LNhD8y6XtK9IO-sMV2CV61sZVnGEfZBw_AR-jESNC&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-1.fna&_nc_ss=7a22e&oh=03_Q7cD6AHUL5YkYArHlTIpTp6qOIULnvxTVpaD4U80Oju1TvNjJw&oe=6AB0F36C", desc: "(6 viên nhỏ).", isAvailable: true },
+    { id: 92, name: "Súp Xíu Mại Thanh Cua Cay Tê", category: "sup-nuoc", price: 49000, image: "https://scontent.fdad3-5.fna.fbcdn.net/v/t1.15752-9/780771284_1069547899301470_7602181570668265543_n.png?stp=dst-png_s552x414&_nc_cat=102&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeFq-FdYVL20kHB3dDNy7nEEMKZm5YciYvQwpmblhyJi9K-qUcFJ-Bksf7Zst8cRzhpX8vsSWfiXZQjTsqz7WOm2&_nc_ohc=bh9nhO7OwcwQ7kNvwFXL79u&_nc_oc=AdpaVHbq5vuksCWy4mQ56MAFCDCFNJEjLk6o7CkhJSmQFm-I5cScQglBE-jaOgQMANkwXejPNdNEMZBEmSiWNGQe&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-5.fna&_nc_ss=7a22e&oh=03_Q7cD6AFZGIcdDR0p_xW_gDgw8fjraPBVOJtMKpUMWmo3KQXs2Q&oe=6AB11252", desc: "(4 viên trung).", isAvailable: true },
+    { id: 93, name: "Súp Xíu Mại Tôm Cay Tê", category: "sup-nuoc", price: 49000, image: "https://scontent.fdad3-5.fna.fbcdn.net/v/t1.15752-9/782975439_2308415356571234_1336783037584885847_n.png?stp=dst-png_s552x414&_nc_cat=109&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeHGlsHbr_xljsfsgB99gWt3aBxJ2fQS_FtoHEnZ9BL8W4D9zvSeOJ8hhf-oJLl_driEaE-IoqLK8aPP7DAI_4DL&_nc_ohc=5PDaJkSPbW8Q7kNvwFwVJtG&_nc_oc=AdoFhRSUUxsOmPIZMIqw_yoQ-7nyb483NysNw-ntNcxT4yS6BrbczslSQpQZ5I7p9bXRCt0LqQvnTy2swO_-6TCY&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-5.fna&_nc_ss=7a22e&oh=03_Q7cD6AHkDqHHLDK_nqlHyOJ6v4VyJihqp5BDdBXcrxYB3RMmuQ&oe=6AB10750", desc: "(4 viên trung).", isAvailable: true },
+    { id: 94, name: "Súp Xíu Mại Trứng Cút Cay Tê", category: "sup-nuoc", price: 49000, image: "https://scontent.fdad3-4.fna.fbcdn.net/v/t1.15752-9/780702078_28491587027099808_3903554535273143370_n.png?stp=dst-png_s552x414&_nc_cat=101&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeFL-XbnlDDh7hiiVIyl5oJNr5XEW-r_FUCvlcRb6v8VQFAg1JAHkeLXnqFfKunJK5yIc-nSQV5E97N0kSU7ROan&_nc_ohc=Ev-iN7OoAvEQ7kNvwFBVv50&_nc_oc=AdrxuQs1iI1DnHEMUnZVQoe_QSl3nMkipOH3dF9KzJ-uQfpViSW1j4ShkiXVaPypQXWjwFtODVXbeyZUOX4f-PLb&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-4.fna&_nc_ss=7a22e&oh=03_Q7cD6AGqTnjkGBI_VihRqgmh9XxSjO212BixS8XsYpny1WGuhA&oe=6AB0FBBC", desc: "(4 viên trung).", isAvailable: true },
+    { id: 95, name: "Súp Xíu Mại Trứng Muối Cay Tê", category: "sup-nuoc", price: 49000, image: "https://scontent.fdad3-1.fna.fbcdn.net/v/t1.15752-9/783012037_1437079371669000_3055783998991306142_n.png?stp=dst-png_s552x414&_nc_cat=103&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeHvKivrLOqUqsX00PlHopUzeSCmupGJ7K95IKa6kYnsrx1VmxZ9KK2ZD7zOMdoFkSRVkifMAuhPYB4-cyMbUjA_&_nc_ohc=py1eTTsuVfMQ7kNvwFrEuAF&_nc_oc=AdpAjjFYFCit4wbGA4_OUDdA13S5LdJ2pps0WaKGVqlEHotg1dKR1BZwgK4kqqN-xfAjPx_pEkoT5INCmfnVsNAS&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-1.fna&_nc_ss=7a22e&oh=03_Q7cD6AGFNCpYSRJy3oDRmgySOOO5G4C38TE_FNBVs9bVfx3i6g&oe=6AB0E82E", desc: "(4 viên trung).", isAvailable: true },
+    { id: 96, name: "Súp Xíu Mại Rong Biển Thanh Cua Cay Tê", category: "sup-nuoc", price: 49000, image: "https://scontent.fdad3-4.fna.fbcdn.net/v/t1.15752-9/780201714_1627786012290070_8956642671718044662_n.jpg?stp=dst-jpg_s552x414_tt6&_nc_cat=104&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeEy1Eqbllpwpp9C_xlaobi34RmtcNUFvQ_hGa1w1QW9D4RzyIPgqE_DZTPYkM24wSmJB9jPwH5lX43FK3fFUvtt&_nc_ohc=iU4VruZ5ps0Q7kNvwGODCvJ&_nc_oc=AdrwsYh8Of9xKIxQug0DNUnCn4Xf5BPZGeAnnRb1bKCkuqMANVA3BlNPSRjw_mZrnt6_-Pnnj9K7NNOu7aWEpWIy&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-4.fna&_nc_ss=7a22e&oh=03_Q7cD6AHJRo0Lc66q9twgHk6hsG0x3KObji5VqK6zaz7LuiffYg&oe=6AB0F08D", desc: "(4 viên trung).", isAvailable: true },
+    { id: 97, name: "Súp Sủi Cảo Tôm Cay Tê", category: "sup-nuoc", price: 65000, image: "https://scontent.fdad3-8.fna.fbcdn.net/v/t1.15752-9/780771323_2477642122705622_4504898967468799163_n.png?stp=dst-png_s552x414&_nc_cat=106&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeH6Rm_xL3xULcKca1vWe816CvH6n5IbtD4K8fqfkhu0Pv3YhK8EvUzNhl3Q8TJXra0Rcqna6qQm4jW7FJDAherh&_nc_ohc=rQ9ETrBrh6AQ7kNvwGsCxT7&_nc_oc=AdqrB4_XWyGRTbdV6-qt_--2hpaK3tjxPLysxyQ5DykuJrnhhD3fVDnFnnatQuCU3Os6QdM0_FYZsXmxZCdaiEXz&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-8.fna&_nc_ss=7a22e&oh=03_Q7cD6AHMYTrAZflNqJGgD_UQO6o6zJrSm2iAqpyFMqJebOi8rg&oe=6AB13237", desc: "(6 viên trung).", isAvailable: true },
+    { id: 98, name: "Súp Sủi Cảo Mực Cay Tê", category: "sup-nuoc", price: 65000, image: "https://scontent.fdad3-8.fna.fbcdn.net/v/t1.15752-9/780771323_2477642122705622_4504898967468799163_n.png?stp=dst-png_s552x414&_nc_cat=106&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeH6Rm_xL3xULcKca1vWe816CvH6n5IbtD4K8fqfkhu0Pv3YhK8EvUzNhl3Q8TJXra0Rcqna6qQm4jW7FJDAherh&_nc_ohc=rQ9ETrBrh6AQ7kNvwGsCxT7&_nc_oc=AdqrB4_XWyGRTbdV6-qt_--2hpaK3tjxPLysxyQ5DykuJrnhhD3fVDnFnnatQuCU3Os6QdM0_FYZsXmxZCdaiEXz&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-8.fna&_nc_ss=7a22e&oh=03_Q7cD6AHMYTrAZflNqJGgD_UQO6o6zJrSm2iAqpyFMqJebOi8rg&oe=6AB13237", desc: "(6 viên trung).", isAvailable: true },
+    { id: 99, name: "Súp Sủi Cảo Sò Điệp Cay Tê", category: "sup-nuoc", price: 65000, image: "https://scontent.fdad3-8.fna.fbcdn.net/v/t1.15752-9/780771323_2477642122705622_4504898967468799163_n.png?stp=dst-png_s552x414&_nc_cat=106&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeH6Rm_xL3xULcKca1vWe816CvH6n5IbtD4K8fqfkhu0Pv3YhK8EvUzNhl3Q8TJXra0Rcqna6qQm4jW7FJDAherh&_nc_ohc=rQ9ETrBrh6AQ7kNvwGsCxT7&_nc_oc=AdqrB4_XWyGRTbdV6-qt_--2hpaK3tjxPLysxyQ5DykuJrnhhD3fVDnFnnatQuCU3Os6QdM0_FYZsXmxZCdaiEXz&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-8.fna&_nc_ss=7a22e&oh=03_Q7cD6AHMYTrAZflNqJGgD_UQO6o6zJrSm2iAqpyFMqJebOi8rg&oe=6AB13237", desc: "(6 viên trung).", isAvailable: true },
+    { id: 100, name: "Súp Rong Biển Cuộn Tôm Thịt Cay Tê", category: "sup-nuoc", price: 65000, image: "https://scontent.fdad3-8.fna.fbcdn.net/v/t1.15752-9/778813761_1394321378835660_5229123590022695882_n.png?stp=dst-png_s552x414&_nc_cat=106&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeHnO0140tZh5nCCd65VupRUkB6kVV173MqQHqRVXXvcyjhwFfbUe3s9k9js9P2twvq6dBDTgfcSeHWzjgB4xtlJ&_nc_ohc=jelfRgNW8doQ7kNvwGVykmE&_nc_oc=AdqX377BEwl3zKvr2O69kPC0ztMSL0xw3blEEMlhhyojateTruzkQ0DWRW8sLcTmCSlypzvVw6p3sAxgp9b9Ogsn&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-8.fna&_nc_ss=7a22e&oh=03_Q7cD6AFN0e8BtzdkUAyz7d-NcfTfwfHT1xBwtuAA2zS1pXPTvw&oe=6AB12D77", desc: "(3 viên lớn).", isAvailable: true },
+    { id: 101, name: "Súp Hoành Thánh Cuộn Tôm Thịt Cay Tê", category: "sup-nuoc", price: 65000, image: "https://scontent.fdad3-8.fna.fbcdn.net/v/t1.15752-9/780201713_1765117211430357_4476772827154675652_n.png?stp=dst-png_s552x414&_nc_cat=100&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeEAombWmypDwBipkGj0U-GHPbX7ek_2K2M9tft6T_YrY7N5JHqWoDMWHxHeLh9SKoIm1XTAY8syVUAqnnM2XgPD&_nc_ohc=F8pJTsXIgvYQ7kNvwFU0fjg&_nc_oc=Adq7OngZKyI7RpSer5IuP_08S-nqHTK2xCUNkmMKZOJfKY646trFIzHl-uHZHSGcBRh2fNu3bTkXvoWXm0curPzC&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-8.fna&_nc_ss=7a22e&oh=03_Q7cD6AFoUTWYkPjsjCUS1Ne6HlNonH57EcnRvLUYO0lb4Wlewg&oe=6AB143B5", desc: "(3 viên lớn).", isAvailable: true },
+    { id: 102, name: "Súp Gà Cay Tứ Xuyên", category: "sup-nuoc", price: 890000, image: "https://scontent.fdad3-5.fna.fbcdn.net/v/t1.15752-9/780860274_1077823971374005_4054450808370976527_n.png?stp=dst-png_s552x414&_nc_cat=111&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeEVxjD-IfVXWuv1XUXnU00AHw8OmmKAV7ofDw6aYoBXupDc0TW5lDl4XyTGr-JLDSOngINN58fjLh5ZLLHFwv5y&_nc_ohc=0tsWycHKvEkQ7kNvwHgrE6A&_nc_oc=AdqHLQ86tOrNox7CaGr9VjS0ceDYtiHxG--cOLOF18AfAZmi1Jy3QciZWyEcnn7T8rA1v1XCu8qfbNgvP3wL7SIr&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-5.fna&_nc_ss=7a22e&oh=03_Q7cD6AHODzQNZ4u8TDFsJiIVpuBRGZfX5cVybQpxPsziV1OLSA&oe=6AB149E1", desc: "(Gà Ác nguyên con).", isAvailable: true },
+    { id: 103, name: "Súp Gà Hắc Kim Thảo", category: "sup-nuoc", price: 99000, image: "https://scontent.fdad3-8.fna.fbcdn.net/v/t1.15752-9/781903941_2470349720119671_1676713401066645881_n.png?stp=dst-png_s552x414&_nc_cat=105&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeGeDlbwsTef6c1wdkZq9q0LgvAmMhulCMaC8CYyG6UIxhJFOKuref1W_o4mWW01yg82OgHbwhoaHo5FvfGiNU8v&_nc_ohc=zLBcGlNlKfwQ7kNvwE04aQ8&_nc_oc=Adr_UCbRTHC6mEKB3eZmCZ5ebnpswjWinloWJ23ky-l4GOqOFUaRj11laLeAFclU_7vTIGSte-GjAw40gZDgVxho&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-8.fna&_nc_ss=7a22e&oh=03_Q7cD6AGLC2ZTMMZXh6cFUeIn-isG9M1M9cudSOwB15rckvOWfw&oe=6AB14BDC", desc: "(Gà Ác nguyên con).", isAvailable: true },
+    { id: 104, name: "Súp Gà Hắc Kim Thảo Đặt Biệt", category: "sup-nuoc", price: 179000, image: "https://scontent.fdad3-1.fna.fbcdn.net/v/t1.15752-9/779995392_1394066669343032_7670551709061478496_n.png?stp=dst-png_s552x414&_nc_cat=110&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeE4a_8_afrbh5FlZzSDg2hIWKu6Y3rZEY1Yq7pjetkRjfFMz7SC0ag-tEm5xQAGxRRX-iUuvgiDocGu85TgMRxY&_nc_ohc=6a3xVYxuod0Q7kNvwF4xLCu&_nc_oc=AdqKrbAJQ6fEIOG837eesqm1-d7WVVNNdpUBzrr7n4C-mc2KASmYN4jlhkQXIzJRNkZ6n6YFAJpnor-fKtLqMDjc&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdad3-1.fna&_nc_ss=7a22e&oh=03_Q7cD6AGRp3e9mBt_phGS69mtWw_5POV6My8iTn1APkrAcq0SsQ&oe=6AB13CFA", desc: "(Gà Ác nguyên con, Bào ngư, Tôm, Sò điệp).", isAvailable: true },
+
+    // --- 7. MÓN KHÁC (10 món) ---
+    { id: 105, name: "Cơm Chiên Dương Châu", category: "mon-khac", price: 60000, image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=500&q=80", desc: "Hạt cơm vàng tơi xào lập xưởng, tôm.", isAvailable: true },
+    { id: 106, name: "Cơm Chiên Hải Sản Sốt XO", category: "mon-khac", price: 75000, image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=500&q=80", desc: "Đậm đà sốt XO thượng hạng.", isAvailable: true },
+    { id: 107, name: "Cơm Xá Xíu Trứng Ốp La", category: "mon-khac", price: 58000, image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=500&q=80", desc: "Cơm dẻo ăn kèm xá xíu mật ong.", isAvailable: true },
+    { id: 108, name: "Cơm Vịt Quay Quảng Đông", category: "mon-khac", price: 68000, image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=500&q=80", desc: "Vịt quay da giòn rưới sốt đậm vị.", isAvailable: true },
+    { id: 109, name: "Cải Thìa Sốt Dầu Hào", category: "mon-khac", price: 40000, image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=500&q=80", desc: "Rau xanh giòn ngọt thanh lọc.", isAvailable: true },
+    { id: 110, name: "Đậu Hũ Tứ Xuyên Nóng Hổi", category: "mon-khac", price: 55000, image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=500&q=80", desc: "Đậu hũ non sốt thịt băm sa tế cay.", isAvailable: true },
+    { id: 111, name: "Cà Tím Tay Cầm Sốt Thịt Băm", category: "mon-khac", price: 52000, image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=500&q=80", desc: "Cà tím mềm thơm béo vị thịt.", isAvailable: true },
+    { id: 112, name: "Bò Lúc Lắc Khoai Tây Chiên", category: "mon-khac", price: 85000, image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=500&q=80", desc: "Bò xào lửa lớn mềm mọng.", isAvailable: true },
+    { id: 113, name: "Mù Tạt Bạch Tuộc Trộn", category: "mon-khac", price: 78000, image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=500&q=80", desc: "Bạch tuộc giòn sần sật cay nồng.", isAvailable: true },
+    { id: 114, name: "Màn Thầu Hấp / Chiên Lên Men", category: "mon-khac", price: 30000, image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=500&q=80", desc: "Chấm sữa đặc béo ngọt ngon tuyệt.", isAvailable: true },
+
+    // --- 8. MÓN CHÁO (2 món) ---
+    { id: 115, name: "Cháo Bách Thảo Thịt Nạc", category: "mon-chao", price: 45000, image: "https://images.unsplash.com/photo-1511910849309-0dcdb8f87e46?w=500&q=80", desc: "Cháo Quảng Đông nấu nhừ kèm trứng bách thảo.", isAvailable: true },
+    { id: 116, name: "Cháo Hải Sản Thập Cẩm", category: "mon-chao", price: 60000, image: "https://images.unsplash.com/photo-1511910849309-0dcdb8f87e46?w=500&q=80", desc: "Nấu tôm tươi, mực, gừng thái sợi thơm phức.", isAvailable: true },
+
+    // --- 9. MÓN TẨM BỔ (8 món) ---
+    { id: 117, name: "Gà Tiềm Thuốc Bắc Thảo Mộc", category: "mon-tam-bo", price: 95000, image: "https://images.unsplash.com/photo-1547592180-85f173990554?w=500&q=80", desc: "Gà ác tiềm kỹ với các vị thuốc bắc quý.", isAvailable: true },
+    { id: 118, name: "Bào Ngư Hầm Nấm Đông Cô", category: "mon-tam-bo", price: 135000, image: "https://images.unsplash.com/photo-1547592180-85f173990554?w=500&q=80", desc: "Bồi bổ sức khỏe cho người mệt mỏi.", isAvailable: true },
+    { id: 119, name: "Yến Chưng Đường Phèn Hạt Bắp", category: "mon-tam-bo", price: 120000, image: "https://images.unsplash.com/photo-1547592180-85f173990554?w=500&q=80", desc: "Yến nguyên chất chưng thanh mát bổ dưỡng.", isAvailable: true },
+    { id: 120, name: "Giò Heo Hầm Đương Quy", category: "mon-tam-bo", price: 88000, image: "https://images.unsplash.com/photo-1547592180-85f173990554?w=500&q=80", desc: "Món ăn hồi phục thể lực nhanh chóng.", isAvailable: true },
+    { id: 121, name: "Tim Bò Tiềm Nhân Sâm", category: "mon-tam-bo", price: 105000, image: "https://images.unsplash.com/photo-1547592180-85f173990554?w=500&q=80", desc: "Bổ khí huyết, tăng cường sức đề kháng.", isAvailable: true },
+    { id: 122, name: "Súp Hải Sâm Hầm Tàu Xì", category: "mon-tam-bo", price: 140000, image: "https://images.unsplash.com/photo-1547592180-85f173990554?w=500&q=80", desc: "Hải sâm thiên nhiên giòn sần sật.", isAvailable: true },
+    { id: 123, name: "Canh Gà Hầm Sâm Hàn Quốc", category: "mon-tam-bo", price: 115000, image: "https://images.unsplash.com/photo-1547592180-85f173990554?w=500&q=80", desc: "Gà nhồi gạo nếp hầm sâm đậm đà.", isAvailable: true },
+    { id: 124, name: "Óc Heo Tiềm Thuốc Bắc", category: "mon-tam-bo", price: 65000, image: "https://images.unsplash.com/photo-1547592180-85f173990554?w=500&q=80", desc: "Món ăn dân dã bổ não truyền thống.", isAvailable: true },
+
+    // --- 10. NƯỚC GIẢI KHÁT (5 món) ---
+    { id: 125, name: "Trà Bưởi Hồng Kông", category: "nuoc-giat-khat", price: 25000, image: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=500&q=80", desc: "Trà hoa quả chua ngọt thanh mát.", isAvailable: true },
+    { id: 126, name: "Trà Sữa Hồng Kông Truyền Thống", category: "nuoc-giat-khat", price: 30000, image: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=500&q=80", desc: "Vị trà đậm đà quyện sữa béo nhẹ.", isAvailable: true },
+    { id: 127, name: "Nước Sâm La Hán Quả", category: "nuoc-giat-khat", price: 20000, image: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=500&q=80", desc: "Nước mát nấu từ thảo mộc thanh nhiệt.", isAvailable: true },
+    { id: 128, name: "Chè Tuyết Yến Nhựa Đào", category: "nuoc-giat-khat", price: 35000, image: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=500&q=80", desc: "Chè dưỡng nhan thanh mát đẹp da.", isAvailable: true },
+    { id: 129, name: "Nước Ép Dưa Hấu Tươi", category: "nuoc-giat-khat", price: 25000, image: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=500&q=80", desc: "100% dưa hấu nguyên chất mát lạnh.", isAvailable: true }
+];
+
+/* =====================================================
+   GIỎ HÀNG (Lưu & Khôi phục qua localStorage)
+===================================================== */
+/* =====================================================
+   STORAGE AN TOÀN: iPhone/Safari có thể chặn localStorage khi mở file://
+===================================================== */
+let storage = null;
+try { storage = window.localStorage; } catch (e) { storage = null; }
+function storageGet(key, fallback = null) {
+    try { return storage ? storage.getItem(key) : fallback; } catch (e) { return fallback; }
+}
+function storageSet(key, value) {
+    try { if (storage) storage.setItem(key, value); } catch (e) {}
+}
+function storageRemove(key) {
+    try { if (storage) storage.removeItem(key); } catch (e) {}
+}
+
+let cart = [];
+try { cart = JSON.parse(storageGet('pgk_cart', '[]')) || []; } catch (e) { cart = []; }
+let currentOrderText = "";
+let currentCustomerPhone = "";
+let currentCategory = "all";
+
+/* =====================================================
+   FORMAT TIỀN
+===================================================== */
+function formatMoney(number) {
+    return number.toLocaleString("vi-VN") + "đ";
+}
+
+/* =====================================================
+   HIỂN THỊ MENU
+===================================================== */
+function renderMenu(list = null) {
+    const menuGrid = document.getElementById("menuGrid");
+    
+    if (!list) {
+        if (currentCategory === "all") {
+            list = foods;
+        } else {
+            list = foods.filter(f => f.category === currentCategory);
+        }
+    }
+
+    if (list.length === 0) {
+        menuGrid.innerHTML = `
+            <div style="grid-column:1/-1;text-align:center;padding:50px;color:#777;">
+                😢 Không tìm thấy món ăn phù hợp.
+            </div>
+        `;
+        return;
+    }
+
+    menuGrid.innerHTML = list.map(food => {
+        const itemInCart = cart.find(c => c.id === food.id);
+        const qtyInCart = itemInCart ? itemInCart.quantity : 0;
+
+        let actionButton = '';
+        if (!food.isAvailable) {
+            actionButton = `<button class="add-btn" disabled>Hết món</button>`;
+        } else if (qtyInCart > 0) {
+            actionButton = `
+                <div class="card-quantity-control" id="control-${food.id}">
+                    <button onclick="changeQuantity(${food.id}, -1)">−</button>
+                    <span>${qtyInCart}</span>
+                    <button onclick="changeQuantity(${food.id}, 1)">+</button>
+                </div>
+            `;
+        } else {
+            actionButton = `
+                <div id="control-${food.id}">
+                    <button class="add-btn" onclick="addToCart(${food.id})">
+                        + Thêm món
+                    </button>
+                </div>
+            `;
+        }
+
+        return `
+        <div class="food-card ${!food.isAvailable ? 'sold-out' : ''}" data-category="${food.category}">
+            <div class="food-image">
+                <img src="${food.image}" alt="${food.name}" loading="lazy">
+            </div>
+            <div class="food-info">
+                <div class="food-name">${food.name}</div>
+                <div class="food-desc">${food.desc}</div>
+                <div class="food-bottom">
+                    <span class="price">${formatMoney(food.price)}</span>
+                    ${actionButton}
+                </div>
+            </div>
+        </div>
+        `;
+    }).join("");
+}
+
+/* =====================================================
+   CẬP NHẬT GIAO DIỆN NÚT TRÊN THẺ MÓN MÀ KHÔNG LOAD LẠI MENU
+===================================================== */
+function updateCardButton(foodId) {
+    const container = document.getElementById(`control-${foodId}`);
+    if (!container) return;
+
+    const itemInCart = cart.find(c => c.id === foodId);
+    const qtyInCart = itemInCart ? itemInCart.quantity : 0;
+    const food = foods.find(f => f.id === foodId);
+
+    if (qtyInCart > 0) {
+        container.className = "card-quantity-control";
+        container.innerHTML = `
+            <button onclick="changeQuantity(${foodId}, -1)">−</button>
+            <span>${qtyInCart}</span>
+            <button onclick="changeQuantity(${foodId}, 1)">+</button>
+        `;
+    } else {
+        container.className = "";
+        container.innerHTML = `
+            <button class="add-btn" onclick="addToCart(${foodId})">
+                + Thêm món
+            </button>
+        `;
+    }
+}
+
+/* =====================================================
+   THÊM MÓN
+===================================================== */
+function addToCart(id) {
+    const food = foods.find(item => item.id === id);
+    if (!food || !food.isAvailable) return;
+
+    const existing = cart.find(item => item.id === id);
+
+    if (existing) {
+        existing.quantity++;
+    } else {
+        cart.push({ ...food, quantity: 1 });
+    }
+
+    updateCart(id);
+    showToast("🥢 Đã thêm " + food.name + " vào giỏ!");
+}
+
+/* =====================================================
+   CẬP NHẬT GIỎ
+===================================================== */
+function updateCart(targetFoodId = null) {
+    storageSet('pgk_cart', JSON.stringify(cart));
+
+    const cartItems = document.getElementById("cartItems");
+    const cartCount = document.getElementById("cartCount");
+    const cartTotal = document.getElementById("cartTotal");
+
+    const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+    cartCount.textContent = totalQuantity;
+    cartTotal.textContent = formatMoney(totalPrice);
+
+    if (cart.length === 0) {
+        cartItems.innerHTML = `
+            <div class="empty-cart">
+                <div style="font-size:50px;">🥢</div>
+                <p>Giỏ hàng đang trống</p>
+                <p style="font-size:13px;margin-top:8px;">Hãy chọn món ngon nhé!</p>
+            </div>
+        `;
+    } else {
+        cartItems.innerHTML = cart.map(item => `
+            <div class="cart-item">
+                <div class="cart-item-top">
+                    <div class="cart-item-name">${item.name}</div>
+                    <button class="remove-item" onclick="removeItem(${item.id})">✕</button>
+                </div>
+                <div class="cart-item-bottom">
+                    <div class="quantity">
+                        <button onclick="changeQuantity(${item.id}, -1)">−</button>
+                        <strong>${item.quantity}</strong>
+                        <button onclick="changeQuantity(${item.id}, 1)">+</button>
+                    </div>
+                    <strong style="color:#8b0000;">${formatMoney(item.price * item.quantity)}</strong>
+                </div>
+            </div>
+        `).join("");
+    }
+
+    if (targetFoodId) {
+        updateCardButton(targetFoodId);
+    }
+}
+
+/* =====================================================
+   TĂNG GIẢM SỐ LƯỢNG
+===================================================== */
+function changeQuantity(id, amount) {
+    const item = cart.find(item => item.id === id);
+    if (!item) return;
+
+    item.quantity += amount;
+
+    if (item.quantity <= 0) {
+        cart = cart.filter(item => item.id !== id);
+    }
+
+    updateCart(id);
+}
+
+/* =====================================================
+   XÓA MÓN
+===================================================== */
+function removeItem(id) {
+    cart = cart.filter(item => item.id !== id);
+    updateCart(id);
+}
+
+/* =====================================================
+   MỞ / ĐÓNG GIỎ HÀNG
+===================================================== */
+function openCart() {
+    document.getElementById("cartPanel").classList.add("open");
+    document.getElementById("cartBackdrop").classList.add("show");
+}
+
+function closeCart() {
+    document.getElementById("cartPanel").classList.remove("open");
+    document.getElementById("cartBackdrop").classList.remove("show");
+}
+
+/* =====================================================
+   TÌM KIẾM
+===================================================== */
+function searchFood() {
+    const keyword = document.getElementById("searchInput").value.toLowerCase().trim();
+
+    let list = foods;
+
+    if (currentCategory !== "all") {
+        list = list.filter(food => food.category === currentCategory);
+    }
+
+    if (keyword) {
+        list = list.filter(food =>
+            food.name.toLowerCase().includes(keyword) ||
+            food.desc.toLowerCase().includes(keyword)
+        );
+    }
+
+    renderMenu(list);
+}
+
+/* =====================================================
+   LỌC DANH MỤC
+===================================================== */
+function filterCategory(category, button) {
+    currentCategory = category;
+    document.querySelectorAll(".category-btn").forEach(btn => btn.classList.remove("active"));
+    button.classList.add("active");
+
+    if (category === "all") {
+        renderMenu(foods);
+    } else {
+        renderMenu(foods.filter(food => food.category === category));
+    }
+}
+
+/* =====================================================
+   CHECKOUT
+===================================================== */
+function openCheckout() {
+    if (cart.length === 0) {
+        showToast("🛒 Bạn chưa chọn món nào!");
+        return;
+    }
+    closeCart();
+    renderCheckout();
+    document.getElementById("checkoutModal").classList.add("show");
+}
+
+function renderCheckout() {
+    const checkoutItems = document.getElementById("checkoutItems");
+    const checkoutTotal = document.getElementById("checkoutTotal");
+
+    checkoutItems.innerHTML = cart.map(item => `
+        <div class="preview-line">
+            <span>${item.name} × ${item.quantity}</span>
+            <strong>${formatMoney(item.price * item.quantity)}</strong>
+        </div>
+    `).join("");
+
+    const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    checkoutTotal.textContent = "Tổng: " + formatMoney(total);
+}
+
+function closeCheckout() {
+    document.getElementById("checkoutModal").classList.remove("show");
+}
+
+function toggleAddress() {
+    const delivery = document.querySelector('input[name="delivery"]:checked').value;
+    const addressGroup = document.getElementById("addressGroup");
+
+    if (delivery === "Khách đến lấy") {
+        addressGroup.style.display = "none";
+    } else {
+        addressGroup.style.display = "block";
+    }
+}
+
+/* =====================================================
+   XÁC NHẬN ĐẶT MÓN
+===================================================== */
+function confirmOrder() {
+    const name = document.getElementById("customerName").value.trim();
+    const phone = document.getElementById("customerPhone").value.trim();
+    const address = document.getElementById("customerAddress").value.trim();
+    const note = document.getElementById("customerNote").value.trim();
+    const delivery = document.querySelector('input[name="delivery"]:checked').value;
+
+    if (!name) {
+        showToast("⚠️ Vui lòng nhập tên khách hàng!");
+        return;
+    }
+
+    if (!phone) {
+        showToast("⚠️ Vui lòng nhập số điện thoại!");
+        return;
+    }
+
+    const normalizedPhone = phone.replace(/[^0-9+]/g, "");
+    if (normalizedPhone.replace(/^\+84/, "0").length < 9) {
+        showToast("⚠️ Số điện thoại chưa hợp lệ!");
+        return;
+    }
+
+    if (delivery === "Giao tận nơi" && !address) {
+        showToast("⚠️ Vui lòng nhập địa chỉ giao hàng!");
+        return;
+    }
+
+    const orderNumber = "PGK" + Date.now().toString().slice(-6);
+    const createdAt = new Date();
+    const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+    let orderText =
+        "🧧 ĐƠN ĐẶT MÓN PHÚC GIA KÝ\n" +
+        "福家记\n" +
+        "====================\n" +
+        "Mã đơn: " + orderNumber + "\n" +
+        "⏰ Thời gian: " + createdAt.toLocaleString("vi-VN") + "\n\n" +
+        "👤 Khách hàng: " + name + "\n" +
+        "📞 SĐT: " + phone + "\n" +
+        "🚚 Hình thức: " + delivery + "\n";
+
+    if (delivery === "Giao tận nơi") {
+        orderText += "📍 Địa chỉ: " + address + "\n";
+    }
+
+    orderText += "\n🥢 MÓN ĐẶT:\n";
+
+    cart.forEach(item => {
+        orderText +=
+            "• " + item.name +
+            " × " + item.quantity +
+            " = " + formatMoney(item.price * item.quantity) + "\n";
+    });
+
+    orderText += "\n💰 TỔNG TIỀN MÓN: " + formatMoney(total) + "\n";
+    orderText += "🚚 Phí giao hàng: Quán xác nhận sau nếu khách chọn ship\n";
+
+    if (note) {
+        orderText += "📝 Ghi chú: " + note + "\n";
+    }
+
+    orderText +=
+        "\n====================\n" +
+        "Ẩm thực PHÚC GIA KÝ 福家记\n" +
+        "Gia truyền vị Hoa – Trọn vị sum vầy";
+
+    currentOrderText = orderText;
+    currentCustomerPhone = normalizedPhone;
+
+    // Lưu đơn gần nhất trên thiết bị để khách có thể dùng lại ngay cả khi tải lại trang.
+    const savedOrder = {
+        id: orderNumber,
+        createdAt: createdAt.toISOString(),
+        customerName: name,
+        customerPhone: phone,
+        delivery,
+        address,
+        note,
+        total,
+        text: orderText
+    };
+
+    storageSet("pgk_last_order", JSON.stringify(savedOrder));
+    storageSet("pgk_customer_name", name);
+    storageSet("pgk_customer_phone", phone);
+    storageSet("pgk_customer_address", address);
+
+    // Sao chép ngay khi khách xác nhận.
+    performCopy(orderText);
+
+    document.getElementById("orderCode").innerHTML = `
+        MÃ ĐƠN: ${orderNumber}
+        <br>
+        <small style="font-weight:normal;">
+            Nội dung đơn đã được chuẩn bị để gửi cho quán.
+        </small>
+    `;
+
+    closeCheckout();
+    document.getElementById("successModal").classList.add("show");
+}
+
+
+/* =====================================================
+   HÀM SAO CHÉP CHUẨN TRÊN CẢ ĐIỆN THOẠI VÀ MÁY TÍNH
+===================================================== */
+function performCopy(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).catch(() => {
+            fallbackCopyText(text);
+        });
+    } else {
+        fallbackCopyText(text);
+    }
+}
+
+function fallbackCopyText(text) {
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    textArea.style.top = "0";
+    textArea.style.left = "0";
+    textArea.style.position = "fixed";
+    textArea.style.opacity = "0";
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    try {
+        document.execCommand('copy');
+    } catch (err) {
+        console.error('Không thể copy', err);
+    }
+    document.body.removeChild(textArea);
+}
+
+function copyOrder() {
+    performCopy(currentOrderText);
+    showToast("📋 Đã sao chép toàn bộ đơn hàng!");
+}
+
+function getZaloUrl(phone) {
+    const clean = String(phone || "").replace(/[^0-9+]/g, "");
+    return `https://zalo.me/${clean}`;
+}
+
+function sendZalo() {
+    const zaloPhone = "0879465858";
+    performCopy(currentOrderText);
+
+    showToast("📋 Đã sao chép đơn. Đang mở Zalo...");
+
+    const zaloUrl = getZaloUrl(zaloPhone);
+
+    setTimeout(() => {
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            window.location.href = zaloUrl;
+        } else {
+            window.open(zaloUrl, "_blank", "noopener");
+        }
+    }, 350);
+}
+
+function sendSMS() {
+    performCopy(currentOrderText);
+
+    const phone = "0879465858";
+    const smsUrl = `sms:${phone}?body=${encodeURIComponent(currentOrderText)}`;
+
+    showToast("📱 Đã sao chép đơn. Đang mở SMS...");
+
+    setTimeout(() => {
+        window.location.href = smsUrl;
+    }, 350);
+}
+
+function callShop() {
+    const phone = "0879465858";
+    window.location.href = `tel:${phone}`;
+}
+
+async function shareOrder() {
+    if (!currentOrderText) return;
+
+    performCopy(currentOrderText);
+
+    if (navigator.share) {
+        try {
+            await navigator.share({
+                title: "Đơn hàng Phúc Gia Ký",
+                text: currentOrderText
+            });
+            return;
+        } catch (err) {
+            if (err && err.name === "AbortError") return;
+        }
+    }
+
+    showToast("📋 Đơn đã được sao chép. Bạn có thể dán để chia sẻ!");
+}
+
+function closeSuccess() {
+    document.getElementById("successModal").classList.remove("show");
+    cart = [];
+    storageRemove("pgk_cart");
+    updateCart();
+    renderMenu();
+}
+
+function showToast(message) {
+    const toast = document.getElementById("toast");
+    toast.textContent = message;
+    toast.classList.add("show");
+
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2200);
+}
+
+// Khôi phục thông tin khách hàng đã nhập lần trước
+(function restoreCustomerInfo() {
+    const fields = {
+        customerName: storageGet("pgk_customer_name") || "",
+        customerPhone: storageGet("pgk_customer_phone") || "",
+        customerAddress: storageGet("pgk_customer_address") || ""
+    };
+
+    Object.entries(fields).forEach(([id, value]) => {
+        const el = document.getElementById(id);
+        if (el) el.value = value;
+    });
+
+    const lastOrder = storageGet("pgk_last_order");
+    if (lastOrder) {
+        try {
+            const parsed = JSON.parse(lastOrder);
+            currentOrderText = parsed.text || "";
+            currentCustomerPhone = parsed.customerPhone || "";
+        } catch (err) {
+            console.warn("Không thể khôi phục đơn gần nhất.", err);
+        }
+    }
+})();
+
+// Khởi tạo trang
+renderMenu();
+updateCart();
+toggleAddress();
+</script>
+
+</body>
+</html>
