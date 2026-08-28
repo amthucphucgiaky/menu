@@ -1565,7 +1565,7 @@ function getZaloUrl(phone) {
 }
 
 function sendZalo() {
-    const zaloPhone = "0879465858";
+    const zaloPhone = "0382823872";
     performCopy(currentOrderText);
 
     showToast("📋 Đã sao chép đơn. Đang mở Zalo...");
@@ -1584,7 +1584,7 @@ function sendZalo() {
 function sendSMS() {
     performCopy(currentOrderText);
 
-    const phone = "0879465858";
+    const phone = "0382823872";
     const smsUrl = `sms:${phone}?body=${encodeURIComponent(currentOrderText)}`;
 
     showToast("📱 Đã sao chép đơn. Đang mở SMS...");
@@ -1595,7 +1595,7 @@ function sendSMS() {
 }
 
 function callShop() {
-    const phone = "0879465858";
+    const phone = "0382823872";
     window.location.href = `tel:${phone}`;
 }
 
