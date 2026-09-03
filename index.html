@@ -1,1111 +1,1077 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ẩm Thực PHÚC GIA KÝ - 福家记</title>
-    <!-- Google Fonts phong cách Trung Hoa / Á Đông -->
-    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+TC:wght@600;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-red: #8B0000;
-            --bright-red: #C0392B;
-            --gold: #D4AC0D;
-            --dark-gold: #B7950B;
-            --bg-wood: #2C1A1D;
-            --card-bg: #FFFDF9;
-            --text-dark: #2C2C2C;
-            --border-gold: #E5C158;
-        }
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Ẩm Thực PHÚC GIA KÝ - 福家记</title>
+ <!-- Google Fonts phong cách Trung Hoa / Á Đông -->
+ <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+TC:wght@600;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+ <style>
+ :root {
+ --primary-red: #8B0000;
+ --bright-red: #C0392B;
+ --gold: #D4AC0D;
+ --dark-gold: #B7950B;
+ --bg-wood: #2C1A1D;
+ --card-bg: #FFFDF9;
+ --text-dark: #2C2C2C;
+ --border-gold: #E5C158;
+ }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Roboto', sans-serif;
-        }
+ * {
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+ font-family: 'Roboto', sans-serif;
+ }
 
-        body {
-            background-color: var(--bg-wood);
-            background-image: radial-gradient(#3D2328 15%, transparent 16%), radial-gradient(#3D2328 15%, transparent 16%);
-            background-size: 60px 60px;
-            background-position: 0 0, 30px 30px;
-            color: var(--text-dark);
-            padding-bottom: 100px;
-        }
+ body {
+ background-color: var(--bg-wood);
+ background-image: radial-gradient(#3D2328 15%, transparent 16%), radial-gradient(#3D2328 15%, transparent 16%);
+ background-size: 60px 60px;
+ background-position: 0 0, 30px 30px;
+ color: var(--text-dark);
+ padding-bottom: 100px;
+ }
 
-        /* HEADER & LOGO */
-        header {
-            background: linear-gradient(180deg, #5C0000 0%, var(--primary-red) 100%);
-            border-bottom: 4px solid var(--gold);
-            text-align: center;
-            padding: 20px 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-            position: relative;
-        }
+ /* HEADER & LOGO */
+ header {
+ background: linear-gradient(180deg, #5C0000 0%, var(--primary-red) 100%);
+ border-bottom: 4px solid var(--gold);
+ text-align: center;
+ padding: 20px 15px;
+ box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+ position: relative;
+ }
 
-        .logo-container {
-            display: inline-block;
-            line-height: 0;
-        }
+ .logo-container {
+ display: inline-block;
+ line-height: 0;
+ }
 
-        .logo-container img {
-            width: 100px;
-            height: 100px;
-            object-fit: contain;
-            border-radius: 50%;
-            border: 3px solid var(--gold);
-            background-color: #FFF;
-            box-shadow: 0 0 12px rgba(212, 172, 13, 0.6);
-        }
+ .logo-container img {
+ width: 100px;
+ height: 100px;
+ object-fit: contain;
+ border-radius: 50%;
+ border: 3px solid var(--gold);
+ background-color: #FFF;
+ box-shadow: 0 0 12px rgba(212, 172, 13, 0.6);
+ }
 
-        .shop-title {
-            font-family: 'Noto Serif TC', serif;
-            color: var(--gold);
-            font-size: 1.8rem;
-            margin-top: 10px;
-            text-shadow: 2px 2px 4px #000;
-        }
+ .shop-title {
+ font-family: 'Noto Serif TC', serif;
+ color: var(--gold);
+ font-size: 1.8rem;
+ margin-top: 10px;
+ text-shadow: 2px 2px 4px #000;
+ }
 
-        .shop-sub {
-            font-family: 'Ma Shan Zheng', cursive;
-            color: #FFF;
-            font-size: 1.5rem;
-            letter-spacing: 2px;
-        }
+ .shop-sub {
+ font-family: 'Ma Shan Zheng', cursive;
+ color: #FFF;
+ font-size: 1.5rem;
+ letter-spacing: 2px;
+ }
 
-        /* BỘ LỌC & TÌM KIẾM */
-        .controls-container {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background-color: var(--primary-red);
-            padding: 10px 15px;
-            border-bottom: 2px solid var(--gold);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        }
+ /* BỘ LỌC & TÌM KIẾM */
+ .controls-container {
+ position: sticky;
+ top: 0;
+ z-index: 100;
+ background-color: var(--primary-red);
+ padding: 10px 15px;
+ border-bottom: 2px solid var(--gold);
+ box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+ }
 
-        .search-box input {
-            width: 100%;
-            padding: 10px 15px;
-            border-radius: 20px;
-            border: 2px solid var(--gold);
-            background-color: #FFFDF9;
-            font-size: 0.95rem;
-            outline: none;
-        }
+ .search-box input {
+ width: 100%;
+ padding: 10px 15px;
+ border-radius: 20px;
+ border: 2px solid var(--gold);
+ background-color: #FFFDF9;
+ font-size: 0.95rem;
+ outline: none;
+ }
 
-        .categories-scroll {
-            display: flex;
-            overflow-x: auto;
-            gap: 8px;
-            margin-top: 10px;
-            padding-bottom: 5px;
-            white-space: nowrap;
-        }
+ .categories-scroll {
+ display: flex;
+ overflow-x: auto;
+ gap: 8px;
+ margin-top: 10px;
+ padding-bottom: 5px;
+ white-space: nowrap;
+ }
 
-        .categories-scroll::-webkit-scrollbar {
-            height: 4px;
-        }
-        .categories-scroll::-webkit-scrollbar-thumb {
-            background: var(--gold);
-            border-radius: 10px;
-        }
+ .categories-scroll::-webkit-scrollbar {
+ height: 4px;
+ }
+ .categories-scroll::-webkit-scrollbar-thumb {
+ background: var(--gold);
+ border-radius: 10px;
+ }
 
-        .cat-btn {
-            background-color: #5C0000;
-            color: #FFF;
-            border: 1px solid var(--gold);
-            padding: 6px 14px;
-            border-radius: 15px;
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
+ .cat-btn {
+ background-color: #5C0000;
+ color: #FFF;
+ border: 1px solid var(--gold);
+ padding: 6px 14px;
+ border-radius: 15px;
+ font-size: 0.85rem;
+ cursor: pointer;
+ transition: all 0.2s;
+ }
 
-        .cat-btn.active, .cat-btn:hover {
-            background-color: var(--gold);
-            color: var(--primary-red);
-            font-weight: bold;
-        }
+ .cat-btn.active, .cat-btn:hover {
+ background-color: var(--gold);
+ color: var(--primary-red);
+ font-weight: bold;
+ }
 
-        /* DANH SÁCH MÓN ĐẠNG LƯỚI */
-        .container {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 0 10px;
-        }
+ /* DANH SÁCH MÓN ĐẠNG LƯỚI */
+ .container {
+ max-width: 1200px;
+ margin: 20px auto;
+ padding: 0 10px;
+ }
 
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-        }
+ .menu-grid {
+ display: grid;
+ grid-template-columns: repeat(2, 1fr);
+ gap: 12px;
+ }
 
-        @media (min-width: 768px) {
-            .menu-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 20px;
-            }
-        }
+ @media (min-width: 768px) {
+ .menu-grid {
+ grid-template-columns: repeat(4, 1fr);
+ gap: 20px;
+ }
+ }
 
-        .food-card {
-            background-color: var(--card-bg);
-            border: 2px solid var(--border-gold);
-            border-radius: 8px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            transition: transform 0.2s;
-        }
+ .food-card {
+ background-color: var(--card-bg);
+ border: 2px solid var(--border-gold);
+ border-radius: 8px;
+ overflow: hidden;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+ position: relative;
+ box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+ transition: transform 0.2s;
+ }
 
-        .food-card:hover {
-            transform: translateY(-3px);
-        }
+ .food-card:hover {
+ transform: translateY(-3px);
+ }
 
-        .food-img {
-            width: 100%;
-            height: 120px;
-            object-fit: cover;
-            border-bottom: 1px solid var(--border-gold);
-        }
+ .food-img {
+ width: 100%;
+ height: 120px;
+ object-fit: cover;
+ border-bottom: 1px solid var(--border-gold);
+ }
 
-        .food-info {
-            padding: 8px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
+ .food-info {
+ padding: 8px;
+ flex-grow: 1;
+ display: flex;
+ flex-direction: column;
+ }
 
-        .food-title {
-            font-size: 0.95rem;
-            font-weight: bold;
-            color: var(--primary-red);
-            margin-bottom: 4px;
-        }
+ .food-title {
+ font-size: 0.95rem;
+ font-weight: bold;
+ color: var(--primary-red);
+ margin-bottom: 4px;
+ }
 
-        .food-desc {
-            font-size: 0.75rem;
-            color: #666;
-            margin-bottom: 8px;
-            flex-grow: 1;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
+ .food-desc {
+ font-size: 0.75rem;
+ color: #666;
+ margin-bottom: 8px;
+ flex-grow: 1;
+ display: -webkit-box;
+ -webkit-line-clamp: 2;
+ -webkit-box-orient: vertical;
+ overflow: hidden;
+ }
 
-        .food-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 5px;
-        }
+ .food-bottom {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ margin-top: 5px;
+ }
 
-        .food-price {
-            font-weight: bold;
-            color: var(--bright-red);
-            font-size: 0.9rem;
-        }
+ .food-price {
+ font-weight: bold;
+ color: var(--bright-red);
+ font-size: 0.9rem;
+ }
 
-        .btn-add {
-            background-color: var(--primary-red);
-            color: var(--gold);
-            border: 1px solid var(--gold);
-            padding: 4px 10px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 0.8rem;
-        }
+ .btn-add {
+ background-color: var(--primary-red);
+ color: var(--gold);
+ border: 1px solid var(--gold);
+ padding: 4px 10px;
+ border-radius: 4px;
+ cursor: pointer;
+ font-weight: bold;
+ font-size: 0.8rem;
+ }
 
-        .out-of-stock {
-            opacity: 0.6;
-            filter: grayscale(0.8);
-        }
-        .badge-out {
-            position: absolute;
-            top: 5px; right: 5px;
-            background: #000; color: #FFF;
-            font-size: 0.65rem; padding: 2px 6px; border-radius: 3px;
-        }
+ .out-of-stock {
+ opacity: 0.6;
+ filter: grayscale(0.8);
+ }
+ .badge-out {
+ position: absolute;
+ top: 5px; right: 5px;
+ background: #000; color: #FFF;
+ font-size: 0.65rem; padding: 2px 6px; border-radius: 3px;
+ }
 
-        /* NÚT GIỎ HÀNG NỔI */
-        .cart-float-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: linear-gradient(135deg, var(--gold), var(--dark-gold));
-            color: var(--primary-red);
-            padding: 12px 20px;
-            border-radius: 30px;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-            cursor: pointer;
-            z-index: 999;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            border: 2px solid #FFF;
-        }
+ /* NÚT GIỎ HÀNG NỔI */
+ .cart-float-btn {
+ position: fixed;
+ bottom: 20px;
+ right: 20px;
+ background: linear-gradient(135deg, var(--gold), var(--dark-gold));
+ color: var(--primary-red);
+ padding: 12px 20px;
+ border-radius: 30px;
+ font-weight: bold;
+ box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+ cursor: pointer;
+ z-index: 999;
+ display: flex;
+ align-items: center;
+ gap: 8px;
+ border: 2px solid #FFF;
+ }
 
-        .cart-badge {
-            background-color: var(--primary-red);
-            color: #FFF;
-            border-radius: 50%;
-            padding: 2px 7px;
-            font-size: 0.8rem;
-        }
+ .cart-badge {
+ background-color: var(--primary-red);
+ color: #FFF;
+ border-radius: 50%;
+ padding: 2px 7px;
+ font-size: 0.8rem;
+ }
 
-        /* MODAL GIỎ HÀNG */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.7);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
+ /* MODAL GIỎ HÀNG */
+ .modal {
+ display: none;
+ position: fixed;
+ top: 0; left: 0; width: 100%; height: 100%;
+ background: rgba(0,0,0,0.7);
+ z-index: 1000;
+ justify-content: center;
+ align-items: center;
+ }
 
-        .modal-content {
-            background: var(--card-bg);
-            width: 95%;
-            max-width: 550px;
-            max-height: 90vh;
-            border-radius: 10px;
-            border: 3px solid var(--gold);
-            overflow-y: auto;
-            padding: 15px;
-            position: relative;
-        }
+ .modal-content {
+ background: var(--card-bg);
+ width: 95%;
+ max-width: 550px;
+ max-height: 90vh;
+ border-radius: 10px;
+ border: 3px solid var(--gold);
+ overflow-y: auto;
+ padding: 15px;
+ position: relative;
+ }
 
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid var(--gold);
-            padding-bottom: 8px;
-            color: var(--primary-red);
-        }
+ .modal-header {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ border-bottom: 2px solid var(--gold);
+ padding-bottom: 8px;
+ color: var(--primary-red);
+ }
 
-        .close-btn {
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--primary-red);
-        }
+ .close-btn {
+ font-size: 1.5rem;
+ cursor: pointer;
+ color: var(--primary-red);
+ }
 
-        .cart-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 8px 0;
-            border-bottom: 1px dashed #DDD;
-        }
+ .cart-item {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 8px 0;
+ border-bottom: 1px dashed #DDD;
+ }
 
-        .qty-btn {
-            width: 26px; height: 26px;
-            background: var(--primary-red);
-            color: #FFF;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-        }
+ .qty-btn {
+ width: 26px; height: 26px;
+ background: var(--primary-red);
+ color: #FFF;
+ border: none;
+ border-radius: 4px;
+ cursor: pointer;
+ font-weight: bold;
+ }
 
-        .customer-form {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
+ .customer-form {
+ margin-top: 15px;
+ display: flex;
+ flex-direction: column;
+ gap: 10px;
+ }
 
-        .customer-form input, .customer-form textarea {
-            width: 100%;
-            padding: 8px 10px;
-            border: 1px solid #CCC;
-            border-radius: 4px;
-            font-size: 0.9rem;
-        }
+ .customer-form input, .customer-form textarea {
+ width: 100%;
+ padding: 8px 10px;
+ border: 1px solid #CCC;
+ border-radius: 4px;
+ font-size: 0.9rem;
+ }
 
-        .radio-group {
-            display: flex;
-            gap: 20px;
-            background: #FFF0F0;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #FFCDD2;
-        }
+ .radio-group {
+ display: flex;
+ gap: 20px;
+ background: #FFF0F0;
+ padding: 10px;
+ border-radius: 5px;
+ border: 1px solid #FFCDD2;
+ }
 
-        .radio-option {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
+ .radio-option {
+ display: flex;
+ align-items: center;
+ gap: 6px;
+ cursor: pointer;
+ font-size: 0.9rem;
+ font-weight: 500;
+ }
 
-        .btn-confirm {
-            background: var(--primary-red);
-            color: var(--gold);
-            border: 1px solid var(--gold);
-            padding: 10px;
-            font-size: 1rem;
-            font-weight: bold;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
-        }
+ .btn-confirm {
+ background: var(--primary-red);
+ color: var(--gold);
+ border: 1px solid var(--gold);
+ padding: 10px;
+ font-size: 1rem;
+ font-weight: bold;
+ border-radius: 5px;
+ cursor: pointer;
+ width: 100%;
+ }
 
-        .share-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 8px;
-            margin-top: 10px;
-        }
+ .share-grid {
+ display: grid;
+ grid-template-columns: repeat(2, 1fr);
+ gap: 8px;
+ margin-top: 10px;
+ }
 
-        .btn-share {
-            padding: 10px 8px;
-            border-radius: 5px;
-            border: none;
-            color: #FFF;
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 0.85rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-        }
+ .btn-share {
+ padding: 10px 8px;
+ border-radius: 5px;
+ border: none;
+ color: #FFF;
+ font-weight: bold;
+ cursor: pointer;
+ font-size: 0.85rem;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ gap: 5px;
+ }
 
-        .btn-copy { background: #333; }
-        .btn-zalo { background: #0068FF; }
-        .btn-mes { background: #0084FF; }
-        .btn-sms { background: #27AE60; }
-        .btn-call { background: #C0392B; grid-column: span 2; }
-        .btn-native { background: #8E44AD; grid-column: span 2; }
+ .btn-copy { background: #333; }
+ .btn-zalo { background: #0068FF; }
+ .btn-mes { background: #0084FF; }
+ .btn-sms { background: #27AE60; }
+ .btn-call { background: #C0392B; grid-column: span 2; }
+ .btn-native { background: #8E44AD; grid-column: span 2; }
 
-        .btn-modal-close {
-            background: #7F8C8D;
-            color: #FFF;
-            width: 100%;
-            padding: 10px;
-            margin-top: 15px;
-            border: none;
-            border-radius: 5px;
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 0.95rem;
-        }
+ .btn-modal-close {
+ background: #7F8C8D;
+ color: #FFF;
+ width: 100%;
+ padding: 10px;
+ margin-top: 15px;
+ border: none;
+ border-radius: 5px;
+ font-weight: bold;
+ cursor: pointer;
+ font-size: 0.95rem;
+ }
 
-        .summary-box {
-            background: #FFF0F0;
-            padding: 10px;
-            border-radius: 5px;
-            margin-top: 10px;
-            border: 1px solid #FFCDD2;
-        }
+ .summary-box {
+ background: #FFF0F0;
+ padding: 10px;
+ border-radius: 5px;
+ margin-top: 10px;
+ border: 1px solid #FFCDD2;
+ }
 
-        /* KHUYẾN MÃI BOX */
-        .promo-box {
-            display: flex;
-            gap: 8px;
-            margin-top: 10px;
-        }
-        .promo-box input {
-            flex-grow: 1;
-            padding: 8px 10px;
-            border: 1px solid var(--gold);
-            border-radius: 4px;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-        }
-        .promo-box button {
-            background: var(--primary-red);
-            color: var(--gold);
-            border: 1px solid var(--gold);
-            padding: 8px 15px;
-            font-weight: bold;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.85rem;
-        }
-        .promo-message {
-            font-size: 0.8rem;
-            margin-top: 4px;
-            font-weight: 500;
-        }
-    </style>
+ /* KHUYẾN MÃI BOX */
+ .promo-box {
+ display: flex;
+ gap: 8px;
+ margin-top: 10px;
+ }
+ .promo-box input {
+ flex-grow: 1;
+ padding: 8px 10px;
+ border: 1px solid var(--gold);
+ border-radius: 4px;
+ font-size: 0.85rem;
+ text-transform: uppercase;
+ }
+ .promo-box button {
+ background: var(--primary-red);
+ color: var(--gold);
+ border: 1px solid var(--gold);
+ padding: 8px 15px;
+ font-weight: bold;
+ border-radius: 4px;
+ cursor: pointer;
+ font-size: 0.85rem;
+ }
+ .promo-message {
+ font-size: 0.8rem;
+ margin-top: 4px;
+ font-weight: 500;
+ }
+ </style>
 </head>
 <body>
 
-    <!-- HEADER LOGO -->
-    <header>
-        <div class="logo-container">
-            <img id="shop-logo" src="https://raw.githubusercontent.com/amthucphucgiaky/menu/refs/heads/main/Logo.png" alt="Ẩm Thực Phúc Gia Ký Logo">
-        </div>
-        <h1 class="shop-title">ẨM THỰC PHÚC GIA KÝ</h1>
-        <div class="shop-sub">福 家 记</div>
-    </header>
-
-    <!-- BỘ LỌC VÀ TÌM KIẾM -->
-    <div class="controls-container">
-        <div class="search-box">
-            <input type="text" id="search-input" placeholder="🔎 Tìm món ăn hoặc mô tả..." oninput="filterMenu()">
-        </div>
-        <div class="categories-scroll" id="cat-list"></div>
-    </div>
-
-    <!-- DANH SÁCH MÓN ĐẠNG LƯỚI -->
-    <div class="container">
-        <div class="menu-grid" id="menu-grid"></div>
-    </div>
-
-    <!-- NÚT GIỎ HÀNG NỔI -->
-    <div class="cart-float-btn" onclick="openCart()">
-        🛒 <span>Giỏ hàng</span>
-        <span class="cart-badge" id="cart-count">0</span>
-    </div>
-
-    <!-- MODAL GIỎ HÀNG & ĐẶT HÀNG -->
-    <div class="modal" id="cart-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>🛒 Giỏ Hàng PHÚC GIA KÝ (福家记)</h3>
-                <span class="close-btn" onclick="closeCart()">&times;</span>
-            </div>
-
-            <div id="cart-items-list" style="margin-top: 10px;"></div>
-
-            <!-- KHU VỰC NHẬP MÃ KHUYẾN MÃI -->
-            <div class="promo-box">
-                <input type="text" id="promo-code-input" placeholder="Mã khuyến mãi (VD: CHUCQUYKHACHNGONMIENG)">
-                <button type="button" onclick="applyPromoCode()">Áp dụng</button>
-            </div>
-            <div class="promo-message" id="promo-msg"></div>
-
-            <div class="summary-box">
-                <div style="display: flex; justify-content: space-between; font-size: 0.95rem; color: #555;">
-                    <span>Tạm tính:</span>
-                    <strong id="sub-total">0đ</strong>
-                </div>
-                <div id="discount-row" style="display: none; justify-content: space-between; font-size: 0.95rem; color: #27AE60; margin-top: 4px;">
-                    <span>Giảm giá (<span id="discount-percent">0</span>%):</span>
-                    <strong id="discount-amount">-0đ</strong>
-                </div>
-                <hr style="border: 0; border-top: 1px dashed #FFCDD2; margin: 6px 0;">
-                <div style="display: flex; justify-content: space-between; font-size: 1.1rem; color: var(--primary-red);">
-                    <span>TỔNG CỘNG MÓN:</span>
-                    <strong id="grand-total">0đ</strong>
-                </div>
-            </div>
-
-            <!-- THÔNG TIN KHÁCH HÀNG -->
-            <form class="customer-form" id="order-form" onsubmit="event.preventDefault(); createOrder();">
-                <h4 style="color: var(--primary-red); margin-top: 5px;">📝 Thông tin nhận hàng</h4>
-                <input type="text" id="cust-name" placeholder="Họ và tên (*)" required oninput="saveCustomerInfo()">
-                <input type="tel" id="cust-phone" placeholder="Số điện thoại (*)" required oninput="saveCustomerInfo()">
-                
-                <div class="radio-group">
-                    <label class="radio-option">
-                        <input type="radio" name="deliveryMethod" value="SHIP" checked onchange="toggleDeliveryMode()"> 🚚 Giao tận nơi (Có phí ship)
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="deliveryMethod" value="PICKUP" onchange="toggleDeliveryMode()"> 🏪 Khách đến lấy
-                    </label>
-                </div>
-                
-                <div id="address-container">
-                    <input type="text" id="cust-address" placeholder="Địa chỉ nhận hàng (*)" required oninput="saveCustomerInfo()">
-                </div>
-                
-                <textarea id="cust-note" rows="2" placeholder="Ghi chú thêm (ví dụ: Không cay, ít hành...)"></textarea>
-
-                <button type="submit" class="btn-confirm" id="submit-btn">📲 XÁC NHẬN ĐẶT MÓN</button>
-            </form>
-
-            <!-- KHU VỰC SAU KHI TẠO ĐƠN -->
-            <div id="order-success-area" style="display: none; margin-top: 15px; border-top: 2px dashed var(--gold); padding-top: 10px;">
-                <h4 style="color: #27AE60; text-align: center;">✅ Đã tạo đơn thành công!</h4>
-                <p style="font-size: 0.8rem; color: #555; text-align: center;">Đơn hàng đã được COPY, khách có thể mở ứng dụng để gởi hoặc chọn "Chia sẻ đơn hàng.".</p>
-                
-                <textarea id="order-text-output" rows="6" readonly style="width: 100%; margin-top: 5px; font-size: 0.8rem; background: #F9F9F9; padding: 5px;"></textarea>
-
-                <div class="share-grid">
-                    <button class="btn-share btn-copy" onclick="copyOrderText(true)">📋 Sao chép lại đơn hàng</button>
-                    <button class="btn-share btn-zalo" onclick="sendZalo()">💬 Mở Zalo & Dán</button>
-                    <button class="btn-share btn-mes" onclick="sendMessenger()">💬 Mở Messenger & Dán</button>
-                    <button class="btn-share btn-sms" onclick="sendSMS()">📱 Gửi SMS</button>
-                    <button class="btn-share btn-call" onclick="callShop()">☎️ Gọi trực tiếp cho quán</button>
-                    <button class="btn-share btn-native" onclick="nativeShare()">📤 Chia sẻ đơn hàng (Khuyên dùng)</button>
-                </div>
-            </div>
-
-            <button class="btn-modal-close" onclick="closeCart()">❌ Đóng</button>
-        </div>
-    </div>
-
-    <script>
-        const SHOP_PHONE = "0382823872"; 
-        const MESSENGER_LINK = "https://m.me/PhucGiaKyCuisine";
-
-        // DANH MỤC THỰC ĐƠN
-        const categories = [
-            "Tất cả", "Món Hấp", "Món Chiên", "Mì Tươi", 
-            "Miến Dong", "Nui Ống", "Súp Nước", "Món Khác", 
-            "Món Tẩm Bổ", "Nước Giải Khác"
-        ];
-
-        // =========================================================================
-        // DANH SÁCH ĐỦ 200 MÓN ĂN - BẠN CÓ THỂ CHỈNH SỬA TỪNG MÓN DỄ DÀNG TẠI ĐÂY
-        // =========================================================================
-        const menuData = [
-            // --- MÓN HẤP (40 món: ID 1 -> 40) ---
-            { id: 1, name: "Há Cảo Tôm - Hấp", category: "Món Hấp", price: 30000, desc: "Vỏ mỏng mềm, nhân tôm tươi giòn ngọt tự nhiên.(6 viên nhỏ)", image: "https://github.com/amthucphucgiaky/menu/blob/main/H%C3%A1%20C%E1%BA%A3o%20T%C3%B4m.png?raw=true", isOut: false },
-            { id: 2, name: "Há Cảo Thịt - Hấp", category: "Món Hấp", price: 30000, desc: "Vỏ mỏng mềm, nhân thịt đậm đà, thơm mọng.(6 viên nhỏ)", image: "https://github.com/amthucphucgiaky/menu/blob/main/H%C3%A1%20C%E1%BA%A3o%20Th%E1%BB%8Bt.png?raw=true", isOut: false },
-            { id: 3, name: "Há Cảo Bó Xôi - Hấp", category: "Món Hấp", price: 35000, desc: "Vỏ mỏng mềm, nhân rau bó xôi thanh nhẹ.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/H%C3%A1%20C%E1%BA%A3o%20B%C3%B3%20X%C3%B4i%20-%20H%E1%BA%A5p%20(4%20vi%C3%AAn%20trung).png?raw=true", isOut: true },
-            { id: 4, name: "Há Cảo Hẹ - Hấp", category: "Món Hấp", price: 35000, desc: "Vỏ mỏng mềm, nhân hẹ thơm nồng, thanh nhẹ.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/H%C3%A1%20C%E1%BA%A3o%20H%E1%BA%B9%20-%20H%E1%BA%A5p%20(4%20vi%C3%AAn%20trung).png?raw=true", isOut: false },
-            { id: 5, name: "Há Cảo Cà Rốt - Hấp", category: "Món Hấp", price: 35000, desc: "Vỏ mỏng mềm, nhân cà rốt ngọt thanh tự nhiên.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/H%C3%A1%20C%E1%BA%A3o%20C%C3%A0%20R%E1%BB%91t%20-%20H%E1%BA%A5p%20(4%20vi%C3%AAn%20trung).jpg?raw=true", isOut: true },
-            { id: 6, name: "Há Cảo Bắp - Hấp", category: "Món Hấp", price: 35000, desc: "Vỏ mỏng mềm, nhân bắp ngọt thanh tự nhiên.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/H%C3%A1%20C%E1%BA%A3o%20B%E1%BA%AFp%20-%20H%E1%BA%A5p%20(4%20vi%C3%AAn%20trung).png?raw=true", isOut: false },
-            { id: 7, name: "Há Cảo Nấm Đông Cô - Hấp", category: "Món Hấp", price: 35000, desc: "Vỏ mỏng mềm, nhân nấm đông cô thơm ngọt, đậm đà.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/H%C3%A1%20C%E1%BA%A3o%20N%E1%BA%A5m%20%C4%90%C3%B4ng%20C%C3%B4.png?raw=true", isOut: false },
-            { id: 8, name: "Há Cảo Thủy Tinh Đậu - Hấp", category: "Món Hấp", price: 35000, desc: "Vỏ thủy tinh trong suốt, nhân đậu thơm bùi.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/H%C3%A1%20C%E1%BA%A3o%20Th%E1%BB%A7y%20Tinh%20%C4%90%E1%BA%ADu%20-%20H%E1%BA%A5p%20(4%20vi%C3%AAn%20trung).jpg?raw=true", isOut: true },
-            { id: 9, name: "Há Cảo Trứng Muối - Hấp", category: "Món Hấp", price: 35000, desc: "Vỏ mỏng mềm, nhân trứng muối béo bùi đậm đà.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/H%C3%A1%20C%E1%BA%A3o%20Tr%E1%BB%A9ng%20Mu%E1%BB%91i%20-%20H%E1%BA%A5p%20(4%20vi%C3%AAn%20trung).jpg?raw=true", isOut: false },
-            { id: 10, name: "Há Cảo Than Tre - Hấp", category: "Món Hấp", price: 35000, desc: "Vỏ than tre độc đáo, nhân đậm đà, thơm ngọt.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/H%C3%A1%20C%E1%BA%A3o%20Than%20Tre%20-%20H%E1%BA%A5p%20(4%20vi%C3%AAn%20trung).jpg?raw=true", isOut: false },
-            { id: 11, name: "Há Cảo Thanh Cua - Hấp", category: "Món Hấp", price: 35000, desc: "Vỏ mỏng mềm, nhân thanh cua ngọt thanh, đậm đà.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/H%C3%A1%20C%E1%BA%A3o%20Thanh%20Cua%20-%20H%E1%BA%A5p%20(4%20vi%C3%AAn%20trung).png?raw=true", isOut: false },
-            { id: 12, name: "Há Cảo Gà - Hấp", category: "Món Hấp", price: 35000, desc: "Vỏ mỏng mềm, nhân gà thơm ngọt, đậm đà.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/H%C3%A1%20C%E1%BA%A3o%20G%C3%A0%20-%20H%E1%BA%A5p%20(4%20vi%C3%AAn%20trung).png?raw=true", isOut: false },
-            { id: 13, name: "Há Cảo Mực - Hấp", category: "Món Hấp", price: 35000, desc: "Vỏ mỏng mềm, nhân mực giòn ngọt, đậm đà.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/H%C3%A1%20C%E1%BA%A3o%20M%E1%BB%B1c%20-%20H%E1%BA%A5p%20(4%20vi%C3%AAn%20trung).png?raw=true", isOut: false },
-            { id: 14, name: "Há Cảo Sò Điệp - Hấp", category: "Món Hấp", price: 35000, desc: "Vỏ mỏng mềm, nhân sò điệp ngọt thanh, đậm đà.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/H%C3%A1%20C%E1%BA%A3o%20S%C3%B2%20%C4%90i%E1%BB%87p%20-%20H%E1%BA%A5p%20(4%20vi%C3%AAn%20trung).png?raw=true", isOut: false },
-            { id: 15, name: "Xíu Mại Thanh Cua - Hấp", category: "Món Hấp", price: 35000, desc: "Nhân thanh cua ngọt thanh, vỏ mỏng thơm mềm.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/X%C3%ADu%20M%E1%BA%A1i%20Thanh%20Cua%20-%20H%E1%BA%A5p%20(4%20vi%C3%AAn%20trung).png?raw=true", isOut: false },
-            { id: 16, name: "Xíu Mại Tôm - Hấp", category: "Món Hấp", price: 35000, desc: "Nhân tôm giòn ngọt, vỏ mỏng thơm mọng.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/X%C3%ADu%20M%E1%BA%A1i%20T%C3%B4m%20-%20H%E1%BA%A5p%20(4%20vi%C3%AAn%20trung).png?raw=true", isOut: false },
-            { id: 17, name: "Xíu Mại Trứng Cút - Hấp", category: "Món Hấp", price: 35000, desc: "Nhân trứng cút béo bùi, vỏ mỏng thơm mềm.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/X%C3%ADu%20M%E1%BA%A1i%20Tr%E1%BB%A9ng%20C%C3%BAt%20-%20H%E1%BA%A5p%20(4%20vi%C3%AAn%20trung).png?raw=true", isOut: false },
-            { id: 18, name: "Xíu Mại Trứng Muối - Hấp", category: "Món Hấp", price: 35000, desc: "Nhân trứng muối béo bùi, vỏ mỏng thơm mềm.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/X%C3%ADu%20M%E1%BA%A1i%20Tr%E1%BB%A9ng%20Mu%E1%BB%91i%20-%20H%E1%BA%A5p%20(4%20vi%C3%AAn%20trung).png?raw=true", isOut: false },
-            { id: 19, name: "Xíu Mại Rong Biển Thanh Cua - Hấp", category: "Món Hấp", price: 35000, desc: "Nhân thanh cua ngọt, cuộn rong biển thơm mềm.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/X%C3%ADu%20M%E1%BA%A1i%20Rong%20Bi%E1%BB%83n%20Thanh%20Cua%20-%20H%E1%BA%A5p.jpg?raw=true", isOut: true },
-            { id: 20, name: "Sủi Cảo Tôm - Hấp", category: "Món Hấp", price: 45000, desc: "Vỏ mỏng mềm, nhân tôm tươi giòn ngọt.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/S%E1%BB%A7i%20C%E1%BA%A3o%20M%E1%BB%B1c%20-%20Chi%C3%AAn.png?raw=true", isOut: false },
-            { id: 21, name: "Sủi Cảo Mực - Hấp", category: "Món Hấp", price: 45000, desc: "Vỏ mỏng mềm, nhân mực tươi giòn ngọt.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/S%E1%BB%A7i%20C%E1%BA%A3o%20M%E1%BB%B1c%20-%20Chi%C3%AAn.png?raw=true", isOut: false },
-            { id: 22, name: "Há Cảo Rau Cần Tôm Thịt PGK-22", category: "Món Hấp", price: 45000, desc: "Rau cần thơm giòn giảm cảm giác ngấy.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/S%E1%BB%A7i%20C%E1%BA%A3o%20M%E1%BB%B1c%20-%20Chi%C3%AAn.png?raw=true", isOut: false },
-            { id: 23, name: "Bánh Bao Ca-pô Thịt Nướng PGK-23", category: "Món Hấp", price: 45000, desc: "Thịt nướng sốt xá xíu đậm đà thơm ngậy.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/S%E1%BB%A7i%20C%E1%BA%A3o%20M%E1%BB%B1c%20-%20Chi%C3%AAn.png?raw=true", isOut: false },
-            { id: 24, name: "Há Cảo Bào Ngư Sốt X.O PGK-24", category: "Món Hấp", price: 45000, desc: "Sốt X.O hải sản đắt giá đậm vị cay nhẹ.(4 viên trung)", image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300", isOut: false },
-            { id: 25, name: "Bánh Bao Sữa Tươi Tuổi Thơ PGK-25", category: "Món Hấp", price: 45000, desc: "Vỏ xốp mềm thơm phức mùi sữa tươi nguyên chất.(4 viên trung)", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
-            { id: 26, name: "Há Cảo Mực Cây Sốt Sa Tế PGK-26", category: "Món Hấp", price: 48000, desc: "Mực giòn ngọt sần sật ướp sốt sa tế đặc chế.(4 viên trung)", image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300", isOut: false },
-            { id: 27, name: "Xíu Mại Bò Mỹ Sốt Cà PGK-27", category: "Món Hấp", price: 50000, desc: "Thịt bò Mỹ xay mềm mọng đắm trong sốt cà chua.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
-            { id: 28, name: "Bánh Xếp Hấp Tôm Bắp Ngọt PGK-28", category: "Món Hấp", price: 42000, desc: "Bắp ngọt giòn tan hòa quyện nhân tôm thịt tươi.(4 viên trung)", image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300", isOut: false },
-            { id: 29, name: "Há Cảo Sò Điệp Sốt Tiêu Đen PGK-29", category: "Món Hấp", price: 58000, desc: "Sò điệp béo ngọt quyện tiêu đen Phú Quốc thơm nức.(4 viên trung)", image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300", isOut: false },
-            { id: 30, name: "Xíu Mại Cua Tuyết Thượng Hạng PGK-30", category: "Món Hấp", price: 60000, desc: "Thịt cua tuyết ngọt đậm đà bổ dưỡng.(4 viên trung)", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
-            { id: 31, name: "Bánh Bao Dừa Dứa Lá Nếp PGK-31", category: "Món Hấp", price: 30000, desc: "Hương thơm tự nhiên từ lá nếp tươi nguyên chất.(4 viên trung)", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
-            { id: 32, name: "Há Cảo Gà Nấm Hương PGK-32", category: "Món Hấp", price: 42000, desc: "Thịt gà xé nhỏ cùng nấm hương rừng thơm phức.(4 viên trung)", image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300", isOut: false },
-            { id: 33, name: "Há Cảo Ngũ Sắc May Mắn PGK-33", category: "Món Hấp", price: 52000, desc: "5 màu sắc tự nhiên đại diện cho Ngũ Hành.(4 viên trung)", image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300", isOut: false },
-            { id: 34, name: "Bánh Bao Trứng Muối Cơm Cháy PGK-34", category: "Món Hấp", price: 38000, desc: "Sự kết hợp độc đáo giữa béo ngậy và giòn tan.(4 viên trung)", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
-            { id: 35, name: "Xíu Mại Heo Rừng Hấp Ống Tre PGK-35", category: "Món Hấp", price: 55000, desc: "Thịt heo rừng săn chắc hấp trong ống tre thơm mát.(4 viên trung)", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
-            { id: 36, name: "Há Cảo Cá Hồi Sốt Bơ Tỏi PGK-36", category: "Món Hấp", price: 62000, desc: "Cá hồi Nauy béo ngậy giàu Omega-3 bổ dưỡng.(4 viên trung)", image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300", isOut: false },
-            { id: 37, name: "Bánh Bao Trà Xanh Nhân Đậu Đỏ PGK-37", category: "Món Hấp", price: 32000, desc: "Trà xanh Matcha chuẩn Nhật quyện đậu đỏ thanh ngọt.(4 viên trung)", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
-            { id: 38, name: "Há Cảo Tôm Cay Tứ Xuyên PGK-38", category: "Món Hấp", price: 48000, desc: "Vị cay tê lưỡi đặc trưng vùng Tứ Xuyên.(4 viên trung)", image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300", isOut: false },
-            { id: 39, name: "Xíu Mại Tôm Nấm Mèo PGK-39", category: "Món Hấp", price: 44000, desc: "Nấm mèo sần sật kết hợp nhân tôm thịt tươi ngon.(4 viên trung)", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
-            { id: 40, name: "Há Cảo Phúc Gia Đặc Biệt PGK-40", category: "Món Hấp", price: 75000, desc: "Món hấp đặc sản tụ hội trọn vẹn tinh hoa quán.(4 viên trung)", image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300", isOut: false },
-
-            // --- MÓN CHIÊN (20 món: ID 41 -> 60) ---
-            { id: 41, name: "Há Cảo Chiên Giòn Rụm", category: "Món Chiên", price: 48000, desc: "Há cáo chiên vàng ươm, giòn rụm kèm nước chấm xì dầu.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
-            { id: 42, name: "Chả Giò Thượng Hải Giòn Tan", category: "Món Chiên", price: 52000, desc: "Cuộn tôm thịt hải sản chiên giòn, béo ngậy thơm ngon.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
-            { id: 43, name: "Bánh Xếp Chiên Nước (Gyoza)", category: "Món Chiên", price: 50000, desc: "Một mặt giòn tan, một mặt dẻo mềm nhân thịt đậm đà.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
-            { id: 44, name: "Bánh Bao Chiên Tiêu Đen Hồng Kông", category: "Món Chiên", price: 38000, desc: "Vỏ ngoài giòn ruộm, nhân thịt tiêu đen béo thơm.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
-            { id: 45, name: "Tàu Hũ Ky Cuộn Tôm Chiên Giòn", category: "Món Chiên", price: 55000, desc: "Lớp tàu hũ ky mỏng giòn bọc trọn nhân tôm tươi.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
-            { id: 46, name: "Mực Chiên Giòn Sốt Bơ Tỏi", category: "Món Chiên", price: 65000, desc: "Mực khoanh chiên giòn sốt bơ tỏi thơm ngậy.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
-            { id: 47, name: "Cánh Gà Chiên Sốt Mật Ong", category: "Món Chiên", price: 58000, desc: "Cánh gà giòn đượm lớp sốt mật ong ngọt dịu.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
-            { id: 48, name: "Bánh Khoai Môn Tôm Chảo Chiên", category: "Món Chiên", price: 45000, desc: "Khoai môn dẻo bùi bọc tôm tươi chiên xù.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
-            { id: 49, name: "Bánh Củ Cải Chiên Xơ Dừa Hồng Kông", category: "Món Chiên", price: 40000, desc: "Món ăn đường phố Hồng Kông thơm phức bùi ngậy.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
-            { id: 50, name: "Cơm Cháy Chà Bông Sốt Mỡ Hành", category: "Món Chiên", price: 35000, desc: "Cơm cháy giòn rụm phủ giòn chà bông và mỡ hành.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
-            { id: 51, name: "Đậu Hũ Chiên Mối Ớt Tứ Xuyên PGK-51", category: "Món Chiên", price: 38000, desc: "Đậu hũ bên ngoài giòn bên trong dẻo mềm cay nhẹ.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
-            { id: 52, name: "Há Cảo Cua Chiên Bơ Tỏi PGK-52", category: "Món Chiên", price: 52000, desc: "Vỏ chiên vàng ươm ôm trọn thịt cua béo ngọt.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
-            { id: 53, name: "Tôm Hoàng Kim Chiên Trứng Muối PGK-53", category: "Món Chiên", price: 75000, desc: "Tôm sú chiên giòn phủ trọn sốt trứng muối béo bùi.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
-            { id: 54, name: "Chả Cá Chiên Sốt Mayonnaise PGK-54", category: "Món Chiên", price: 48000, desc: "Chả cá dai ngon chấm kèm sốt béo ngậy.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
-            { id: 55, name: "Bánh Bao Phong Cách Thượng Hải PGK-55", category: "Món Chiên", price: 42000, desc: "Chiên áp chảo giòn đáy thơm nức mùi vừng đen.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
-            { id: 56, name: "Hoành Thánh Chiên Sốt Chua Ngọt PGK-56", category: "Món Chiên", price: 45000, desc: "Vỏ hoành thánh giòn vụn rưới sốt chua ngọt chuẩn vị.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
-            { id: 57, name: "Bánh Hải Sản Chiên Xù PGK-57", category: "Món Chiên", price: 55000, desc: "Tôm mực xào nhuyễn lăn bột xù chiên vàng rộm.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
-            { id: 58, name: "Khoai Tây Lắc Phô Mai PGK-58", category: "Món Chiên", price: 30000, desc: "Khoai tây chiên giòn tan lắc đều bột phô Mai thơm bùi.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
-            { id: 59, name: "Mực Trứng Chiên Mắm Tốt PGK-59", category: "Món Chiên", price: 70000, desc: "Mực trứng tươi đậm đà sốt nước mắm tỏi ớt.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
-            { id: 60, name: "Đồ Chiên Tổng Hợp Phúc Gia PGK-60", category: "Món Chiên", price: 85000, desc: "Khay tổng hợp các món chiên đặc sắc nhất.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
-
-            // --- MÌ TƯƠI (20 món: ID 61 -> 80) ---
-            { id: 61, name: "Mì Tươi Xá Xíu Quảng Đông", category: "Mì Tươi", price: 65000, desc: "Sợi mì tươi kéo tay giòn dai, thịt xá xíu quay mật ong đậm vị.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300", isOut: false },
-            { id: 62, name: "Mì Tươi Vịt Tiềm Thuốc Bắc", category: "Mì Tươi", price: 85000, desc: "Đùi vịt góc tư hầm mềm thơm lừng thảo mộc bổ dưỡng.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300", isOut: false },
-            { id: 63, name: "Mì Tươi Hoành Thánh Tôm Thịt", category: "Mì Tươi", price: 60000, desc: "Nước dùng hầm xương ngọt thanh kèm hoành thánh nhân tôm.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300", isOut: false },
-            { id: 64, name: "Mì Tươi Hải Sản Chua Cay", category: "Mì Tươi", price: 70000, desc: "Tôm, mực, hải sản tươi ngon hòa quyện nước dùng chua cay.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300", isOut: false },
-            { id: 65, name: "Mì Tươi Bò Băm Tứ Xuyên Sốt Cay", category: "Mì Tươi", price: 65000, desc: "Mì trộn bò băm cay nồng chuẩn phong cách Tứ Xuyên.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300", isOut: false },
-            { id: 66, name: "Mì Tươi Sườn Kho Tàu Xì", category: "Mì Tươi", price: 68000, desc: "Sườn heo hầm mềm đượm sốt tàu xì sánh mịn.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300", isOut: false },
-            { id: 67, name: "Mì Tươi Xào Giòn Hải Sản", category: "Mì Tươi", price: 75000, desc: "Sợi mì chiên giòn rụm phủ sốt hải sản xào rau củ.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300", isOut: false },
-            { id: 68, name: "Mì Tươi Xào Mềm Bò Lúc Lắc", category: "Mì Tươi", price: 72000, desc: "Thịt bò Úc mềm mọng xào cùng sợi mì tươi dai thơm.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300", isOut: false },
-            { id: 69, name: "Mì Tươi Trộn Sốt Dầu Hào Xá Xíu", category: "Mì Tươi", price: 62000, desc: "Mì khô trộn sốt dầu hào thơm phức kèm thịt xá xíu.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300", isOut: false },
-            { id: 70, name: "Mì Tươi Càng Cua Bào Ngư PGK-70", category: "Mì Tươi", price: 95000, desc: "Món mì thượng hạng với càng cua tươi và bào ngư.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300", isOut: false },
-            { id: 71, name: "Mì Tươi Thập Cẩm Phúc Gia PGK-71", category: "Mì Tươi", price: 80000, desc: "Tụ hội trọn vẹn xá xíu, tôm, hoành thánh, sườn mềm.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300", isOut: false },
-            { id: 72, name: "Mì Tươi Chay Nấm Đông Cô PGK-72", category: "Mì Tươi", price: 50000, desc: "Nước dùng thanh ngọt hầm từ củ quả và nấm đông cô.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300", isOut: false },
-            { id: 73, name: "Mì Tươi Sa Tế Mực Ống PGK-73", category: "Mì Tươi", price: 68000, desc: "Mực ống tươi nguyên con đắm trong nước sốt sa tế.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300", isOut: false },
-            { id: 74, name: "Mì Tươi Tim Cật Khè Lửa PGK-74", category: "Mì Tươi", price: 65000, desc: "Tim cật tươi xào khè lửa giòn sần sật thơm lừng.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300", isOut: false },
-            { id: 75, name: "Mì Tươi Xào Singapore Curry PGK-75", category: "Mì Tươi", price: 70000, desc: "Vị cà ri Singapore đậm đà kết hợp tôm xá xíu.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300", isOut: false },
-            { id: 76, name: "Mì Tươi Súp Bò Nạm Mềm PGK-76", category: "Mì Tươi", price: 72000, desc: "Thịt nạm bò hầm gân mềm mượt mọng nước.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300", isOut: false },
-            { id: 77, name: "Mì Tươi Trộn Trứng Cút Lát PGK-77", category: "Mì Tươi", price: 58000, desc: "Mì khô sốt béo nhẹ rắc trứng cút lát bùi bùi.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300", isOut: false },
-            { id: 78, name: "Mì Tươi Giòn Rụm Sốt Bò PGK-78", category: "Mì Tươi", price: 75000, desc: "Tổ mì chiên giòn rưới sốt bò xào ớt đà lạt.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300", isOut: false },
-            { id: 79, name: "Mì Tươi Khô Sốt Tương Đen PGK-79", category: "Mì Tươi", price: 62000, desc: "Sốt tương đen Hàn Quốc đậm đà chuẩn vị.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300", isOut: false },
-            { id: 80, name: "Mì Tươi Vịt Quay Da Giòn PGK-80", category: "Mì Tươi", price: 88000, desc: "Vịt quay da giòn rụm kết hợp sợi mì tươi dai ngon.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300", isOut: false },
-
-            // --- MIẾN DONG (20 món: ID 81 -> 100) ---
-            { id: 81, name: "Miến Dong Cua Cà Mau Xào Sa Tế", category: "Miến Dong", price: 75000, desc: "Sợi miến dong dai ngon xào cùng thịt cua tươi và sốt sa tế.", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300", isOut: false },
-            { id: 82, name: "Miến Dong Lươn Đồng Giòn Rụm", category: "Miến Dong", price: 70000, desc: "Lươn đồng chiên giòn thơm phức hòa quyện sợi miến dong dai.", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300", isOut: false },
-            { id: 83, name: "Miến Dong Măng Gà Mềm Mượt", category: "Miến Dong", price: 60000, desc: "Thịt gà xé kết hợp măng tươi ngọt đặm nước hầm.", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300", isOut: false },
-            { id: 84, name: "Miến Dong Xào Hải Sản Thập Cẩm", category: "Miến Dong", price: 72000, desc: "Tôm, mực, chả cá xào đượm gia vị cùng miến dong.", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300", isOut: false },
-            { id: 85, name: "Miến Dong Súp Bò Băm Nấm Mèo", category: "Miến Dong", price: 62000, desc: "Nước súp thanh đậm đà thơm mùi nấm mèo băm nhỏ.", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300", isOut: false },
-            { id: 86, name: "Miến Dong Trộn Hàn Quốc Japchae", category: "Miến Dong", price: 65000, desc: "Sợi miến dai mềm trộn dầu vừng, thịt bò và rau củ.", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300", isOut: false },
-            { id: 87, name: "Miến Dong Xào Thịt Bò Dầu Hào", category: "Miến Dong", price: 68000, desc: "Thịt bò xào mềm ngấm sốt dầu hào đậm đà.", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300", isOut: false },
-            { id: 88, name: "Miến Dong Nước Súp Vịt Tiềm", category: "Miến Dong", price: 82000, desc: "Nước dùng thảo mộc bổ dưỡng kết hợp sợi miến dong dai.", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300", isOut: false },
-            { id: 89, name: "Miến Dong Xào Lòng Gà Trứng Non", category: "Miến Dong", price: 65000, desc: "Trứng non béo ngậy xào cùng lòng gà giòn sần sật.", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300", isOut: false },
-            { id: 90, name: "Miến Dong Tôm Hùm Sốt Cua PGK-90", category: "Miến Dong", price: 120000, desc: "Thịt tôm hùm béo ngọt hòa quyện sốt cua đậm đà.", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300", isOut: false },
-            { id: 91, name: "Miến Dong Chay Nấm Rơm PGK-91", category: "Miến Dong", price: 48000, desc: "Món chay thanh đạm với nấm rơm tươi và củ cải.", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300", isOut: false },
-            { id: 92, name: "Miến Dong Nước Bò Viên Ngon PGK-92", category: "Miến Dong", price: 58000, desc: "Bò viên giòn sần sật trong nước dùng trong ngọt.", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300", isOut: false },
-            { id: 93, name: "Miến Dong Xào Mực Sa Tế PGK-93", category: "Miến Dong", price: 70000, desc: "Mực tươi xào sa tế cay nồng thơm lừng.", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300", isOut: false },
-            { id: 94, name: "Miến Dong Súp Sườn Sụn PGK-94", category: "Miến Dong", price: 65000, desc: "Sườn sụn giòn sần sật hầm mềm thơm ngon.", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300", isOut: false },
-            { id: 95, name: "Miến Dong Xào Tay Cầm Nồi Đất PGK-95", category: "Miến Dong", price: 78000, desc: "Giữ trọn độ nóng hổi và mùi thơm nức trong nồi đất.", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300", isOut: false },
-            { id: 96, name: "Miến Dong Súp Bào Ngư PGK-96", category: "Miến Dong", price: 95000, desc: "Bào ngư hầm bổ dưỡng ngấm trọn sợi miến.", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300", isOut: false },
-            { id: 97, name: "Miến Dong Trộn Bơ Cay Tôm Tươi PGK-97", category: "Miến Dong", price: 68000, desc: "Sốt bơ cay ngậy phủ lên tôm tươi ngọt thịt.", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300", isOut: false },
-            { id: 98, name: "Miến Dong Nước Cốt Dừa Hải Sản PGK-98", category: "Miến Dong", price: 75000, desc: "Hương vị nước cốt dừa béo ngậy độc đáo.", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300", isOut: false },
-            { id: 99, name: "Miến Dong Xào Rau Củ Ngũ Sắc PGK-99", category: "Miến Dong", price: 52000, desc: "Rau củ tươi giòn màu sắc bắt mắt thanh nhẹ.", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300", isOut: false },
-            { id: 100, name: "Miến Dong Phúc Gia Thượng Hạng PGK-100", category: "Miến Dong", price: 88000, desc: "Sự kết hợp hoàn hảo giữa tôm, cua, lươn và bò.", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300", isOut: false },
-
-            // --- NUI ỐNG (20 món: ID 101 -> 120) ---
-            { id: 101, name: "Nui Ống Xào Bò Lúc Lắc", category: "Nui Ống", price: 60000, desc: "Thịt bò Úc cắt khối xào mềm cùng nui ống và ớt đà lạt.", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300", isOut: false },
-            { id: 102, name: "Nui Ống Súp Xương Ốc Heo", category: "Nui Ống", price: 55000, desc: "Xương ống hầm mềm mọt nước, nui ống mềm mại dễ ăn.", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300", isOut: false },
-            { id: 103, name: "Nui Ống Xào Hải Sản Sốt Cà", category: "Nui Ống", price: 65000, desc: "Nui xào đượm sốt cà chua chua ngọt cùng hải sản.", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300", isOut: false },
-            { id: 104, name: "Nui Ống Đút Lò Phô Mai Bò Băm", category: "Nui Ống", price: 72000, desc: "Lớp phô Mai Mozzarella kéo sợi béo ngậy đút lò thơm nức.", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300", isOut: false },
-            { id: 105, name: "Nui Ống Súp Gà Xé Nấm Hương", category: "Nui Ống", price: 52000, desc: "Súp nước ngọt thanh từ gà và nấm hương tự nhiên.", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300", isOut: false },
-            { id: 106, name: "Nui Ống Xào Giòn Tôm Thịt", category: "Nui Ống", price: 62000, desc: "Nui chiên giòn rụm xào cùng tôm tươi và rau củ.", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300", isOut: false },
-            { id: 107, name: "Nui Ống Súp Mọc Trứng Cút", category: "Nui Ống", price: 50000, desc: "Mọc heo tự làm dai ngon tròn vị kết hợp trứng cút.", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300", isOut: false },
-            { id: 108, name: "Nui Ống Xào Xá Xíu Dầu Hào", category: "Nui Ống", price: 58000, desc: "Thịt xá xíu đậm đà quyện nui ống dai mềm.", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300", isOut: false },
-            { id: 109, name: "Nui Ống Xào Kem Bơ Nấm Truffle", category: "Nui Ống", price: 78000, desc: "Phong cách Âu - Á kết hợp độc đáo béo thơm.", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300", isOut: false },
-            { id: 110, name: "Nui Ống Súp Tôm Tươi Bách Hoa PGK-110", category: "Nui Ống", price: 62000, desc: "Tôm bách hoa ngọt đậm đà trong tô súp nóng.", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300", isOut: false },
-            { id: 111, name: "Nui Ống Chay Sốt Cà Chua PGK-111", category: "Nui Ống", price: 42000, desc: "Món ăn thanh đạm bổ dưỡng cho người ăn chay.", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300", isOut: false },
-            { id: 112, name: "Nui Ống Xào Sa Tế Mực Ống PGK-112", category: "Nui Ống", price: 65000, desc: "Mực ống giòn sần sật xào sa tế cay nồng.", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300", isOut: false },
-            { id: 113, name: "Nui Ống Súp Giò Lợn Bơ Mịn PGK-113", category: "Nui Ống", price: 60000, desc: "Giò lợn béo ngậy hầm mềm róc xương.", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300", isOut: false },
-            { id: 114, name: "Nui Ống Xào Cay Tứ Xuyên PGK-114", category: "Nui Ống", price: 62000, desc: "Gia vị cay tê nồng đậm chuẩn vùng Tứ Xuyên.", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300", isOut: false },
-            { id: 115, name: "Nui Ống Súp Cua Tuyết PGK-115", category: "Nui Ống", price: 70000, desc: "Thịt cua tuyết ngọt mọng hòa quyện súp đậm đà.", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300", isOut: false },
-            { id: 116, name: "Nui Ống Đút Lò Hải Sản Phô Mai PGK-116", category: "Nui Ống", price: 75000, desc: "Tôm mực thơm lừng đút lò phủ phô mai béo ngậy.", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300", isOut: false },
-            { id: 117, name: "Nui Ống Xào Bò Băm Trứng Ốp PGK-117", category: "Nui Ống", price: 58000, desc: "Trứng ốp lòng đào béo ngậy chảy trên nui xào.", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300", isOut: false },
-            { id: 118, name: "Nui Ống Súp Bò Viên Thượng Hạng PGK-118", category: "Nui Ống", price: 55000, desc: "Bò viên giòn sần sật nguyên chất thơm ngon.", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300", isOut: false },
-            { id: 119, name: "Nui Ống Xào Xúc Xích Đức PGK-119", category: "Nui Ống", price: 50000, desc: "Xúc xích Đức thơm bùi xào nui ống đậm đà.", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300", isOut: false },
-            { id: 120, name: "Nui Ống Phúc Gia Đặc Cảnh PGK-120", category: "Nui Ống", price: 80000, desc: "Món nui xào tổng hợp hải sản bò xá xíu độc quyền.", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300", isOut: false },
-
-            // --- SÚP NƯỚC (20 món: ID 121 -> 140) ---
-            { id: 121, name: "Súp Hải Sản Bào Ngư Thượng Hạng", category: "Súp Nước", price: 90000, desc: "Súp sánh mịn ngào ngạt hương vị biển với bào ngư và tôm tươi.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300", isOut: false },
-            { id: 122, name: "Súp Cua Trứng Cút Bách Hoa", category: "Súp Nước", price: 45000, desc: "Thịt cua xé dính cùng trứng cút bùi ngậy sánh mịn.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300", isOut: false },
-            { id: 123, name: "Súp Bong Bóng Cá Tộc Bắc", category: "Súp Nước", price: 75000, desc: "Bong bóng cá béo ngậy bổ dưỡng hầm củ năng thanh ngọt.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300", isOut: false },
-            { id: 124, name: "Súp Só Điệp Tóc Tiên Hồng Kông", category: "Súp Nước", price: 65000, desc: "Món súp truyền thống Hồng Kông mang may mắn thịnh vượng.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300", isOut: false },
-            { id: 125, name: "Súp Bò Tây Hồ Băm Nhỏ", category: "Súp Nước", price: 50000, desc: "Súp thịt bò mềm thanh nhẹ thơm hương ngò rí.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300", isOut: false },
-            { id: 126, name: "Súp Nấm Đông Cô Tôm Tươi", category: "Súp Nước", price: 48000, desc: "Súp sánh thanh dịu, ngào ngạt hương nấm đông cô.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300", isOut: false },
-            { id: 127, name: "Súp Hải Sâm Hầm Táo Đỏ", category: "Súp Nước", price: 110000, desc: "Súp bổ dưỡng thượng hạng với hải sâm tươi béo.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300", isOut: false },
-            { id: 128, name: "Súp Gà Xé Trứng Bắc Thảo", category: "Súp Nước", price: 45000, desc: "Trứng bắc thảo bùi béo kết hợp gà xé ngọt thanh.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300", isOut: false },
-            { id: 129, name: "Súp Bắp Ngọt Tôm Cua", category: "Súp Nước", price: 42000, desc: "Bắp hạt giòn ngọt tự nhiên quyện tôm cua tươi.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300", isOut: false },
-            { id: 130, name: "Súp Vi Cá Bào Ngư Hoàng Kim PGK-130", category: "Súp Nước", price: 150000, desc: "Món súp xa hoa nhất tại Phúc Gia Ký.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300", isOut: false },
-            { id: 131, name: "Súp Chay Nấm Tuyết Hạt Lotus PGK-131", category: "Súp Nước", price: 38000, desc: "Súp chay mát lành bổ dưỡng từ nấm tuyết và hạt sen.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300", isOut: false },
-            { id: 132, name: "Súp Chua Cay Tứ Xuyên PGK-132", category: "Súp Nước", price: 48000, desc: "Vị chua thanh cay nồng kích thích vị giác tuyệt vời.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300", isOut: false },
-            { id: 133, name: "Súp Cua Tuyết Trứng Cua Đỏ PGK-133", category: "Súp Nước", price: 68000, desc: "Trứng cua đỏ phủ đều bề mặt tô súp nóng.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300", isOut: false },
-            { id: 134, name: "Súp Bí Đỏ Tôm Tươi Kem Bơ PGK-134", category: "Súp Nước", price: 52000, desc: "Súp bí đỏ sánh mịn thơm bùi mùi bơ tươi.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300", isOut: false },
-            { id: 135, name: "Súp Cá Hồi Củ Năng PGK-135", category: "Súp Nước", price: 62000, desc: "Củ năng giòn ngọt át mùi tanh cá hồi bổ dưỡng.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300", isOut: false },
-            { id: 136, name: "Súp Hoành Thánh Tôm Nước Trong PGK-136", category: "Súp Nước", price: 50000, desc: "Nước dùng trong vắt ngọt lừ từ xương hầm.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300", isOut: false },
-            { id: 137, name: "Súp Cua Ốc Hương Nấu Thảo Mộc PGK-137", category: "Súp Nước", price: 72000, desc: "Ốc hương giòn ngọt hòa quyện sốt súp thảo mộc.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300", isOut: false },
-            { id: 138, name: "Súp Lươn Đồng Nghệ An PGK-138", category: "Súp Nước", price: 65000, desc: "Đặc sản lươn đồng xào nghệ nấu súp cay nồng.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300", isOut: false },
-            { id: 139, name: "Súp Đậu Hũ Non Tôm Băm PGK-139", category: "Súp Nước", price: 42000, desc: "Đậu hũ non mềm mịn tan trong miệng.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300", isOut: false },
-            { id: 140, name: "Súp Hoàng Gia Phúc Gia PGK-140", category: "Súp Nước", price: 125000, desc: "Tụ hội vi cá, bào ngư, hải sâm và tôm tươi.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300", isOut: false },
-
-            // --- MÓN KHÁC (20 món: ID 141 -> 160) ---
-            { id: 141, name: "Cơm Chiên Dương Châu Chuẩn Vị", category: "Món Khác", price: 60000, desc: "Cơm chiên tơi hạt, xá xíu, lạp xưởng và tôm tươi xào ngon.", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300", isOut: false },
-            { id: 142, name: "Cơm Chiên Cua Hải Sản Bò Mỡ", category: "Món Khác", price: 75000, desc: "Thịt cua tươi ngọt hòa quyện cơm chiên bơ tỏi thơm ngậy.", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300", isOut: false },
-            { id: 143, name: "Cơm Vịt Quay Mật Ong Hồng Kông", category: "Món Khác", price: 70000, desc: "Vịt quay da giòn đượm mật ong ăn kèm xì dầu đặc chế.", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300", isOut: false },
-            { id: 144, name: "Cơm Xá Xíu Trứng Ốp Lòng Đào", category: "Món Khác", price: 58000, desc: "Thịt xá xíu đậm đà rưới sốt béo ngậy lên lòng đào.", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300", isOut: false },
-            { id: 145, name: "Cải Làn Sốt Dầu Hào Tỏi Băm", category: "Món Khác", price: 35000, desc: "Cải làn luộc giòn rưới sốt dầu hào tỏi thơm phức.", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300", isOut: false },
-            { id: 146, name: "Đậu Hũ Tứ Xuyên Bò Băm (Mapo Tofu)", category: "Món Khác", price: 55000, desc: "Đậu hũ non mềm mịn cay tê lưỡi ăn cực tốn cơm.", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300", isOut: false },
-            { id: 147, name: "Thịt Heo Sốt Chua Ngọt Quảng Đông", category: "Món Khác", price: 65000, desc: "Thịt chiên giòn rụm đắm trong sốt chua ngọt béo thơm.", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300", isOut: false },
-            { id: 148, name: "Mực Xào Sa Tế Củ Hành", category: "Món Khác", price: 72000, desc: "Mực giòn ngọt xào sa tế cay nồng thơm lừng.", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300", isOut: false },
-            { id: 149, name: "Bò Xào Cần Tây Cà Chua", category: "Món Khác", price: 68000, desc: "Thịt bò mềm xào chín tới giữ trọn độ ngọt tự nhiên.", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300", isOut: false },
-            { id: 150, name: "Cơm Chiên Cà Rút Cá Mặn PGK-150", category: "Món Khác", price: 62000, desc: "Đặc sản cơm chiên cá mặn thơm phức chuẩn vị Hoa.", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300", isOut: false },
-            { id: 151, name: "Cơm Gà Hấp Muối Trút PGK-151", category: "Món Khác", price: 65000, desc: "Gà ta da giòn thịt ngọt ngào đậm đà vị muối.", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300", isOut: false },
-            { id: 152, name: "Rau Muống Xào Tỏi Khè Lửa PGK-152", category: "Món Khác", price: 30000, desc: "Rau muống xanh giòn xào tỏi thơm phức lừng lẫy.", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300", isOut: false },
-            { id: 153, name: "Cơm Chiên Hải Sản Sốt Cà Rì PGK-153", category: "Món Khác", price: 68000, desc: "Hương vị cà ri thơm nức từng hạt cơm tơi xốp.", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300", isOut: false },
-            { id: 154, name: "Đậu Hũ Khơ Tộ Sốt Nấm PGK-154", category: "Món Khác", price: 48000, desc: "Đậu hũ chiên vàng đút tộ nấm đông cô đậm đà.", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300", isOut: false },
-            { id: 155, name: "Cơm Sườn Nướng Sốt X.O PGK-155", category: "Món Khác", price: 72000, desc: "Sườn non nướng đượm sốt X.O hải sản đắt giá.", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300", isOut: false },
-            { id: 156, name: "Cơm Chiên Chay Ngũ Sắc PGK-156", category: "Món Khác", price: 45000, desc: "Cơm chiên hạt tơi cùng hạt sen, bắp, đậu hà lan.", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300", isOut: false },
-            { id: 157, name: "Bò Lúc Lắc Khoai Tây Chiên PGK-157", category: "Món Khác", price: 85000, desc: "Món ăn kèm hoàn hảo cho bữa tiệc gia đình.", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300", isOut: false },
-            { id: 158, name: "Cải Thảo Xào Nấm Mèo PGK-158", category: "Món Khác", price: 32000, desc: "Cải thảo ngọt mát xào nấm mèo sần sật thanh nhẹ.", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300", isOut: false },
-            { id: 159, name: "Cơm Vịt Quay Sốt Tiêu Xanh PGK-159", category: "Món Khác", price: 75000, desc: "Sốt tiêu xanh cay nhẹ bớt ngấy cho thịt vịt.", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300", isOut: false },
-            { id: 160, name: "Cơm Bò Sốt Hạt Tiêu Đen PGK-160", category: "Món Khác", price: 68000, desc: "Thịt bò thái mỏng xào sốt tiêu đen Phú Quốc đậy mùi.", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300", isOut: false },
-
-            // --- MÓN TẨM BỔ (20 món: ID 161 -> 180) ---
-            { id: 161, name: "Gà Ác Tiềm Nhân Sâm Bổ Dưỡng", category: "Món Tẩm Bổ", price: 130000, desc: "Gà ác nguyên con tiềm cùng sâm tươi, kỷ tử, đại táo tăng sức khỏe.", image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300", isOut: false },
-            { id: 162, name: "Bào Ngư Hầm Hải Sâm Thảo Mộc", category: "Món Tẩm Bổ", price: 180000, desc: "Món ăn hoàng gia bổ dưỡng phục hồi thể lực nhanh chóng.", image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300", isOut: false },
-            { id: 163, name: "Vịt Tiềm Thuốc Bắc Đông Cát", category: "Món Tẩm Bổ", price: 120000, desc: "Thịt vịt mềm róc xương thơm lừng gia vị thuốc bắc.", image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300", isOut: false },
-            { id: 164, name: "Óc Heo Tiềm Thuốc Bắc Bổ Não", category: "Món Tẩm Bổ", price: 75000, desc: "Món ăn bổ não, mềm mịn béo ngậy không bị hăng.", image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300", isOut: false },
-            { id: 165, name: "Yến Sào Chưng Đường Phèn Hạt Sen", category: "Món Tẩm Bổ", price: 150000, desc: "Yến sào nguyên chất thanh mát bổ phổi đẹp da.", image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300", isOut: false },
-            { id: 166, name: "Tổ Yến Chưng Táo Đỏ Kỷ Tử", category: "Món Tẩm Bổ", price: 155000, desc: "Giúp bồi bổ khí huyết, tăng cường hệ miễn dịch.", image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300", isOut: false },
-            { id: 167, name: "Súp Đương Quy Hầm Giò Lợn", category: "Món Tẩm Bổ", price: 95000, desc: "Bồi bổ sức khỏe cho người mới ốm dậy cực tốt.", image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300", isOut: false },
-            { id: 168, name: "Tim Lợn Tiềm Hạt Sen Thảo Dược", category: "Món Tẩm Bổ", price: 85000, desc: "Giúp an thần, ngủ ngon giấc và bổ tim mạch.", image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300", isOut: false },
-            { id: 169, name: "Đuôi Bò Hầm Đương Quy PGK-169", category: "Món Tẩm Bổ", price: 140000, desc: "Món ăn bổ gân cốt, thơm nức mùi thảo mộc.", image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300", isOut: false },
-            { id: 170, name: "Cá Hồi Hầm Đâm Sâm Thượng Hạng PGK-170", category: "Món Tẩm Bổ", price: 160000, desc: "Dầu cá béo ngậy ngấm sâm tươi nguyên củ.", image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300", isOut: false },
-            { id: 171, name: "Bào Ngư Sốt Dầu Hào Đông Cô PGK-171", category: "Món Tẩm Bổ", price: 165000, desc: "Bào ngư nguyên con mọng nước đượm sốt béo.", image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300", isOut: false },
-            { id: 172, name: "Rùa Hầm Chuối Đậu Bổ Dưỡng PGK-172", category: "Món Tẩm Bổ", price: 190000, desc: "Bài thuốc dân gian bồi bổ thể lực dồi dào.", image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300", isOut: false },
-            { id: 173, name: "Gà Trống Thiến Hầm Nấm Cửu Long PGK-173", category: "Món Tẩm Bổ", price: 135000, desc: "Thịt gà săn chắc thơm ngon bùi ngậy.", image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300", isOut: false },
-            { id: 174, name: "Súp Bong Bóng Cá Bào Ngư PGK-174", category: "Món Tẩm Bổ", price: 145000, desc: "Súp dưỡng nhan tuyệt vời cho phái đẹp.", image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300", isOut: false },
-            { id: 175, name: "Ngưu Pín Hầm Bát Bửu PGK-175", category: "Món Tẩm Bổ", price: 170000, desc: "Món ăn tráng dương bổ khí huyết cho nam giới.", image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300", isOut: false },
-            { id: 176, name: "Hải Sâm Đút Tộ Đông Cô PGK-176", category: "Món Tẩm Bổ", price: 175000, desc: "Hải sâm biển sâu giàu đạm bổ dưỡng.", image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300", isOut: false },
-            { id: 177, name: "Cháo Yến Sào Bào Ngư PGK-177", category: "Món Tẩm Bổ", price: 130000, desc: "Cháo hầm sánh mịn rắc thịt bào ngư và yến xé.", image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300", isOut: false },
-            { id: 178, name: "Súp Nấm Đông Trùng Hạ Thảo PGK-178", category: "Món Tẩm Bổ", price: 185000, desc: "Đông trùng hạ thảo nguyên con tăng sức đề kháng.", image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300", isOut: false },
-            { id: 179, name: "Đùi Cừu Hầm Thảo Mộc Tây Tạng PGK-179", category: "Món Tẩm Bổ", price: 160000, desc: "Thịt cừu mềm mại đượm vị thảo mộc Tây Tạng.", image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300", isOut: false },
-            { id: 180, name: "Thang Tiềm Đại Bổ Phúc Gia PGK-180", category: "Món Tẩm Bổ", price: 220000, desc: "Set tiềm đại bổ cao cấp nhất của nhà hàng.", image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300", isOut: false },
-
-            // --- NƯỚC GIẢI KHÁC (20 món: ID 181 -> 200) ---
-            { id: 181, name: "Trà Tuyết Nhiệm Sâm Đất Phúc Gia", category: "Nước Giải Khác", price: 25000, desc: "Thức uống giải nhiệt độc quyền, thanh mát cơ thể dịu ngọt tự nhiên.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
-            { id: 182, name: "Trà Bỉ Đao Lên Men Hạt Chia", category: "Nước Giải Khác", price: 22000, desc: "Giải nhiệt mát gan, hạt chia bùi bùi giòn ngon.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
-            { id: 183, name: "Trà Cúc Hạt Sen Thanh Nhiệt", category: "Nước Giải Khác", price: 25000, desc: "Hương hoa cúc thơm ngát giúp thư giãn và ngủ ngon.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
-            { id: 184, name: "Nước Sâm Hoa Cúc Thảo Mộc", category: "Nước Giải Khác", price: 20000, desc: "Nước sâm nấu truyền thống giải khát cực ngon.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
-            { id: 185, name: "Nước Ô Long Chanh Đào Mật Ong", category: "Nước Giải Khác", price: 28000, desc: "Trà ô long đậm vị quyện chanh đào thơm mát.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
-            { id: 186, name: "Nước Ép Dưa Hấu Tươi Nguyên Chất", category: "Nước Giải Khác", price: 30000, desc: "Dưa hấu đỏ mọng giải nhiệt ngày hè ngột ngạt.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
-            { id: 187, name: "Nước Ép Thơm (Dứa) Tươi mát", category: "Nước Giải Khác", price: 30000, desc: "Chứa nhiều Vitamin C giúp tiêu hóa món ăn mỡ tốt.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
-            { id: 188, name: "Chanh Tươi Tuyết Đá Lạnh", category: "Nước Giải Khác", price: 20000, desc: "Vị chua thanh mát lạnh sảng khoái tức thì.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
-            { id: 189, name: "Trà Tắc Xí Muội Muối Ớt", category: "Nước Giải Khác", price: 25000, desc: "Chua chua ngọt ngọt mặn mặn cực kỳ kích thích.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
-            { id: 190, name: "Sữa Đậu Đỏ Dừa Tươi PGK-190", category: "Nước Giải Khác", price: 28000, desc: "Đậu đỏ bùi bùi béo ngọt hương vị dừa tươi.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
-            { id: 191, name: "Coca Cola Lạnh Lon 330ml PGK-191", category: "Nước Giải Khác", price: 18000, desc: "Nước ngọt có gas ướp lạnh cực sảng khoái.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
-            { id: 192, name: "Pepsi Không Calo Lạnh Lon PGK-192", category: "Nước Giải Khác", price: 18000, desc: "Không lo tăng cân khi thưởng thức cùng đồ ăn.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
-            { id: 193, name: "Nước 𝟩Up Vị Lemon Lon PGK-193", category: "Nước Giải Khác", price: 18000, desc: "Giải khát nhanh chóng với hương chanh tự nhiên.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
-            { id: 194, name: "Trà Xanh C2 Vị Chanh PGK-194", category: "Nước Giải Khác", price: 15000, desc: "Trà xanh đóng chai mát lạnh dễ uống.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
-            { id: 195, name: "Nước Dừa Tươi Nguyên Trái PGK-195", category: "Nước Giải Khác", price: 32000, desc: "Dừa xiêm xanh ngọt nước thanh mát tự nhiên.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
-            { id: 196, name: "Trà Sữa Thái Xanh Thạch Dừa PGK-196", category: "Nước Giải Khác", price: 30000, desc: "Đậm đà chuẩn vị trà sữa Thái xanh béo ngậy.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
-            { id: 197, name: "Sữa Đậu Nành Chuẩn Nhà Làm PGK-197", category: "Nước Giải Khác", price: 18000, desc: "Đậu nành nguyên chất nấu thủ công thơm ngậy.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
-            { id: 198, name: "Soda Việt Quất Chanh Sảng Khoái PGK-198", category: "Nước Giải Khác", price: 32000, desc: "Soda sủi bọt mát lạnh kết hợp việt quất tươi.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
-            { id: 199, name: "Nước Suối Aquafina 500ml PGK-199", category: "Nước Giải Khác", price: 10000, desc: "Nước tinh khiết đóng chai an toàn sức khỏe.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
-            { id: 200, name: "Bia Tsingtao Nhập Khẩu PGK-200", category: "Nước Giải Khác", price: 35000, desc: "Bia Thanh Đảo nổi tiếng ướp lạnh tuyệt hảo.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false }
-        ];
-
-        let currentCategory = "Tất cả";
-        let cart = JSON.parse(localStorage.getItem('pgk_cart')) || [];
-        let generatedOrderText = "";
-        let currentDiscountPercent = 0;
-        let appliedPromoCode = "";
-
-        window.onload = () => {
-            renderCategories();
-            renderMenu();
-            updateCartBadge();
-            loadCustomerInfo();
-        };
-
-        function renderCategories() {
-            const catContainer = document.getElementById('cat-list');
-            catContainer.innerHTML = categories.map(cat => `
-                <button class="cat-btn ${cat === currentCategory ? 'active' : ''}" onclick="selectCategory('${cat}')">${cat}</button>
-            `).join('');
-        }
-
-        function selectCategory(cat) {
-            currentCategory = cat;
-            renderCategories();
-            filterMenu();
-        }
-
-        function renderMenu(items = null) {
-            const grid = document.getElementById('menu-grid');
-            const dataToRender = items || getFilteredItems();
-            
-            grid.innerHTML = dataToRender.map(item => `
-                <div class="food-card ${item.isOut ? 'out-of-stock' : ''}">
-                    ${item.isOut ? '<span class="badge-out">Tạm hết</span>' : ''}
-                    <img src="${item.image}" class="food-img" alt="${item.name}">
-                    <div class="food-info">
-                        <div class="food-title">${item.name}</div>
-                        <div class="food-desc">${item.desc}</div>
-                        <div class="food-bottom">
-                            <div class="food-price">${item.price.toLocaleString('vi-VN')}đ</div>
-                            ${!item.isOut ? `<button class="btn-add" onclick="addToCart(${item.id})">+ Thêm</button>` : ''}
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function filterMenu() {
-            const keyword = document.getElementById('search-input').value.toLowerCase().trim();
-            let filtered = menuData;
-
-            if (currentCategory !== "Tất cả") {
-                filtered = filtered.filter(item => item.category === currentCategory);
-            }
-
-            if (keyword !== "") {
-                filtered = filtered.filter(item => 
-                    item.name.toLowerCase().includes(keyword) || 
-                    item.desc.toLowerCase().includes(keyword)
-                );
-            }
-
-            renderMenu(filtered);
-        }
-
-        function getFilteredItems() {
-            if (currentCategory === "Tất cả") return menuData;
-            return menuData.filter(item => item.category === currentCategory);
-        }
-
-        function addToCart(id) {
-            const food = menuData.find(item => item.id === id);
-            const exist = cart.find(item => item.id === id);
-
-            if (exist) {
-                exist.qty += 1;
-            } else {
-                cart.push({ ...food, qty: 1 });
-            }
-            saveCart();
-            document.getElementById('submit-btn').style.display = 'block';
-        }
-
-        function updateQty(id, delta) {
-            const item = cart.find(i => i.id === id);
-            if (item) {
-                item.qty += delta;
-                if (item.qty <= 0) {
-                    cart = cart.filter(i => i.id !== id);
-                }
-            }
-            saveCart();
-            renderCartItems();
-        }
-
-        function saveCart() {
-            localStorage.setItem('pgk_cart', JSON.stringify(cart));
-            updateCartBadge();
-        }
-
-        function updateCartBadge() {
-            const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
-            document.getElementById('cart-count').innerText = totalQty;
-        }
-
-        function openCart() {
-            document.getElementById('cart-modal').style.display = 'flex';
-            renderCartItems();
-        }
-
-        function closeCart() {
-            document.getElementById('cart-modal').style.display = 'none';
-        }
-
-        function toggleDeliveryMode() {
-            const isPickup = document.querySelector('input[name="deliveryMethod"]:checked').value === 'PICKUP';
-            const addrContainer = document.getElementById('address-container');
-            const addrInput = document.getElementById('cust-address');
-
-            if (isPickup) {
-                addrContainer.style.display = 'none';
-                addrInput.removeAttribute('required');
-            } else {
-                addrContainer.style.display = 'block';
-                addrInput.setAttribute('required', 'required');
-            }
-        }
-
-        function applyPromoCode() {
-            const codeInput = document.getElementById('promo-code-input').value.trim().toUpperCase();
-            const msgEl = document.getElementById('promo-msg');
-
-            if (codeInput === "PHUCGIAKY151515") {
-                currentDiscountPercent = 15;
-                appliedPromoCode = codeInput;
-                msgEl.style.color = "#27AE60";
-                msgEl.innerText = "✅ Áp dụng mã thành công: Giảm 15% tổng đơn!";
-            } else if (codeInput === "PHUCGIAKY555") {
-                currentDiscountPercent = 5;
-                appliedPromoCode = codeInput;
-                msgEl.style.color = "#27AE60";
-                msgEl.innerText = "✅ Áp dụng mã thành công: Giảm 5% tổng đơn!";
-            } else if (codeInput === "PHUCGIAKY888") {
-                currentDiscountPercent = 8;
-                appliedPromoCode = codeInput;
-                msgEl.style.color = "#27AE60";
-                msgEl.innerText = "✅ Áp dụng mã thành công: Giảm 8% tổng đơn!";
-            } else {
-                currentDiscountPercent = 0;
-                appliedPromoCode = "";
-                msgEl.style.color = "#C0392B";
-                msgEl.innerText = "❌ Mã khuyến mãi không hợp lệ!";
-            }
-            renderCartItems();
-        }
-
-        function renderCartItems() {
-            const list = document.getElementById('cart-items-list');
-            if (cart.length === 0) {
-                list.innerHTML = `<p style="text-align:center; color:#888; padding: 20px;">Giỏ hàng đang trống</p>`;
-            } else {
-                list.innerHTML = cart.map(item => `
-                    <div class="cart-item">
-                        <div>
-                            <strong style="font-size:0.9rem;">${item.name}</strong>
-                            <div style="font-size:0.8rem; color:var(--bright-red);">${(item.price * item.qty).toLocaleString('vi-VN')}đ</div>
-                        </div>
-                        <div style="display:flex; align-items:center; gap:8px;">
-                            <button class="qty-btn" onclick="updateQty(${item.id}, -1)">-</button>
-                            <span>${item.qty}</span>
-                            <button class="qty-btn" onclick="updateQty(${item.id}, 1)">+</button>
-                        </div>
-                    </div>
-                `).join('');
-            }
-
-            const subTotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-            const discountAmount = Math.round((subTotal * currentDiscountPercent) / 100);
-            const grandTotal = subTotal - discountAmount;
-
-            document.getElementById('sub-total').innerText = subTotal.toLocaleString('vi-VN') + 'đ';
-            
-            const discountRow = document.getElementById('discount-row');
-            if (currentDiscountPercent > 0) {
-                discountRow.style.display = 'flex';
-                document.getElementById('discount-percent').innerText = currentDiscountPercent;
-                document.getElementById('discount-amount').innerText = '-' + discountAmount.toLocaleString('vi-VN') + 'đ';
-            } else {
-                discountRow.style.display = 'none';
-            }
-
-            document.getElementById('grand-total').innerText = grandTotal.toLocaleString('vi-VN') + 'đ';
-        }
-
-        function saveCustomerInfo() {
-            const info = {
-                name: document.getElementById('cust-name').value,
-                phone: document.getElementById('cust-phone').value,
-                address: document.getElementById('cust-address').value
-            };
-            localStorage.setItem('pgk_cust_info', JSON.stringify(info));
-        }
-
-        function loadCustomerInfo() {
-            const info = JSON.parse(localStorage.getItem('pgk_cust_info'));
-            if (info) {
-                document.getElementById('cust-name').value = info.name || '';
-                document.getElementById('cust-phone').value = info.phone || '';
-                document.getElementById('cust-address').value = info.address || '';
-            }
-        }
-
-        function createOrder() {
-            if (cart.length === 0) {
-                alert("Giỏ hàng của bạn đang trống! Vui lòng chọn món trước.");
-                return;
-            }
-
-            const selectedMethod = document.querySelector('input[name="deliveryMethod"]:checked').value;
-            const isPickup = selectedMethod === 'PICKUP';
-
-            const name = document.getElementById('cust-name').value;
-            const phone = document.getElementById('cust-phone').value;
-            const address = isPickup ? "Khách đến lấy tại quán" : document.getElementById('cust-address').value;
-            const note = document.getElementById('cust-note').value || "Không có";
-            const delMethod = isPickup ? '🏪 Khách đến lấy' : '🚚 Giao tận nơi';
-
-            const orderId = 'PGK' + Math.floor(100000 + Math.random() * 900000);
-            const timeStr = new Date().toLocaleString('vi-VN');
-
-            const subTotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-            const discountAmount = Math.round((subTotal * currentDiscountPercent) / 100);
-            const grandTotal = subTotal - discountAmount;
-
-            let itemListStr = cart.map((item, index) => 
-                `${index + 1}. ${item.name} x ${item.qty} = ${(item.price * item.qty).toLocaleString('vi-VN')}đ`
-            ).join('\n');
-
-            let promoStr = "";
-            if (currentDiscountPercent > 0) {
-                promoStr = `\n🏷️ Mã KM: ${appliedPromoCode} (Giảm ${currentDiscountPercent}%: -${discountAmount.toLocaleString('vi-VN')}đ)`;
-            }
-
-            generatedOrderText = 
-`🧧 ĐƠN HÀNG ẨM THỰC PHÚC GIA KÝ (福家记)
-----------------------------------
-🆔 Mã đơn: ${orderId}
-⏰ Thời gian: ${timeStr}
-
-👤 Khách hàng: ${name}
-📞 SĐT: ${phone}
-🚚 Hình thức: ${delMethod}
-${isPickup ? '' : `📍 Địa chỉ: ${address}\n`}📝 Ghi chú: ${note}
-
---- DANH SÁCH MÓN ---
-${itemListStr}
-
-----------------------------------
-💵 Tạm tính: ${subTotal.toLocaleString('vi-VN')}đ${promoStr}
-💰 TỔNG THANH TOÁN: ${grandTotal.toLocaleString('vi-VN')}đ
-(Chưa bao gồm phí ship nếu khách  chọn giao hàng)
-----------------------------------
-Cảm ơn quý khách đã đặt món tại Phúc Gia Ký!`;
-
-            document.getElementById('order-text-output').value = generatedOrderText;
-            document.getElementById('order-success-area').style.display = 'block';
-
-            copyOrderText(false);
-
-            cart = []; 
-            currentDiscountPercent = 0;
-            appliedPromoCode = "";
-            document.getElementById('promo-code-input').value = "";
-            document.getElementById('promo-msg').innerText = "";
-            localStorage.removeItem('pgk_cart'); 
-            updateCartBadge(); 
-            renderCartItems(); 
-            
-            document.getElementById('submit-btn').style.display = 'none';
-        }
-
-        function copyOrderText(showAlert = true) {
-            const text = document.getElementById('order-text-output').value;
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(text).then(() => {
-                    if (showAlert) alert("📋 Đã sao chép nội dung đơn hàng!");
-                });
-            } else {
-                const textArea = document.getElementById('order-text-output');
-                textArea.select();
-                document.execCommand('copy');
-                if (showAlert) alert("📋 Đã sao chép nội dung đơn hàng!");
-            }
-        }
-
-        function sendZalo() {
-            copyOrderText(false);
-            window.open(`https://zalo.me/${SHOP_PHONE}`, '_blank');
-        }
-
-        function sendMessenger() {
-            copyOrderText(false);
-            window.open(MESSENGER_LINK, '_blank');
-        }
-
-        function sendSMS() {
-            copyOrderText(false);
-            window.open(`sms:${SHOP_PHONE}?body=${encodeURIComponent(generatedOrderText)}`, '_self');
-        }
-
-        function callShop() {
-            window.open(`tel:${SHOP_PHONE}`, '_self');
-        }
-
-        function nativeShare() {
-            if (navigator.share) {
-                navigator.share({
-                    title: 'Đơn hàng Phúc Gia Ký',
-                    text: generatedOrderText
-                }).catch(console.error);
-            } else {
-                alert("Trình duyệt không hỗ trợ Web Share API. Bạn hãy dùng nút Sao chép đơn hàng.");
-            }
-        }
-    </script>
+ <!-- HEADER LOGO -->
+ <header>
+ <div class="logo-container">
+ <img id="shop-logo" src="https://raw.githubusercontent.com/amthucphucgiaky/menu/refs/heads/main/Logo.png" alt="Ẩm Thực Phúc Gia Ký Logo">
+ </div>
+ <h1 class="shop-title">ẨM THỰC PHÚC GIA KÝ</h1>
+ <div class="shop-sub">福 家 记</div>
+ </header>
+
+ <!-- BỘ LỌC VÀ TÌM KIẾM -->
+ <div class="controls-container">
+ <div class="search-box">
+ <input type="text" id="search-input" placeholder="🔎 Tìm món ăn hoặc mô tả..." oninput="filterMenu()">
+ </div>
+ <div class="categories-scroll" id="cat-list"></div>
+ </div>
+
+ <!-- DANH SÁCH MÓN ĐẠNG LƯỚI -->
+ <div class="container">
+ <div class="menu-grid" id="menu-grid"></div>
+ </div>
+
+ <!-- NÚT GIỎ HÀNG NỔI -->
+ <div class="cart-float-btn" onclick="openCart()">
+ 🛒 <span>Giỏ hàng</span>
+ <span class="cart-badge" id="cart-count">0</span>
+ </div>
+
+ <!-- MODAL GIỎ HÀNG & ĐẶT HÀNG -->
+ <div class="modal" id="cart-modal">
+ <div class="modal-content">
+ <div class="modal-header">
+ <h3>🛒 Giỏ Hàng PHÚC GIA KÝ (福家记)</h3>
+ <span class="close-btn" onclick="closeCart()">&times;</span>
+ </div>
+
+ <div id="cart-items-list" style="margin-top: 10px;"></div>
+
+ <!-- KHU VỰC NHẬP MÃ KHUYẾN MÃI -->
+ <div class="promo-box">
+ <input type="text" id="promo-code-input" placeholder="Mã khuyến mãi (VD: CHUCQUYKHACHNGONMIENG)">
+ <button type="button" onclick="applyPromoCode()">Áp dụng</button>
+ </div>
+ <div class="promo-message" id="promo-msg"></div>
+
+ <div class="summary-box">
+ <div style="display: flex; justify-content: space-between; font-size: 0.95rem; color: #555;">
+ <span>Tạm tính:</span>
+ <strong id="sub-total">0đ</strong>
+ </div>
+ <div id="discount-row" style="display: none; justify-content: space-between; font-size: 0.95rem; color: #27AE60; margin-top: 4px;">
+ <span>Giảm giá (<span id="discount-percent">0</span>%):</span>
+ <strong id="discount-amount">-0đ</strong>
+ </div>
+ <hr style="border: 0; border-top: 1px dashed #FFCDD2; margin: 6px 0;">
+ <div style="display: flex; justify-content: space-between; font-size: 1.1rem; color: var(--primary-red);">
+ <span>TỔNG CỘNG MÓN:</span>
+ <strong id="grand-total">0đ</strong>
+ </div>
+ </div>
+
+ <!-- THÔNG TIN KHÁCH HÀNG -->
+ <form class="customer-form" id="order-form" onsubmit="event.preventDefault(); createOrder();">
+ <h4 style="color: var(--primary-red); margin-top: 5px;">📝 Thông tin nhận hàng</h4>
+ <input type="text" id="cust-name" placeholder="Họ và tên (*)" required oninput="saveCustomerInfo()">
+ <input type="tel" id="cust-phone" placeholder="Số điện thoại (*)" required oninput="saveCustomerInfo()">
+ 
+ <div class="radio-group">
+ <label class="radio-option">
+ <input type="radio" name="deliveryMethod" value="SHIP" checked onchange="toggleDeliveryMode()"> 🚚 Giao tận nơi (Có phí ship)
+ </label>
+ <label class="radio-option">
+ <input type="radio" name="deliveryMethod" value="PICKUP" onchange="toggleDeliveryMode()"> 🏪 Khách đến lấy
+ </label>
+ </div>
+ 
+ <div id="address-container">
+ <input type="text" id="cust-address" placeholder="Địa chỉ nhận hàng (*)" required oninput="saveCustomerInfo()">
+ </div>
+ 
+ <textarea id="cust-note" rows="2" placeholder="Ghi chú thêm (ví dụ: Không cay, ít hành...)"></textarea>
+
+ <button type="submit" class="btn-confirm" id="submit-btn">📲 XÁC NHẬN ĐẶT MÓN</button>
+ </form>
+
+ <!-- KHU VỰC SAU KHI TẠO ĐƠN -->
+ <div id="order-success-area" style="display: none; margin-top: 15px; border-top: 2px dashed var(--gold); padding-top: 10px;">
+ <h4 style="color: #27AE60; text-align: center;">✅ Đã tạo đơn thành công!</h4>
+ <p style="font-size: 0.8rem; color: #555; text-align: center;">Đơn hàng đã được COPY, khách có thể mở ứng dụng để gửi hoặc chọn "Chia sẻ đơn hàng".</p>
+ 
+ <textarea id="order-text-output" rows="6" readonly style="width: 100%; margin-top: 5px; font-size: 0.8rem; background: #F9F9F9; padding: 5px;"></textarea>
+
+ <div class="share-grid">
+ <button class="btn-share btn-copy" onclick="copyOrderText(true)">📋 Sao chép lại đơn hàng</button>
+ <button class="btn-share btn-zalo" onclick="sendZalo()">💬 Mở Zalo & Dán</button>
+ <button class="btn-share btn-mes" onclick="sendMessenger()">💬 Mở Messenger & Dán</button>
+ <button class="btn-share btn-sms" onclick="sendSMS()">📱 Gửi SMS</button>
+ <button class="btn-share btn-call" onclick="callShop()">☎️ Gọi trực tiếp cho quán</button>
+ <button class="btn-share btn-native" onclick="nativeShare()">📤 Chia sẻ đơn hàng (Khuyên dùng)</button>
+ </div>
+ </div>
+
+ <button class="btn-modal-close" onclick="closeCart()">❌ Đóng</button>
+ </div>
+ </div>
+
+ <script>
+ const SHOP_PHONE = "0382823872"; 
+ const MESSENGER_LINK = "https://m.me/PhucGiaKyCuisine";
+
+ // DANH MỤC THỰC ĐƠN
+ const categories = [
+ "Tất cả", "Món Hấp", "Món Chiên", "Mì Tươi", 
+ "Miến Dong", "Nui Ống", "Súp Nước", "Món Khác", 
+ "Món Tẩm Bổ", "Nước Giải Khác"
+ ];
+
+ // =========================================================================
+ // DANH SÁCH ĐỦ 200 MÓN ĂN
+ // =========================================================================
+ const menuData = [
+ // --- MÓN HẤP (40 món: ID 1 -> 40) ---
+ { id: 1, name: "Há Cảo Tôm - Hấp", category: "Món Hấp", price: 30000, desc: "Vỏ mỏng mềm, nhân tôm tươi giòn ngọt tự nhiên.(6 viên nhỏ)", image: "https://github.com/amthucphucgiaky/menu/blob/main/H%C3%A1%20C%E1%BA%A3o%20T%C3%B4m.png?raw=true", isOut: false },
+ { id: 2, name: "Há Cảo Thịt - Hấp", category: "Món Hấp", price: 30000, desc: "Vỏ mỏng mềm, nhân thịt đậm đà, thơm mọng.(6 viên nhỏ)", image: "https://github.com/amthucphucgiaky/menu/blob/main/H%C3%A1%20C%E1%BA%A3o%20Th%E1%BB%8Bt.png?raw=true", isOut: false },
+ { id: 3, name: "Há Cảo Bó Xôi - Hấp", category: "Món Hấp", price: 35000, desc: "Vỏ mỏng mềm, nhân rau bó xôi thanh nhẹ.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/H%C3%A1%20C%E1%BA%A3o%20B%C3%B3%20X%C3%B4i%20-%20H%E1%BA%A5p%20(4%20vi%C3%AAn%20trung).png?raw=true", isOut: true },
+ { id: 4, name: "Há Cảo Hẹ - Hấp", category: "Món Hấp", price: 35000, desc: "Vỏ mỏng mềm, nhân hẹ thơm nồng, thanh nhẹ.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/H%C3%A1%20C%E1%BA%A3o%20H%E1%BA%B9%20-%20H%E1%BA%A5p%20(4%20vi%C3%AAn%20trung).png?raw=true", isOut: false },
+ { id: 5, name: "Há Cảo Cà Rốt - Hấp", category: "Món Hấp", price: 35000, desc: "Vỏ mỏng mềm, nhân cà rốt ngọt thanh tự nhiên.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/H%C3%A1%20C%E1%BA%A3o%20C%C3%A0%20R%E1%BB%91t%20-%20H%E1%BA%A5p%20(4%20vi%C3%AAn%20trung).jpg?raw=true", isOut: true },
+ { id: 6, name: "Há Cảo Bắp - Hấp", category: "Món Hấp", price: 35000, desc: "Vỏ mỏng mềm, nhân bắp ngọt thanh tự nhiên.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/H%C3%A1%20C%E1%BA%A3o%20B%E1%BA%AFp%20-%20H%E1%BA%A5p%20(4%20vi%C3%AAn%20trung).png?raw=true", isOut: false },
+ { id: 7, name: "Há Cảo Nấm Đông Cô - Hấp", category: "Món Hấp", price: 35000, desc: "Vỏ mỏng mềm, nhân nấm đông cô thơm ngọt, đậm đà.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/H%C3%A1%20C%E1%BA%A3o%20N%E1%BA%A5m%20%C4%90%C3%B4ng%20C%C3%B4.png?raw=true", isOut: false },
+ { id: 8, name: "Há Cảo Thủy Tinh Đậu - Hấp", category: "Món Hấp", price: 35000, desc: "Vỏ thủy tinh trong suốt, nhân đậu thơm bùi.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/H%C3%A1%20C%E1%BA%A3o%20Th%E1%BB%A7y%20Tinh%20%C4%90%E1%BA%ADu%20-%20H%E1%BA%A5p%20(4%20vi%C3%AAn%20trung).jpg?raw=true", isOut: true },
+ { id: 9, name: "Há Cảo Trứng Muối - Hấp", category: "Món Hấp", price: 35000, desc: "Vỏ mỏng mềm, nhân trứng muối béo bùi đậm đà.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/H%C3%A1%20C%E1%BA%A3o%20Tr%E1%BB%A9ng%20Mu%E1%BB%91i%20-%20H%E1%BA%A5p%20(4%20vi%C3%AAn%20trung).jpg?raw=true", isOut: false },
+ { id: 10, name: "Há Cảo Than Tre - Hấp", category: "Món Hấp", price: 35000, desc: "Vỏ than tre độc đáo, nhân đậm đà, thơm ngọt.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/H%C3%A1%20C%E1%BA%A3o%20Than%20Tre%20-%20H%E1%BA%A5p%20(4%20vi%C3%AAn%20trung).jpg?raw=true", isOut: false },
+ { id: 11, name: "Há Cảo Thanh Cua - Hấp", category: "Món Hấp", price: 35000, desc: "Vỏ mỏng mềm, nhân thanh cua ngọt thanh, đậm đà.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/H%C3%A1%20C%E1%BA%A3o%20Thanh%20Cua%20-%20H%E1%BA%A5p%20(4%20vi%C3%AAn%20trung).png?raw=true", isOut: false },
+ { id: 12, name: "Há Cảo Gà - Hấp", category: "Món Hấp", price: 35000, desc: "Vỏ mỏng mềm, nhân gà thơm ngọt, đậm đà.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/H%C3%A1%20C%E1%BA%A3o%20G%C3%A0%20-%20H%E1%BA%A5p%20(4%20vi%C3%AAn%20trung).png?raw=true", isOut: false },
+ { id: 13, name: "Há Cảo Mực - Hấp", category: "Món Hấp", price: 35000, desc: "Vỏ mỏng mềm, nhân mực giòn ngọt, đậm đà.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/H%C3%A1%20C%E1%BA%A3o%20M%E1%BB%B1c%20-%20H%E1%BA%A5p%20(4%20vi%C3%AAn%20trung).png?raw=true", isOut: false },
+ { id: 14, name: "Há Cảo Sò Điệp - Hấp", category: "Món Hấp", price: 35000, desc: "Vỏ mỏng mềm, nhân sò điệp ngọt thanh, đậm đà.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/H%C3%A1%20C%E1%BA%A3o%20S%C3%B2%20%C4%90i%E1%BB%87p%20-%20H%E1%BA%A5p%20(4%20vi%C3%AAn%20trung).png?raw=true", isOut: false },
+ { id: 15, name: "Xíu Mại Thanh Cua - Hấp", category: "Món Hấp", price: 35000, desc: "Nhân thanh cua ngọt thanh, vỏ mỏng thơm mềm.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/X%C3%ADu%20M%E1%BA%A1i%20Thanh%20Cua%20-%20H%E1%BA%A5p%20(4%20vi%C3%AAn%20trung).png?raw=true", isOut: false },
+ { id: 16, name: "Xíu Mại Tôm - Hấp", category: "Món Hấp", price: 35000, desc: "Nhân tôm giòn ngọt, vỏ mỏng thơm mọng.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/X%C3%ADu%20M%E1%BA%A1i%20T%C3%B4m%20-%20H%E1%BA%A5p%20(4%20vi%C3%AAn%20trung).png?raw=true", isOut: false },
+ { id: 17, name: "Xíu Mại Trứng Cút - Hấp", category: "Món Hấp", price: 35000, desc: "Nhân trứng cút béo bùi, vỏ mỏng thơm mềm.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/X%C3%ADu%20M%E1%BA%A1i%20Tr%E1%BB%A9ng%20C%C3%BAt%20-%20H%E1%BA%A5p%20(4%20vi%C3%AAn%20trung).png?raw=true", isOut: false },
+ { id: 18, name: "Xíu Mại Trứng Muối - Hấp", category: "Món Hấp", price: 35000, desc: "Nhân trứng muối béo bùi, vỏ mỏng thơm mềm.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/X%C3%ADu%20M%E1%BA%A1i%20Tr%E1%BB%A9ng%20Mu%E1%BB%91i%20-%20H%E1%BA%A5p%20(4%20vi%C3%AAn%20trung).png?raw=true", isOut: false },
+ { id: 19, name: "Xíu Mại Rong Biển Thanh Cua - Hấp", category: "Món Hấp", price: 35000, desc: "Nhân thanh cua ngọt, cuộn rong biển thơm mềm.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/X%C3%ADu%20M%E1%BA%A1i%20Rong%20Bi%E1%BB%83n%20Thanh%20Cua%20-%20H%E1%BA%A5p.jpg?raw=true", isOut: true },
+ { id: 20, name: "Sủi Cảo Tôm - Hấp", category: "Món Hấp", price: 45000, desc: "Vỏ mỏng mềm, nhân tôm tươi giòn ngọt.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/S%E1%BB%A7i%20C%E1%BA%A3o%20M%E1%BB%B1c%20-%20Chi%C3%AAn.png?raw=true", isOut: false },
+ { id: 21, name: "Sủi Cảo Mực - Hấp", category: "Món Hấp", price: 45000, desc: "Vỏ mỏng mềm, nhân mực tươi giòn ngọt.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/S%E1%BB%A7i%20C%E1%BA%A3o%20M%E1%BB%B1c%20-%20Chi%C3%AAn.png?raw=true", isOut: false },
+ { id: 22, name: "Há Cảo Rau Cần Tôm Thịt PGK-22", category: "Món Hấp", price: 45000, desc: "Rau cần thơm giòn giảm cảm giác ngấy.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/S%E1%BB%A7i%20C%E1%BA%A3o%20M%E1%BB%B1c%20-%20Chi%C3%AAn.png?raw=true", isOut: false },
+ { id: 23, name: "Bánh Bao Ca-pô Thịt Nướng PGK-23", category: "Món Hấp", price: 45000, desc: "Thịt nướng sốt xá xíu đậm đà thơm ngậy.(4 viên trung)", image: "https://github.com/amthucphucgiaky/menu/blob/main/S%E1%BB%A7i%20C%E1%BA%A3o%20M%E1%BB%B1c%20-%20Chi%C3%AAn.png?raw=true", isOut: false },
+ { id: 24, name: "Há Cảo Bào Ngư Sốt X.O PGK-24", category: "Món Hấp", price: 45000, desc: "Sốt X.O hải sản đắt giá đậm vị cay nhẹ.(4 viên trung)", image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300", isOut: false },
+ { id: 25, name: "Bánh Bao Sữa Tươi Tuổi Thơ PGK-25", category: "Món Hấp", price: 45000, desc: "Vỏ xốp mềm thơm phức mùi sữa tươi nguyên chất.(4 viên trung)", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
+ { id: 26, name: "Há Cảo Mực Cây Sốt Sa Tế PGK-26", category: "Món Hấp", price: 48000, desc: "Mực giòn ngọt sần sật ướp sốt sa tế đặc chế.(4 viên trung)", image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300", isOut: false },
+ { id: 27, name: "Xíu Mại Bò Mỹ Sốt Cà PGK-27", category: "Món Hấp", price: 50000, desc: "Thịt bò Mỹ xay mềm mọng đắm trong sốt cà chua.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
+ { id: 28, name: "Bánh Xếp Hấp Tôm Bắp Ngọt PGK-28", category: "Món Hấp", price: 42000, desc: "Bắp ngọt giòn tan hòa quyện nhân tôm thịt tươi.(4 viên trung)", image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300", isOut: false },
+ { id: 29, name: "Há Cảo Sò Điệp Sốt Tiêu Đen PGK-29", category: "Món Hấp", price: 58000, desc: "Sò điệp béo ngọt quyện tiêu đen Phú Quốc thơm nức.(4 viên trung)", image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300", isOut: false },
+ { id: 30, name: "Xíu Mại Cua Tuyết Thượng Hạng PGK-30", category: "Món Hấp", price: 60000, desc: "Thịt cua tuyết ngọt đậm đà bổ dưỡng.(4 viên trung)", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
+ { id: 31, name: "Bánh Bao Dừa Dứa Lá Nếp PGK-31", category: "Món Hấp", price: 30000, desc: "Hương thơm tự nhiên từ lá nếp tươi nguyên chất.(4 viên trung)", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
+ { id: 32, name: "Há Cảo Gà Nấm Hương PGK-32", category: "Món Hấp", price: 42000, desc: "Thịt gà xé nhỏ cùng nấm hương rừng thơm phức.(4 viên trung)", image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300", isOut: false },
+ { id: 33, name: "Há Cảo Ngũ Sắc May Mắn PGK-33", category: "Món Hấp", price: 52000, desc: "5 màu sắc tự nhiên đại diện cho Ngũ Hành.(4 viên trung)", image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300", isOut: false },
+ { id: 34, name: "Bánh Bao Trứng Muối Cơm Cháy PGK-34", category: "Món Hấp", price: 38000, desc: "Sự kết hợp độc đáo giữa béo ngậy và giòn tan.(4 viên trung)", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
+ { id: 35, name: "Xíu Mại Heo Rừng Hấp Ống Tre PGK-35", category: "Món Hấp", price: 55000, desc: "Thịt heo rừng săn chắc hấp trong ống tre thơm mát.(4 viên trung)", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
+ { id: 36, name: "Há Cảo Cá Hồi Sốt Bơ Tỏi PGK-36", category: "Món Hấp", price: 62000, desc: "Cá hồi Nauy béo ngậy giàu Omega-3 bổ dưỡng.(4 viên trung)", image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300", isOut: false },
+ { id: 37, name: "Bánh Bao Trà Xanh Nhân Đậu Đỏ PGK-37", category: "Món Hấp", price: 32000, desc: "Trà xanh Matcha chuẩn Nhật quyện đậu đỏ thanh ngọt.(4 viên trung)", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
+ { id: 38, name: "Há Cảo Tôm Cay Tứ Xuyên PGK-38", category: "Món Hấp", price: 48000, desc: "Vị cay tê lưỡi đặc trưng vùng Tứ Xuyên.(4 viên trung)", image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300", isOut: false },
+ { id: 39, name: "Xíu Mại Tôm Nấm Mèo PGK-39", category: "Món Hấp", price: 44000, desc: "Nấm mèo sần sật kết hợp nhân tôm thịt tươi ngon.(4 viên trung)", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
+ { id: 40, name: "Há Cảo Phúc Gia Đặc Biệt PGK-40", category: "Món Hấp", price: 75000, desc: "Món hấp đặc sản tụ hội trọn vẹn tinh hoa quán.(4 viên trung)", image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300", isOut: false },
+
+ // --- MÓN CHIÊN (20 món: ID 41 -> 60) ---
+ { id: 41, name: "Há Cảo Chiên Giòn Rụm", category: "Món Chiên", price: 48000, desc: "Há cáo chiên vàng ươm, giòn rụm kèm nước chấm xì dầu.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
+ { id: 42, name: "Chả Giò Thượng Hải Giòn Tan", category: "Món Chiên", price: 52000, desc: "Cuộn tôm thịt hải sản chiên giòn, béo ngậy thơm ngon.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
+ { id: 43, name: "Bánh Xếp Chiên Nước (Gyoza)", category: "Món Chiên", price: 50000, desc: "Một mặt giòn tan, một mặt dẻo mềm nhân thịt đậm đà.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
+ { id: 44, name: "Bánh Bao Chiên Tiêu Đen Hồng Kông", category: "Món Chiên", price: 38000, desc: "Vỏ ngoài giòn ruộm, nhân thịt tiêu đen béo thơm.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
+ { id: 45, name: "Tàu Hũ Ky Cuộn Tôm Chiên Giòn", category: "Món Chiên", price: 55000, desc: "Lớp tàu hũ ky mỏng giòn bọc trọn nhân tôm tươi.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
+ { id: 46, name: "Mực Chiên Giòn Sốt Bơ Tỏi", category: "Món Chiên", price: 65000, desc: "Mực khoanh chiên giòn sốt bơ tỏi thơm ngậy.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
+ { id: 47, name: "Cánh Gà Chiên Sốt Mật Ong", category: "Món Chiên", price: 58000, desc: "Cánh gà giòn đượm lớp sốt mật ong ngọt dịu.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
+ { id: 48, name: "Bánh Khoai Môn Tôm Chảo Chiên", category: "Món Chiên", price: 45000, desc: "Khoai môn dẻo bùi bọc tôm tươi chiên xù.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
+ { id: 49, name: "Bánh Củ Cải Chiên Xơ Dừa Hồng Kông", category: "Món Chiên", price: 40000, desc: "Món ăn đường phố Hồng Kông thơm phức bùi ngậy.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
+ { id: 50, name: "Cơm Cháy Chà Bông Sốt Mỡ Hành", category: "Món Chiên", price: 35000, desc: "Cơm cháy giòn rụm phủ giòn chà bông và mỡ hành.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
+ { id: 51, name: "Đậu Hũ Chiên Mối Ớt Tứ Xuyên PGK-51", category: "Món Chiên", price: 38000, desc: "Đậu hũ bên ngoài giòn bên trong dẻo mềm cay nhẹ.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
+ { id: 52, name: "Há Cảo Cua Chiên Bơ Tỏi PGK-52", category: "Món Chiên", price: 52000, desc: "Vỏ chiên vàng ươm ôm trọn thịt cua béo ngọt.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
+ { id: 53, name: "Tôm Hoàng Kim Chiên Trứng Muối PGK-53", category: "Món Chiên", price: 75000, desc: "Tôm sú chiên giòn phủ trọn sốt trứng muối béo bùi.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
+ { id: 54, name: "Chả Cá Chiên Sốt Mayonnaise PGK-54", category: "Món Chiên", price: 48000, desc: "Chả cá dai ngon chấm kèm sốt béo ngậy.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
+ { id: 55, name: "Bánh Bao Phong Cách Thượng Hải PGK-55", category: "Món Chiên", price: 42000, desc: "Chiên áp chảo giòn đáy thơm nức mùi vừng đen.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
+ { id: 56, name: "Hoành Thánh Chiên Sốt Chua Ngọt PGK-56", category: "Món Chiên", price: 45000, desc: "Vỏ hoành thánh giòn vụn rưới sốt chua ngọt chuẩn vị.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
+ { id: 57, name: "Bánh Hải Sản Chiên Xù PGK-57", category: "Món Chiên", price: 55000, desc: "Tôm mực xào nhuyễn lăn bột xù chiên vàng rộm.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
+ { id: 58, name: "Khoai Tây Lắc Phô Mai PGK-58", category: "Món Chiên", price: 30000, desc: "Khoai tây chiên giòn tan lắc đều bột phô Mai thơm bùi.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
+ { id: 59, name: "Mực Trứng Chiên Mắm Tốt PGK-59", category: "Món Chiên", price: 70000, desc: "Mực trứng tươi đậm đà sốt nước mắm tỏi ớt.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
+ { id: 60, name: "Đồ Chiên Tổng Hợp Phúc Gia PGK-60", category: "Món Chiên", price: 85000, desc: "Khay tổng hợp các món chiên đặc sắc nhất.", image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300", isOut: false },
+
+ // --- MÌ TƯƠI (20 món: ID 61 -> 80) ---
+ { id: 61, name: "Mì Tươi Xá Xíu Quảng Đông", category: "Mì Tươi", price: 65000, desc: "Sợi mì tươi kéo tay giòn dai, thịt xá xíu quay mật ong đậm vị.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300", isOut: false },
+ { id: 62, name: "Mì Tươi Vịt Tiềm Thuốc Bắc", category: "Mì Tươi", price: 85000, desc: "Đùi vịt góc tư hầm mềm thơm lừng thảo mộc bổ dưỡng.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300", isOut: false },
+ { id: 63, name: "Mì Tươi Hoành Thánh Tôm Thịt", category: "Mì Tươi", price: 60000, desc: "Nước dùng hầm xương ngọt thanh kèm hoành thánh nhân tôm.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300", isOut: false },
+ { id: 64, name: "Mì Tươi Hải Sản Chua Cay", category: "Mì Tươi", price: 70000, desc: "Tôm, mực, hải sản tươi ngon hòa quyện nước dùng chua cay.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300", isOut: false },
+ { id: 65, name: "Mì Tươi Bò Băm Tứ Xuyên Sốt Cay", category: "Mì Tươi", price: 65000, desc: "Mì trộn bò băm cay nồng chuẩn phong cách Tứ Xuyên.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300", isOut: false },
+ { id: 66, name: "Mì Tươi Sườn Kho Tàu Xì", category: "Mì Tươi", price: 68000, desc: "Sườn heo hầm mềm đượm sốt tàu xì sánh mịn.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300", isOut: false },
+ { id: 67, name: "Mì Tươi Xào Giòn Hải Sản", category: "Mì Tươi", price: 75000, desc: "Sợi mì chiên giòn rụm phủ sốt hải sản xào rau củ.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300", isOut: false },
+ { id: 68, name: "Mì Tươi Xào Mềm Bò Lúc Lắc", category: "Mì Tươi", price: 72000, desc: "Thịt bò Úc mềm mọng xào cùng sợi mì tươi dai thơm.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300", isOut: false },
+ { id: 69, name: "Mì Tươi Trộn Sốt Dầu Hào Xá Xíu", category: "Mì Tươi", price: 62000, desc: "Mì khô trộn sốt dầu hào thơm phức kèm thịt xá xíu.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300", isOut: false },
+ { id: 70, name: "Mì Tươi Càng Cua Bào Ngư PGK-70", category: "Mì Tươi", price: 95000, desc: "Món mì thượng hạng với càng cua tươi và bào ngư.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300", isOut: false },
+ { id: 71, name: "Mì Tươi Thập Cẩm Phúc Gia PGK-71", category: "Mì Tươi", price: 80000, desc: "Tụ hội trọn vẹn xá xíu, tôm, hoành thánh, sườn mềm.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300", isOut: false },
+ { id: 72, name: "Mì Tươi Chay Nấm Đông Cô PGK-72", category: "Mì Tươi", price: 50000, desc: "Nước dùng thanh ngọt hầm từ củ quả và nấm đông cô.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300", isOut: false },
+ { id: 73, name: "Mì Tươi Sa Tế Mực Ống PGK-73", category: "Mì Tươi", price: 68000, desc: "Mực ống tươi nguyên con đắm trong nước sốt sa tế.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300", isOut: false },
+ { id: 74, name: "Mì Tươi Tim Cật Khè Lửa PGK-74", category: "Mì Tươi", price: 65000, desc: "Tim cật tươi xào khè lửa giòn sần sật thơm lừng.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300", isOut: false },
+ { id: 75, name: "Mì Tươi Xào Singapore Curry PGK-75", category: "Mì Tươi", price: 70000, desc: "Vị cà ri Singapore đậm đà kết hợp tôm xá xíu.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300", isOut: false },
+ { id: 76, name: "Mì Tươi Súp Bò Nạm Mềm PGK-76", category: "Mì Tươi", price: 72000, desc: "Thịt nạm bò hầm gân mềm mượt mọng nước.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300", isOut: false },
+ { id: 77, name: "Mì Tươi Trộn Trứng Cút Lát PGK-77", category: "Mì Tươi", price: 58000, desc: "Mì khô sốt béo nhẹ rắc trứng cút lát bùi bùi.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300", isOut: false },
+ { id: 78, name: "Mì Tươi Giòn Rụm Sốt Bò PGK-78", category: "Mì Tươi", price: 75000, desc: "Tổ mì chiên giòn rưới sốt bò xào ớt đà lạt.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300", isOut: false },
+ { id: 79, name: "Mì Tươi Khô Sốt Tương Đen PGK-79", category: "Mì Tươi", price: 62000, desc: "Sốt tương đen Hàn Quốc đậm đà chuẩn vị.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300", isOut: false },
+ { id: 80, name: "Mì Tươi Vịt Quay Da Giòn PGK-80", category: "Mì Tươi", price: 88000, desc: "Vịt quay da giòn rụm kết hợp sợi mì tươi dai ngon.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300", isOut: false },
+
+ // --- MIẾN DONG (20 món: ID 81 -> 100) ---
+ { id: 81, name: "Miến Dong Cua Cà Mau Xào Sa Tế", category: "Miến Dong", price: 75000, desc: "Sợi miến dong dai ngon xào cùng thịt cua tươi và sốt sa tế.", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300", isOut: false },
+ { id: 82, name: "Miến Dong Lươn Đồng Giòn Rụm", category: "Miến Dong", price: 70000, desc: "Lươn đồng chiên giòn thơm phức hòa quyện sợi miến dong dai.", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300", isOut: false },
+ { id: 83, name: "Miến Dong Măng Gà Mềm Mượt", category: "Miến Dong", price: 60000, desc: "Thịt gà xé kết hợp măng tươi ngọt đặm nước hầm.", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300", isOut: false },
+ { id: 84, name: "Miến Dong Xào Hải Sản Thập Cẩm", category: "Miến Dong", price: 72000, desc: "Tôm, mực, chả cá xào đượm gia vị cùng miến dong.", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300", isOut: false },
+ { id: 85, name: "Miến Dong Súp Bò Băm Nấm Mèo", category: "Miến Dong", price: 62000, desc: "Nước súp thanh đậm đà thơm mùi nấm mèo băm nhỏ.", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300", isOut: false },
+ { id: 86, name: "Miến Dong Trộn Hàn Quốc Japchae", category: "Miến Dong", price: 65000, desc: "Sợi miến dai mềm trộn dầu vừng, thịt bò và rau củ.", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300", isOut: false },
+ { id: 87, name: "Miến Dong Xào Thịt Bò Dầu Hào", category: "Miến Dong", price: 68000, desc: "Thịt bò xào mềm ngấm sốt dầu hào đậm đà.", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300", isOut: false },
+ { id: 88, name: "Miến Dong Nước Súp Vịt Tiềm", category: "Miến Dong", price: 82000, desc: "Nước dùng thảo mộc bổ dưỡng kết hợp sợi miến dong dai.", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300", isOut: false },
+ { id: 89, name: "Miến Dong Xào Lòng Gà Trứng Non", category: "Miến Dong", price: 65000, desc: "Trứng non béo ngậy xào cùng lòng gà giòn sần sật.", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300", isOut: false },
+ { id: 90, name: "Miến Dong Tôm Hùm Sốt Cua PGK-90", category: "Miến Dong", price: 120000, desc: "Thịt tôm hùm béo ngọt hòa quyện sốt cua đậm đà.", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300", isOut: false },
+ { id: 91, name: "Miến Dong Chay Nấm Rơm PGK-91", category: "Miến Dong", price: 48000, desc: "Món chay thanh đạm với nấm rơm tươi và củ cải.", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300", isOut: false },
+ { id: 92, name: "Miến Dong Nước Bò Viên Ngon PGK-92", category: "Miến Dong", price: 58000, desc: "Bò viên giòn sần sật trong nước dùng trong ngọt.", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300", isOut: false },
+ { id: 93, name: "Miến Dong Xào Mực Sa Tế PGK-93", category: "Miến Dong", price: 70000, desc: "Mực tươi xào sa tế cay nồng thơm lừng.", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300", isOut: false },
+ { id: 94, name: "Miến Dong Súp Sườn Sụn PGK-94", category: "Miến Dong", price: 65000, desc: "Sườn sụn giòn sần sật hầm mềm thơm ngon.", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300", isOut: false },
+ { id: 95, name: "Miến Dong Xào Tay Cầm Nồi Đất PGK-95", category: "Miến Dong", price: 78000, desc: "Giữ trọn độ nóng hổi và mùi thơm nức trong nồi đất.", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300", isOut: false },
+ { id: 96, name: "Miến Dong Súp Bào Ngư PGK-96", category: "Miến Dong", price: 95000, desc: "Bào ngư hầm bổ dưỡng ngấm trọn sợi miến.", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300", isOut: false },
+ { id: 97, name: "Miến Dong Trộn Bơ Cay Tôm Tươi PGK-97", category: "Miến Dong", price: 68000, desc: "Sốt bơ cay ngậy phủ lên tôm tươi ngọt thịt.", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300", isOut: false },
+ { id: 98, name: "Miến Dong Nước Cốt Dừa Hải Sản PGK-98", category: "Miến Dong", price: 75000, desc: "Hương vị nước cốt dừa béo ngậy độc đáo.", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300", isOut: false },
+ { id: 99, name: "Miến Dong Xào Rau Củ Ngũ Sắc PGK-99", category: "Miến Dong", price: 52000, desc: "Rau củ tươi giòn màu sắc bắt mắt thanh nhẹ.", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300", isOut: false },
+ { id: 100, name: "Miến Dong Phúc Gia Thượng Hạng PGK-100", category: "Miến Dong", price: 88000, desc: "Sự kết hợp hoàn hảo giữa tôm, cua, lươn và bò.", image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300", isOut: false },
+
+ // --- NUI ỐNG (20 món: ID 101 -> 120) ---
+ { id: 101, name: "Nui Ống Xào Bò Lúc Lắc", category: "Nui Ống", price: 60000, desc: "Thịt bò Úc cắt khối xào mềm cùng nui ống và ớt đà lạt.", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300", isOut: false },
+ { id: 102, name: "Nui Ống Súp Xương Ốc Heo", category: "Nui Ống", price: 55000, desc: "Xương ống hầm mềm mọt nước, nui ống mềm mại dễ ăn.", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300", isOut: false },
+ { id: 103, name: "Nui Ống Xào Hải Sản Sốt Cà", category: "Nui Ống", price: 65000, desc: "Nui xào đượm sốt cà chua chua ngọt cùng hải sản.", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300", isOut: false },
+ { id: 104, name: "Nui Ống Đút Lò Phô Mai Bò Băm", category: "Nui Ống", price: 72000, desc: "Lớp phô Mai Mozzarella kéo sợi béo ngậy đút lò thơm nức.", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300", isOut: false },
+ { id: 105, name: "Nui Ống Súp Gà Xé Nấm Hương", category: "Nui Ống", price: 52000, desc: "Súp nước ngọt thanh từ gà và nấm hương tự nhiên.", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300", isOut: false },
+ { id: 106, name: "Nui Ống Xào Giòn Tôm Thịt", category: "Nui Ống", price: 62000, desc: "Nui chiên giòn rụm xào cùng tôm tươi và rau củ.", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300", isOut: false },
+ { id: 107, name: "Nui Ống Súp Mọc Trứng Cút", category: "Nui Ống", price: 50000, desc: "Mọc heo tự làm dai ngon tròn vị kết hợp trứng cút.", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300", isOut: false },
+ { id: 108, name: "Nui Ống Xào Xá Xíu Dầu Hào", category: "Nui Ống", price: 58000, desc: "Thịt xá xíu đậm đà quyện nui ống dai mềm.", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300", isOut: false },
+ { id: 109, name: "Nui Ống Xào Kem Bơ Nấm Truffle", category: "Nui Ống", price: 78000, desc: "Phong cách Âu - Á kết hợp độc đáo béo thơm.", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300", isOut: false },
+ { id: 110, name: "Nui Ống Súp Tôm Tươi Bách Hoa PGK-110", category: "Nui Ống", price: 62000, desc: "Tôm bách hoa ngọt đậm đà trong tô súp nóng.", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300", isOut: false },
+ { id: 111, name: "Nui Ống Chay Sốt Cà Chua PGK-111", category: "Nui Ống", price: 42000, desc: "Món ăn thanh đạm bổ dưỡng cho người ăn chay.", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300", isOut: false },
+ { id: 112, name: "Nui Ống Xào Sa Tế Mực Ống PGK-112", category: "Nui Ống", price: 65000, desc: "Mực ống giòn sần sật xào sa tế cay nồng.", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300", isOut: false },
+ { id: 113, name: "Nui Ống Súp Giò Lợn Bơ Mịn PGK-113", category: "Nui Ống", price: 60000, desc: "Giò lợn béo ngậy hầm mềm róc xương.", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300", isOut: false },
+ { id: 114, name: "Nui Ống Xào Cay Tứ Xuyên PGK-114", category: "Nui Ống", price: 62000, desc: "Gia vị cay tê nồng đậm chuẩn vùng Tứ Xuyên.", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300", isOut: false },
+ { id: 115, name: "Nui Ống Súp Cua Tuyết PGK-115", category: "Nui Ống", price: 70000, desc: "Thịt cua tuyết ngọt mọng hòa quyện súp đậm đà.", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300", isOut: false },
+ { id: 116, name: "Nui Ống Đút Lò Hải Sản Phô Mai PGK-116", category: "Nui Ống", price: 75000, desc: "Tôm mực thơm lừng đút lò phủ phô mai béo ngậy.", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300", isOut: false },
+ { id: 117, name: "Nui Ống Xào Bò Băm Trứng Ốp PGK-117", category: "Nui Ống", price: 58000, desc: "Trứng ốp lòng đào béo ngậy chảy trên nui xào.", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300", isOut: false },
+ { id: 118, name: "Nui Ống Súp Bò Viên Thượng Hạng PGK-118", category: "Nui Ống", price: 55000, desc: "Bò viên giòn sần sật nguyên chất thơm ngon.", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300", isOut: false },
+ { id: 119, name: "Nui Ống Xào Xúc Xích Đức PGK-119", category: "Nui Ống", price: 50000, desc: "Xúc xích Đức thơm bùi xào nui ống đậm đà.", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300", isOut: false },
+ { id: 120, name: "Nui Ống Phúc Gia Đặc Cảnh PGK-120", category: "Nui Ống", price: 80000, desc: "Món nui xào tổng hợp hải sản bò xá xíu độc quyền.", image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300", isOut: false },
+
+ // --- SÚP NƯỚC (20 món: ID 121 -> 140) ---
+ { id: 121, name: "Súp Hải Sản Bào Ngư Thượng Hạng", category: "Súp Nước", price: 90000, desc: "Súp sánh mịn ngào ngạt hương vị biển với bào ngư và tôm tươi.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300", isOut: false },
+ { id: 122, name: "Súp Cua Trứng Cút Bách Hoa", category: "Súp Nước", price: 45000, desc: "Thịt cua xé dính cùng trứng cút bùi ngậy sánh mịn.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300", isOut: false },
+ { id: 123, name: "Súp Bong Bóng Cá Tộc Bắc", category: "Súp Nước", price: 75000, desc: "Bong bóng cá béo ngậy bổ dưỡng hầm củ năng thanh ngọt.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300", isOut: false },
+ { id: 124, name: "Súp Só Điệp Tóc Tiên Hồng Kông", category: "Súp Nước", price: 65000, desc: "Món súp truyền thống Hồng Kông mang may mắn thịnh vượng.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300", isOut: false },
+ { id: 125, name: "Súp Bò Tây Hồ Băm Nhỏ", category: "Súp Nước", price: 50000, desc: "Súp thịt bò mềm thanh nhẹ thơm hương ngò rí.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300", isOut: false },
+ { id: 126, name: "Súp Nấm Đông Cô Tôm Tươi", category: "Súp Nước", price: 48000, desc: "Súp sánh thanh dịu, ngào ngạt hương nấm đông cô.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300", isOut: false },
+ { id: 127, name: "Súp Hải Sâm Hầm Táo Đỏ", category: "Súp Nước", price: 110000, desc: "Súp bổ dưỡng thượng hạng với hải sâm tươi béo.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300", isOut: false },
+ { id: 128, name: "Súp Gà Xé Trứng Bắc Thảo", category: "Súp Nước", price: 45000, desc: "Trứng bắc thảo bùi béo kết hợp gà xé ngọt thanh.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300", isOut: false },
+ { id: 129, name: "Súp Bắp Ngọt Tôm Cua", category: "Súp Nước", price: 42000, desc: "Bắp hạt giòn ngọt tự nhiên quyện tôm cua tươi.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300", isOut: false },
+ { id: 130, name: "Súp Vi Cá Bào Ngư Hoàng Kim PGK-130", category: "Súp Nước", price: 150000, desc: "Món súp xa hoa nhất tại Phúc Gia Ký.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300", isOut: false },
+ { id: 131, name: "Súp Chay Nấm Tuyết Hạt Lotus PGK-131", category: "Súp Nước", price: 38000, desc: "Súp chay mát lành bổ dưỡng từ nấm tuyết và hạt sen.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300", isOut: false },
+ { id: 132, name: "Súp Chua Cay Tứ Xuyên PGK-132", category: "Súp Nước", price: 48000, desc: "Vị chua thanh cay nồng kích thích vị giác tuyệt vời.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300", isOut: false },
+ { id: 133, name: "Súp Cua Tuyết Trứng Cua Đỏ PGK-133", category: "Súp Nước", price: 68000, desc: "Trứng cua đỏ phủ đều bề mặt tô súp nóng.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300", isOut: false },
+ { id: 134, name: "Súp Bí Đỏ Tôm Tươi Kem Bơ PGK-134", category: "Súp Nước", price: 52000, desc: "Súp bí đỏ sánh mịn thơm bùi mùi bơ tươi.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300", isOut: false },
+ { id: 135, name: "Súp Cá Hồi Củ Năng PGK-135", category: "Súp Nước", price: 62000, desc: "Củ năng giòn ngọt át mùi tanh cá hồi bổ dưỡng.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300", isOut: false },
+ { id: 136, name: "Súp Hoành Thánh Tôm Nước Trong PGK-136", category: "Súp Nước", price: 50000, desc: "Nước dùng trong vắt ngọt lừ từ xương hầm.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300", isOut: false },
+ { id: 137, name: "Súp Cua Ốc Hương Nấu Thảo Mộc PGK-137", category: "Súp Nước", price: 72000, desc: "Ốc hương giòn ngọt hòa quyện sốt súp thảo mộc.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300", isOut: false },
+ { id: 138, name: "Súp Lươn Đồng Nghệ An PGK-138", category: "Súp Nước", price: 65000, desc: "Đặc sản lươn đồng xào nghệ nấu súp cay nồng.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300", isOut: false },
+ { id: 139, name: "Súp Đậu Hũ Non Tôm Băm PGK-139", category: "Súp Nước", price: 42000, desc: "Đậu hũ non mềm mịn tan trong miệng.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300", isOut: false },
+ { id: 140, name: "Súp Hoàng Gia Phúc Gia PGK-140", category: "Súp Nước", price: 125000, desc: "Tụ hội vi cá, bào ngư, hải sâm và tôm tươi.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300", isOut: false },
+
+ // --- MÓN KHÁC (20 món: ID 141 -> 160) ---
+ { id: 141, name: "Cơm Chiên Dương Châu Chuẩn Vị", category: "Món Khác", price: 60000, desc: "Cơm chiên tơi hạt, xá xíu, lạp xưởng và tôm tươi xào ngon.", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300", isOut: false },
+ { id: 142, name: "Cơm Chiên Cua Hải Sản Bò Mỡ", category: "Món Khác", price: 75000, desc: "Thịt cua tươi ngọt hòa quyện cơm chiên bơ tỏi thơm ngậy.", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300", isOut: false },
+ { id: 143, name: "Cơm Vịt Quay Mật Ong Hồng Kông", category: "Món Khác", price: 70000, desc: "Vịt quay da giòn đượm mật ong ăn kèm xì dầu đặc chế.", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300", isOut: false },
+ { id: 144, name: "Cơm Xá Xíu Trứng Ốp Lòng Đào", category: "Món Khác", price: 58000, desc: "Thịt xá xíu đậm đà rưới sốt béo ngậy lên lòng đào.", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300", isOut: false },
+ { id: 145, name: "Cải Làn Sốt Dầu Hào Tỏi Băm", category: "Món Khác", price: 35000, desc: "Cải làn luộc giòn rưới sốt dầu hào tỏi thơm phức.", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300", isOut: false },
+ { id: 146, name: "Đậu Hũ Tứ Xuyên Bò Băm (Mapo Tofu)", category: "Món Khác", price: 55000, desc: "Đậu hũ non mềm mịn cay tê lưỡi ăn cực tốn cơm.", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300", isOut: false },
+ { id: 147, name: "Thịt Heo Sốt Chua Ngọt Quảng Đông", category: "Món Khác", price: 65000, desc: "Thịt chiên giòn rụm đắm trong sốt chua ngọt béo thơm.", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300", isOut: false },
+ { id: 148, name: "Mực Xào Sa Tế Củ Hành", category: "Món Khác", price: 72000, desc: "Mực giòn ngọt xào sa tế cay nồng thơm lừng.", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300", isOut: false },
+ { id: 149, name: "Bò Xào Cần Tây Cà Chua", category: "Món Khác", price: 68000, desc: "Thịt bò mềm xào chín tới giữ trọn độ ngọt tự nhiên.", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300", isOut: false },
+ { id: 150, name: "Cơm Chiên Cà Rút Cá Mặn PGK-150", category: "Món Khác", price: 62000, desc: "Đặc sản cơm chiên cá mặn thơm phức chuẩn vị Hoa.", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300", isOut: false },
+ { id: 151, name: "Cơm Gà Hấp Muối Trút PGK-151", category: "Món Khác", price: 65000, desc: "Gà ta da giòn thịt ngọt ngào đậm đà vị muối.", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300", isOut: false },
+ { id: 152, name: "Rau Muống Xào Tỏi Khè Lửa PGK-152", category: "Món Khác", price: 30000, desc: "Rau muống xanh giòn xào tỏi thơm phức lừng lẫy.", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300", isOut: false },
+ { id: 153, name: "Cơm Chiên Hải Sản Sốt Cà Rì PGK-153", category: "Món Khác", price: 68000, desc: "Hương vị cà ri thơm nức từng hạt cơm tơi xốp.", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300", isOut: false },
+ { id: 154, name: "Đậu Hũ Khơ Tộ Sốt Nấm PGK-154", category: "Món Khác", price: 48000, desc: "Đậu hũ chiên vàng đút tộ nấm đông cô đậm đà.", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300", isOut: false },
+ { id: 155, name: "Cơm Sườn Nướng Sốt X.O PGK-155", category: "Món Khác", price: 72000, desc: "Sườn non nướng đượm sốt X.O hải sản đắt giá.", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300", isOut: false },
+ { id: 156, name: "Cơm Chiên Chay Ngũ Sắc PGK-156", category: "Món Khác", price: 45000, desc: "Cơm chiên hạt tơi cùng hạt sen, bắp, đậu hà lan.", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300", isOut: false },
+ { id: 157, name: "Bò Lúc Lắc Khoai Tây Chiên PGK-157", category: "Món Khác", price: 85000, desc: "Món ăn kèm hoàn hảo cho bữa tiệc gia đình.", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300", isOut: false },
+ { id: 158, name: "Cải Thảo Xào Nấm Mèo PGK-158", category: "Món Khác", price: 32000, desc: "Cải thảo ngọt mát xào nấm mèo sần sật thanh nhẹ.", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300", isOut: false },
+ { id: 159, name: "Cơm Vịt Quay Sốt Tiêu Xanh PGK-159", category: "Món Khác", price: 75000, desc: "Sốt tiêu xanh cay nhẹ bớt ngấy cho thịt vịt.", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300", isOut: false },
+ { id: 160, name: "Cơm Bò Sốt Hạt Tiêu Đen PGK-160", category: "Món Khác", price: 68000, desc: "Thịt bò thái mỏng xào sốt tiêu đen Phú Quốc đậy mùi.", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300", isOut: false },
+
+ // --- MÓN TẨM BỔ (20 món: ID 161 -> 180) ---
+ { id: 161, name: "Gà Ác Tiềm Nhân Sâm Bổ Dưỡng", category: "Món Tẩm Bổ", price: 130000, desc: "Gà ác nguyên con tiềm cùng sâm tươi, kỷ tử, đại táo tăng sức khỏe.", image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300", isOut: false },
+ { id: 162, name: "Bào Ngư Hầm Hải Sâm Thảo Mộc", category: "Món Tẩm Bổ", price: 180000, desc: "Món ăn hoàng gia bổ dưỡng phục hồi thể lực nhanh chóng.", image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300", isOut: false },
+ { id: 163, name: "Vịt Tiềm Thuốc Bắc Đông Cát", category: "Món Tẩm Bổ", price: 120000, desc: "Thịt vịt mềm róc xương thơm lừng gia vị thuốc bắc.", image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300", isOut: false },
+ { id: 164, name: "Óc Heo Tiềm Thuốc Bắc Bổ Não", category: "Món Tẩm Bổ", price: 75000, desc: "Món ăn bổ não, mềm mịn béo ngậy không bị hăng.", image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300", isOut: false },
+ { id: 165, name: "Yến Sào Chưng Đường Phèn Hạt Sen", category: "Món Tẩm Bổ", price: 150000, desc: "Yến sào nguyên chất thanh mát bổ phổi đẹp da.", image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300", isOut: false },
+ { id: 166, name: "Tổ Yến Chưng Táo Đỏ Kỷ Tử", category: "Món Tẩm Bổ", price: 155000, desc: "Giúp bồi bổ khí huyết, tăng cường hệ miễn dịch.", image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300", isOut: false },
+ { id: 167, name: "Súp Đương Quy Hầm Giò Lợn", category: "Món Tẩm Bổ", price: 95000, desc: "Bồi bổ sức khỏe cho người mới ốm dậy cực tốt.", image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300", isOut: false },
+ { id: 168, name: "Tim Lợn Tiềm Hạt Sen Thảo Dược", category: "Món Tẩm Bổ", price: 85000, desc: "Giúp an thần, ngủ ngon giấc và bổ tim mạch.", image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300", isOut: false },
+ { id: 169, name: "Đuôi Bò Hầm Đương Quy PGK-169", category: "Món Tẩm Bổ", price: 140000, desc: "Món ăn bổ gân cốt, thơm nức mùi thảo mộc.", image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300", isOut: false },
+ { id: 170, name: "Cá Hồi Hầm Đâm Sâm Thượng Hạng PGK-170", category: "Món Tẩm Bổ", price: 160000, desc: "Dầu cá béo ngậy ngấm sâm tươi nguyên củ.", image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300", isOut: false },
+ { id: 171, name: "Bào Ngư Sốt Dầu Hào Đông Cô PGK-171", category: "Món Tẩm Bổ", price: 165000, desc: "Bào ngư nguyên con mọng nước đượm sốt béo.", image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300", isOut: false },
+ { id: 172, name: "Rùa Hầm Chuối Đậu Bổ Dưỡng PGK-172", category: "Món Tẩm Bổ", price: 190000, desc: "Bài thuốc dân gian bồi bổ thể lực dồi dào.", image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300", isOut: false },
+ { id: 173, name: "Gà Trống Thiến Hầm Nấm Cửu Long PGK-173", category: "Món Tẩm Bổ", price: 135000, desc: "Thịt gà săn chắc thơm ngon bùi ngậy.", image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300", isOut: false },
+ { id: 174, name: "Súp Bong Bóng Cá Bào Ngư PGK-174", category: "Món Tẩm Bổ", price: 145000, desc: "Súp dưỡng nhan tuyệt vời cho phái đẹp.", image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300", isOut: false },
+ { id: 175, name: "Ngưu Pín Hầm Bát Bửu PGK-175", category: "Món Tẩm Bổ", price: 170000, desc: "Món ăn tráng dương bổ khí huyết cho nam giới.", image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300", isOut: false },
+ { id: 176, name: "Hải Sâm Đút Tộ Đông Cô PGK-176", category: "Món Tẩm Bổ", price: 175000, desc: "Hải sâm biển sâu giàu đạm bổ dưỡng.", image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300", isOut: false },
+ { id: 177, name: "Cháo Yến Sào Bào Ngư PGK-177", category: "Món Tẩm Bổ", price: 130000, desc: "Cháo hầm sánh mịn rắc thịt bào ngư và yến xé.", image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300", isOut: false },
+ { id: 178, name: "Súp Nấm Đông Trùng Hạ Thảo PGK-178", category: "Món Tẩm Bổ", price: 185000, desc: "Đông trùng hạ thảo nguyên con tăng sức đề kháng.", image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300", isOut: false },
+ { id: 179, name: "Đùi Cừu Hầm Thảo Mộc Tây Tạng PGK-179", category: "Món Tẩm Bổ", price: 160000, desc: "Thịt cừu mềm mại đượm vị thảo mộc Tây Tạng.", image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300", isOut: false },
+ { id: 180, name: "Thang Tiềm Đại Bổ Phúc Gia PGK-180", category: "Món Tẩm Bổ", price: 220000, desc: "Set tiềm đại bổ cao cấp nhất của nhà hàng.", image: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300", isOut: false },
+
+ // --- NƯỚC GIẢI KHÁC (20 món: ID 181 -> 200) ---
+ { id: 181, name: "Trà Tuyết Nhiệm Sâm Đất Phúc Gia", category: "Nước Giải Khác", price: 25000, desc: "Thức uống giải nhiệt độc quyền, thanh mát cơ thể dịu ngọt tự nhiên.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
+ { id: 182, name: "Trà Bí Đao Lên Men Hạt Chia", category: "Nước Giải Khác", price: 22000, desc: "Giải nhiệt mát gan, hạt chia bùi bùi giòn ngon.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
+ { id: 183, name: "Trà Cúc Hạt Sen Thanh Nhiệt", category: "Nước Giải Khác", price: 25000, desc: "Hương hoa cúc thơm ngát giúp thư giãn và ngủ ngon.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
+ { id: 184, name: "Nước Sâm Hoa Cúc Thảo Mộc", category: "Nước Giải Khác", price: 20000, desc: "Nước sâm nấu truyền thống giải khát cực ngon.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
+ { id: 185, name: "Nước Ô Long Chanh Đào Mật Ong", category: "Nước Giải Khác", price: 28000, desc: "Trà ô long đậm vị quyện chanh đào thơm mát.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
+ { id: 186, name: "Nước Ép Dưa Hấu Tươi Nguyên Chất", category: "Nước Giải Khác", price: 30000, desc: "Dưa hấu đỏ mọng giải nhiệt ngày hè ngột ngạt.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
+ { id: 187, name: "Nước Ép Thơm (Dứa) Tươi Mát", category: "Nước Giải Khác", price: 30000, desc: "Chứa nhiều Vitamin C giúp tiêu hóa món ăn mỡ tốt.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
+ { id: 188, name: "Chanh Tươi Tuyết Đá Lạnh", category: "Nước Giải Khác", price: 20000, desc: "Vị chua thanh mát lạnh sảng khoái tức thì.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
+ { id: 189, name: "Trà Tắc Xí Muội Muối Ớt", category: "Nước Giải Khác", price: 25000, desc: "Chua chua ngọt ngọt mặn mặn cực kỳ kích thích.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
+ { id: 190, name: "Sữa Đậu Đỏ Dừa Tươi PGK-190", category: "Nước Giải Khác", price: 28000, desc: "Đậu đỏ bùi bùi béo ngọt hương vị dừa tươi.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
+ { id: 191, name: "Coca Cola Lạnh Lon 330ml PGK-191", category: "Nước Giải Khác", price: 18000, desc: "Nước ngọt có gas ướp lạnh cực sảng khoái.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
+ { id: 192, name: "Pepsi Không Calo Lạnh Lon PGK-192", category: "Nước Giải Khác", price: 18000, desc: "Không lo tăng cân khi thưởng thức cùng đồ ăn.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
+ { id: 193, name: "Nước 7Up Vị Lemon Lon PGK-193", category: "Nước Giải Khác", price: 18000, desc: "Giải khát nhanh chóng với hương chanh tự nhiên.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
+ { id: 194, name: "Trà Xanh C2 Vị Chanh PGK-194", category: "Nước Giải Khác", price: 15000, desc: "Trà xanh đóng chai mát lạnh dễ uống.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
+ { id: 195, name: "Nước Dừa Tươi Nguyên Trái PGK-195", category: "Nước Giải Khác", price: 32000, desc: "Dừa xiêm xanh ngọt nước thanh mát tự nhiên.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
+ { id: 196, name: "Trà Sữa Thái Xanh Thạch Dừa PGK-196", category: "Nước Giải Khác", price: 30000, desc: "Đậm đà chuẩn vị trà sữa Thái xanh béo ngậy.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
+ { id: 197, name: "Sữa Đậu Nành Chuẩn Nhà Làm PGK-197", category: "Nước Giải Khác", price: 18000, desc: "Đậu nành nguyên chất nấu thủ công thơm ngậy.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
+ { id: 198, name: "Soda Việt Quất Chanh Sảng Khoái PGK-198", category: "Nước Giải Khác", price: 32000, desc: "Soda sủi bọt mát lạnh kết hợp việt quất tươi.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
+ { id: 199, name: "Nước Suối Aquafina 500ml PGK-199", category: "Nước Giải Khác", price: 10000, desc: "Nước tinh khiết đóng chai an toàn sức khỏe.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
+ { id: 200, name: "Bia Tsingtao Nhập Khẩu PGK-200", category: "Nước Giải Khác", price: 35000, desc: "Bia lon nhập khẩu vị thanh mát đậm đà.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false }
+ ];
+
+ // BIẾN TRẠNG THÁI GIỎ HÀNG
+ let cart = {};
+ let currentCategory = "Tất cả";
+ let discountPercent = 0;
+ let createdOrderText = "";
+
+ // KHỞI TẠO TRANG
+ window.onload = function() {
+ renderCategories();
+ renderMenu();
+ loadCustomerInfo();
+ };
+
+ function formatVND(amount) {
+ return amount.toLocaleString('vi-VN') + 'đ';
+ }
+
+ // HIỂN THỊ DANH MỤC
+ function renderCategories() {
+ const catContainer = document.getElementById('cat-list');
+ catContainer.innerHTML = categories.map(cat => `
+ <button class="cat-btn ${cat === currentCategory ? 'active' : ''}" onclick="selectCategory('${cat}')">${cat}</button>
+ `).join('');
+ }
+
+ function selectCategory(cat) {
+ currentCategory = cat;
+ renderCategories();
+ filterMenu();
+ }
+
+ // HIỂN THỊ THỰC ĐƠN
+ function renderMenu(items = menuData) {
+ const menuGrid = document.getElementById('menu-grid');
+ if (items.length === 0) {
+ menuGrid.innerHTML = `<p style="grid-column: span 4; text-align: center; color: #FFF; padding: 20px;">Không tìm thấy món phù hợp!</p>`;
+ return;
+ }
+
+ menuGrid.innerHTML = items.map(item => `
+ <div class="food-card ${item.isOut ? 'out-of-stock' : ''}">
+ ${item.isOut ? '<span class="badge-out">Hết hàng</span>' : ''}
+ <img src="${item.image}" class="food-img" alt="${item.name}" onerror="this.src='https://via.placeholder.com/150'">
+ <div class="food-info">
+ <div class="food-title">${item.name}</div>
+ <div class="food-desc">${item.desc}</div>
+ <div class="food-bottom">
+ <span class="food-price">${formatVND(item.price)}</span>
+ ${!item.isOut ? `<button class="btn-add" onclick="addToCart(${item.id})">+ Thêm</button>` : ''}
+ </div>
+ </div>
+ </div>
+ `).join('');
+ }
+
+ // LỌC MÓN ĂN
+ function filterMenu() {
+ const searchVal = document.getElementById('search-input').value.toLowerCase().trim();
+ const filtered = menuData.filter(item => {
+ const matchCat = currentCategory === "Tất cả" || item.category === currentCategory;
+ const matchSearch = item.name.toLowerCase().includes(searchVal) || item.desc.toLowerCase().includes(searchVal);
+ return matchCat && matchSearch;
+ });
+ renderMenu(filtered);
+ }
+
+ // XỬ LÝ GIỎ HÀNG
+ function addToCart(id) {
+ const item = menuData.find(m => m.id === id);
+ if (!item) return;
+
+ if (cart[id]) {
+ cart[id].qty += 1;
+ } else {
+ cart[id] = { ...item, qty: 1 };
+ }
+ updateCartBadge();
+ }
+
+ function updateCartBadge() {
+ const count = Object.values(cart).reduce((sum, i) => sum + i.qty, 0);
+ document.getElementById('cart-count').innerText = count;
+ }
+
+ function openCart() {
+ renderCartItems();
+ document.getElementById('cart-modal').style.display = 'flex';
+ }
+
+ function closeCart() {
+ document.getElementById('cart-modal').style.display = 'none';
+ }
+
+ function changeQty(id, delta) {
+ if (!cart[id]) return;
+ cart[id].qty += delta;
+ if (cart[id].qty <= 0) {
+ delete cart[id];
+ }
+ renderCartItems();
+ updateCartBadge();
+ }
+
+ function renderCartItems() {
+ const container = document.getElementById('cart-items-list');
+ const cartArray = Object.values(cart);
+
+ if (cartArray.length === 0) {
+ container.innerHTML = `<p style="text-align: center; color: #777; padding: 15px;">Giỏ hàng của bạn đang trống.</p>`;
+ } else {
+ container.innerHTML = cartArray.map(item => `
+ <div class="cart-item">
+ <div>
+ <strong style="color: var(--primary-red); font-size: 0.9rem;">${item.name}</strong>
+ <div style="font-size: 0.8rem; color: #666;">${formatVND(item.price)}</div>
+ </div>
+ <div style="display: flex; align-items: center; gap: 8px;">
+ <button class="qty-btn" onclick="changeQty(${item.id}, -1)">-</button>
+ <span>${item.qty}</span>
+ <button class="qty-btn" onclick="changeQty(${item.id}, 1)">+</button>
+ </div>
+ </div>
+ `).join('');
+ }
+
+ calculateTotal();
+ }
+
+ // MÃ KHUYẾN MÃI
+ function applyPromoCode() {
+ const code = document.getElementById('promo-code-input').value.trim().toUpperCase();
+ const msg = document.getElementById('promo-msg');
+ 
+ if (code === "CHUCQUYKHACHNGONMIENG") {
+ discountPercent = 10;
+ msg.style.color = "#27AE60";
+ msg.innerText = "✅ Áp dụng mã thành công! Giảm 10%";
+ } else if (code === "") {
+ discountPercent = 0;
+ msg.innerText = "";
+ } else {
+ discountPercent = 0;
+ msg.style.color = "#C0392B";
+ msg.innerText = "❌ Mã khuyến mãi không hợp lệ!";
+ }
+ calculateTotal();
+ }
+
+ function calculateTotal() {
+ const subTotal = Object.values(cart).reduce((sum, item) => sum + (item.price * item.qty), 0);
+ const discountAmount = Math.round(subTotal * (discountPercent / 100));
+ const grandTotal = subTotal - discountAmount;
+
+ document.getElementById('sub-total').innerText = formatVND(subTotal);
+ 
+ const discountRow = document.getElementById('discount-row');
+ if (discountPercent > 0) {
+ discountRow.style.display = 'flex';
+ document.getElementById('discount-percent').innerText = discountPercent;
+ document.getElementById('discount-amount').innerText = '-' + formatVND(discountAmount);
+ } else {
+ discountRow.style.display = 'none';
+ }
+
+ document.getElementById('grand-total').innerText = formatVND(grandTotal);
+ }
+
+ function toggleDeliveryMode() {
+ const isShip = document.querySelector('input[name="deliveryMethod"]:checked').value === 'SHIP';
+ const addrContainer = document.getElementById('address-container');
+ const addrInput = document.getElementById('cust-address');
+
+ if (isShip) {
+ addrContainer.style.display = 'block';
+ addrInput.required = true;
+ } else {
+ addrContainer.style.display = 'none';
+ addrInput.required = false;
+ }
+ }
+
+ function saveCustomerInfo() {
+ const info = {
+ name: document.getElementById('cust-name').value,
+ phone: document.getElementById('cust-phone').value,
+ address: document.getElementById('cust-address').value
+ };
+ localStorage.setItem('phucgiaky_cust_info', JSON.stringify(info));
+ }
+
+ function loadCustomerInfo() {
+ const saved = localStorage.getItem('phucgiaky_cust_info');
+ if (saved) {
+ try {
+ const info = JSON.parse(saved);
+ if (info.name) document.getElementById('cust-name').value = info.name;
+ if (info.phone) document.getElementById('cust-phone').value = info.phone;
+ if (info.address) document.getElementById('cust-address').value = info.address;
+ } catch (e) {}
+ }
+ }
+
+ // TẠO ĐƠN HÀNG
+ function createOrder() {
+ const cartArray = Object.values(cart);
+ if (cartArray.length === 0) {
+ alert("Giỏ hàng đang trống! Vui lòng chọn món trước khi đặt.");
+ return;
+ }
+
+ const name = document.getElementById('cust-name').value.trim();
+ const phone = document.getElementById('cust-phone').value.trim();
+ const method = document.querySelector('input[name="deliveryMethod"]:checked').value;
+ const address = document.getElementById('cust-address').value.trim();
+ const note = document.getElementById('cust-note').value.trim();
+
+ const subTotal = cartArray.reduce((sum, item) => sum + (item.price * item.qty), 0);
+ const discountAmount = Math.round(subTotal * (discountPercent / 100));
+ const grandTotal = subTotal - discountAmount;
+
+ let text = `🧧 ĐƠN HÀNG ẨM THỰC PHÚC GIA KÝ (福家记)\n`;
+ text += `-----------------------------------\n`;
+ text += `👤 Khách hàng: ${name}\n`;
+ text += `📞 Điện thoại: ${phone}\n`;
+ text += `🚚 Hình thức: ${method === 'SHIP' ? 'Giao tận nơi' : 'Khách đến lấy'}\n`;
+ if (method === 'SHIP') text += `📍 Địa chỉ: ${address}\n`;
+ if (note) text += `📝 Ghi chú: ${note}\n`;
+ text += `-----------------------------------\n`;
+ text += `📋 DANH SÁCH MÓN:\n`;
+
+ cartArray.forEach((i, idx) => {
+ text += `${idx + 1}. ${i.name} x${i.qty} = ${formatVND(i.price * i.qty)}\n`;
+ });
+
+ text += `-----------------------------------\n`;
+ text += `💰 Tạm tính: ${formatVND(subTotal)}\n`;
+ if (discountPercent > 0) {
+ text += `🎉 Giảm giá (${discountPercent}%): -${formatVND(discountAmount)}\n`;
+ }
+ text += `💵 TỔNG CỘNG: ${formatVND(grandTotal)}`;
+
+ createdOrderText = text;
+ document.getElementById('order-text-output').value = text;
+ document.getElementById('order-success-area').style.display = 'block';
+
+ copyOrderText(false);
+ }
+
+ function copyOrderText(showAlert = true) {
+ if (!createdOrderText) return;
+ navigator.clipboard.writeText(createdOrderText).then(() => {
+ if (showAlert) alert("📋 Đã sao chép nội dung đơn hàng vào bộ nhớ tạm!");
+ }).catch(() => {
+ const area = document.getElementById('order-text-output');
+ area.select();
+ document.execCommand('copy');
+ if (showAlert) alert("📋 Đã sao chép nội dung đơn hàng!");
+ });
+ }
+
+ function sendZalo() {
+ copyOrderText(false);
+ window.open(`https://zalo.me/${SHOP_PHONE}`, '_blank');
+ }
+
+ function sendMessenger() {
+ copyOrderText(false);
+ window.open(MESSENGER_LINK, '_blank');
+ }
+
+ function sendSMS() {
+ copyOrderText(false);
+ window.open(`sms:${SHOP_PHONE}?body=${encodeURIComponent(createdOrderText)}`, '_blank');
+ }
+
+ function callShop() {
+ window.location.href = `tel:${SHOP_PHONE}`;
+ }
+
+ function nativeShare() {
+ if (navigator.share) {
+ navigator.share({
+ title: 'Đơn hàng Phúc Gia Ký',
+ text: createdOrderText
+ }).catch(() => {});
+ } else {
+ copyOrderText(true);
+ }
+ }
+ </script>
 </body>
 </html>
