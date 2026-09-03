@@ -525,13 +525,13 @@
  
  <textarea id="cust-note" rows="2" placeholder="Ghi chú thêm (ví dụ: Không cay, ít hành...)"></textarea>
 
- <button type="submit" class="btn-confirm" id="submit-btn">📲 XÁC NHẬN VÀ GỞI ĐƠN PHÍA DƯỚI</button>
+ <button type="submit" class="btn-confirm" id="submit-btn">📲 XÁC NHẬN VÀ GỞI BẾP PHÍA DƯỚI ⏬</button>
  </form>
 
  <!-- KHU VỰC SAU KHI TẠO ĐƠN -->
  <div id="order-success-area" style="display: none; margin-top: 15px; border-top: 2px dashed var(--gold); padding-top: 10px;">
  <h4 style="color: #27AE60; text-align: center;">✅ Đã tạo đơn thành công!</h4>
- <p style="font-size: 0.8rem; color: #555; text-align: center;">Đơn hàng đã được COPY, khách có thể mở ứng dụng để gửi hoặc chọn "Chia sẻ đơn hàng".</p>
+ <p style="font-size: 0.8rem; color: #555; text-align: center;">Đơn hàng đã được COPY, khách có thể mở ứng dụng phía dưới để gửi hoặc chọn "Chia sẻ đơn hàng".</p>
  
  <textarea id="order-text-output" rows="6" readonly style="width: 100%; margin-top: 5px; font-size: 0.8rem; background: #F9F9F9; padding: 5px;"></textarea>
 
@@ -557,7 +557,7 @@
  const categories = [
  "Tất cả", "Món Hấp", "Món Chiên", "Mì Tươi", 
  "Miến Dong", "Nui Ống", "Súp Nước", "Món Khác", 
- "Món Tẩm Bổ", "Nước Giải Khác"
+ "Món Tẩm Bổ", "Nước Giải Khát"
  ];
 
  // =========================================================================
@@ -788,9 +788,9 @@
  let currentCategory = "Tất cả";
  let appliedDiscountPercent = 0;
  const PROMO_CODES = {
- "CHUCQUYKHACHNGONMIENG": 10,
- "PHUCGIAKY10": 10,
- "PHUCGIAKY20": 20
+ "TETTRUNGTHU2026": 10,
+ "PHUCGIAKY555": 5,
+ "PHUCGIAKY101010": 10
  };
 
  // KHỞI TẠO TẢI TRANG
@@ -1009,7 +1009,7 @@
  }
  text += `👉 TỔNG CỘNG MÓN: ${grandTotal.toLocaleString('vi-VN')}đ\n`;
  text += `------------------------------------\n`;
- text += `Cảm ơn Quý Khách đã ủng hộ Phúc Gia Ký!`;
+ text += `💕Cảm ơn Quý Khách đã ủng hộ Phúc Gia Ký!💕`;
 
  return text;
  }
