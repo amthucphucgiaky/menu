@@ -1039,8 +1039,13 @@
  }
 
  function sendZalo() {
- copyOrderText(false);
- window.open(`https://zalo.me/${SHOP_PHONE}`, '_blank');
+ // 1. Thực hiện sao chép đơn hàng vào Clipboard
+    copyOrderText(false); 
+    
+    // 2. Chuyển hướng trực tiếp thay vì mở cửa sổ mới để không bị chặn Pop-up
+    // Sử dụng link Zalo Me hoặc URL Scheme của Zalo
+    const zaloPhone = SHOP_PHONE; // Hoặc link Zalo OA/cá nhân của bạn
+    window.location.href = `https://zalo.me/${zaloPhone}`;
  }
 
  function sendMessenger() {
