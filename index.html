@@ -780,32 +780,31 @@
  { id: 197, name: "Sữa Đậu Nành Chuẩn Nhà Làm PGK-197", category: "Nước Giải Khác", price: 18000, desc: "Đậu nành nguyên chất nấu thủ công thơm ngậy.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
  { id: 198, name: "Soda Việt Quất Chanh Sảng Khoái PGK-198", category: "Nước Giải Khác", price: 32000, desc: "Soda sủi bọt mát lạnh kết hợp việt quất tươi.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
  { id: 199, name: "Nước Suối Aquafina 500ml PGK-199", category: "Nước Giải Khác", price: 10000, desc: "Nước tinh khiết đóng chai an toàn sức khỏe.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false },
- { id: 200, name: "Bia Tsingtao Nhập Khẩu PGK-200", category: "Nước Giải Khác", price: 35000, desc: "Bia lon nhập khẩu vị thanh mát đậm đà.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false }
+ { id: 200, name: "Bia Tsingtao Nhập Khẩu PGK-200", category: "Nước Giải Khác", price: 35000, desc: "Bia lon nhập khẩu vị đắng nhẹ thơm mát.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300", isOut: false }
  ];
 
- // BIẾN TRẠNG THÁI GIỎ HÀNG
+ // BIẾN GIỎ HÀNG & MÃ KHUYẾN MÃI
  let cart = {};
  let currentCategory = "Tất cả";
- let discountPercent = 0;
- let createdOrderText = "";
+ let appliedDiscountPercent = 0;
+ const PROMO_CODES = {
+ "CHUCQUYKHACHNGONMIENG": 10,
+ "PHUCGIAKY10": 10,
+ "PHUCGIAKY20": 20
+ };
 
- // KHỞI TẠO TRANG
+ // KHỞI TẠO TẢI TRANG
  window.onload = function() {
  renderCategories();
  renderMenu();
  loadCustomerInfo();
  };
 
- function formatVND(amount) {
- return amount.toLocaleString('vi-VN') + 'đ';
- }
-
- // HIỂN THỊ DANH MỤC
  function renderCategories() {
- const catContainer = document.getElementById('cat-list');
- catContainer.innerHTML = categories.map(cat => `
- <button class="cat-btn ${cat === currentCategory ? 'active' : ''}" onclick="selectCategory('${cat}')">${cat}</button>
- `).join('');
+ const catList = document.getElementById('cat-list');
+ catList.innerHTML = categories.map(cat => 
+ `<button class="cat-btn ${cat === currentCategory ? 'active' : ''}" onclick="selectCategory('${cat}')">${cat}</button>`
+ ).join('');
  }
 
  function selectCategory(cat) {
@@ -814,61 +813,115 @@
  filterMenu();
  }
 
- // HIỂN THỊ THỰC ĐƠN
  function renderMenu(items = menuData) {
- const menuGrid = document.getElementById('menu-grid');
- if (items.length === 0) {
- menuGrid.innerHTML = `<p style="grid-column: span 4; text-align: center; color: #FFF; padding: 20px;">Không tìm thấy món phù hợp!</p>`;
- return;
- }
-
- menuGrid.innerHTML = items.map(item => `
+ const grid = document.getElementById('menu-grid');
+ grid.innerHTML = items.map(item => `
  <div class="food-card ${item.isOut ? 'out-of-stock' : ''}">
- ${item.isOut ? '<span class="badge-out">Hết hàng</span>' : ''}
- <img src="${item.image}" class="food-img" alt="${item.name}" onerror="this.src='https://via.placeholder.com/150'">
+ ${item.isOut ? '<span class="badge-out">Hết món</span>' : ''}
+ <img src="${item.image}" class="food-img" alt="${item.name}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300'">
  <div class="food-info">
  <div class="food-title">${item.name}</div>
  <div class="food-desc">${item.desc}</div>
  <div class="food-bottom">
- <span class="food-price">${formatVND(item.price)}</span>
- ${!item.isOut ? `<button class="btn-add" onclick="addToCart(${item.id})">+ Thêm</button>` : ''}
+ <span class="food-price">${item.price.toLocaleString('vi-VN')}đ</span>
+ <button class="btn-add" ${item.isOut ? 'disabled' : ''} onclick="addToCart(${item.id})">+ Thêm</button>
  </div>
  </div>
  </div>
  `).join('');
  }
 
- // LỌC MÓN ĂN
  function filterMenu() {
- const searchVal = document.getElementById('search-input').value.toLowerCase().trim();
+ const keyword = document.getElementById('search-input').value.toLowerCase().trim();
  const filtered = menuData.filter(item => {
- const matchCat = currentCategory === "Tất cả" || item.category === currentCategory;
- const matchSearch = item.name.toLowerCase().includes(searchVal) || item.desc.toLowerCase().includes(searchVal);
- return matchCat && matchSearch;
+ const matchesCat = (currentCategory === "Tất cả") || (item.category === currentCategory);
+ const matchesSearch = item.name.toLowerCase().includes(keyword) || item.desc.toLowerCase().includes(keyword);
+ return matchesCat && matchesSearch;
  });
  renderMenu(filtered);
  }
 
- // XỬ LÝ GIỎ HÀNG
  function addToCart(id) {
- const item = menuData.find(m => m.id === id);
- if (!item) return;
+ const item = menuData.find(f => f.id === id);
+ if (!item || item.isOut) return;
+ cart[id] = (cart[id] || 0) + 1;
+ updateCartUI();
+ }
 
+ function updateQty(id, delta) {
  if (cart[id]) {
- cart[id].qty += 1;
- } else {
- cart[id] = { ...item, qty: 1 };
+ cart[id] += delta;
+ if (cart[id] <= 0) delete cart[id];
  }
- updateCartBadge();
+ updateCartUI();
  }
 
- function updateCartBadge() {
- const count = Object.values(cart).reduce((sum, i) => sum + i.qty, 0);
- document.getElementById('cart-count').innerText = count;
+ function updateCartUI() {
+ const countSpan = document.getElementById('cart-count');
+ const listDiv = document.getElementById('cart-items-list');
+ let totalQty = 0;
+ let subTotal = 0;
+ let html = '';
+
+ for (let id in cart) {
+ const qty = cart[id];
+ const item = menuData.find(f => f.id == id);
+ if (item) {
+ totalQty += qty;
+ const itemTotal = item.price * qty;
+ subTotal += itemTotal;
+ html += `
+ <div class="cart-item">
+ <div>
+ <strong style="color: var(--primary-red); font-size: 0.9rem;">${item.name}</strong><br>
+ <small style="color: #666;">${item.price.toLocaleString('vi-VN')}đ x ${qty} = ${itemTotal.toLocaleString('vi-VN')}đ</small>
+ </div>
+ <div style="display: flex; gap: 5px; align-items: center;">
+ <button class="qty-btn" onclick="updateQty(${id}, -1)">-</button>
+ <span>${qty}</span>
+ <button class="qty-btn" onclick="updateQty(${id}, 1)">+</button>
+ </div>
+ </div>
+ `;
+ }
+ }
+
+ countSpan.innerText = totalQty;
+ listDiv.innerHTML = html || '<p style="text-align: center; color: #888; margin: 15px 0;">Giỏ hàng trống</p>';
+
+ document.getElementById('sub-total').innerText = subTotal.toLocaleString('vi-VN') + 'đ';
+ 
+ const discountAmount = Math.round(subTotal * (appliedDiscountPercent / 100));
+ const grandTotal = subTotal - discountAmount;
+
+ if (appliedDiscountPercent > 0) {
+ document.getElementById('discount-row').style.display = 'flex';
+ document.getElementById('discount-percent').innerText = appliedDiscountPercent;
+ document.getElementById('discount-amount').innerText = '-' + discountAmount.toLocaleString('vi-VN') + 'đ';
+ } else {
+ document.getElementById('discount-row').style.display = 'none';
+ }
+
+ document.getElementById('grand-total').innerText = grandTotal.toLocaleString('vi-VN') + 'đ';
+ }
+
+ function applyPromoCode() {
+ const codeInput = document.getElementById('promo-code-input').value.trim().toUpperCase();
+ const msgDiv = document.getElementById('promo-msg');
+ 
+ if (PROMO_CODES[codeInput]) {
+ appliedDiscountPercent = PROMO_CODES[codeInput];
+ msgDiv.style.color = '#27AE60';
+ msgDiv.innerText = `✅ Đã áp dụng mã thành công! Giảm ${appliedDiscountPercent}%.`;
+ } else {
+ appliedDiscountPercent = 0;
+ msgDiv.style.color = '#C0392B';
+ msgDiv.innerText = '❌ Mã khuyến mãi không hợp lệ hoặc đã hết hạn!';
+ }
+ updateCartUI();
  }
 
  function openCart() {
- renderCartItems();
  document.getElementById('cart-modal').style.display = 'flex';
  }
 
@@ -876,91 +929,17 @@
  document.getElementById('cart-modal').style.display = 'none';
  }
 
- function changeQty(id, delta) {
- if (!cart[id]) return;
- cart[id].qty += delta;
- if (cart[id].qty <= 0) {
- delete cart[id];
- }
- renderCartItems();
- updateCartBadge();
- }
-
- function renderCartItems() {
- const container = document.getElementById('cart-items-list');
- const cartArray = Object.values(cart);
-
- if (cartArray.length === 0) {
- container.innerHTML = `<p style="text-align: center; color: #777; padding: 15px;">Giỏ hàng của bạn đang trống.</p>`;
- } else {
- container.innerHTML = cartArray.map(item => `
- <div class="cart-item">
- <div>
- <strong style="color: var(--primary-red); font-size: 0.9rem;">${item.name}</strong>
- <div style="font-size: 0.8rem; color: #666;">${formatVND(item.price)}</div>
- </div>
- <div style="display: flex; align-items: center; gap: 8px;">
- <button class="qty-btn" onclick="changeQty(${item.id}, -1)">-</button>
- <span>${item.qty}</span>
- <button class="qty-btn" onclick="changeQty(${item.id}, 1)">+</button>
- </div>
- </div>
- `).join('');
- }
-
- calculateTotal();
- }
-
- // MÃ KHUYẾN MÃI
- function applyPromoCode() {
- const code = document.getElementById('promo-code-input').value.trim().toUpperCase();
- const msg = document.getElementById('promo-msg');
- 
- if (code === "CHUCQUYKHACHNGONMIENG") {
- discountPercent = 10;
- msg.style.color = "#27AE60";
- msg.innerText = "✅ Áp dụng mã thành công! Giảm 10%";
- } else if (code === "") {
- discountPercent = 0;
- msg.innerText = "";
- } else {
- discountPercent = 0;
- msg.style.color = "#C0392B";
- msg.innerText = "❌ Mã khuyến mãi không hợp lệ!";
- }
- calculateTotal();
- }
-
- function calculateTotal() {
- const subTotal = Object.values(cart).reduce((sum, item) => sum + (item.price * item.qty), 0);
- const discountAmount = Math.round(subTotal * (discountPercent / 100));
- const grandTotal = subTotal - discountAmount;
-
- document.getElementById('sub-total').innerText = formatVND(subTotal);
- 
- const discountRow = document.getElementById('discount-row');
- if (discountPercent > 0) {
- discountRow.style.display = 'flex';
- document.getElementById('discount-percent').innerText = discountPercent;
- document.getElementById('discount-amount').innerText = '-' + formatVND(discountAmount);
- } else {
- discountRow.style.display = 'none';
- }
-
- document.getElementById('grand-total').innerText = formatVND(grandTotal);
- }
-
  function toggleDeliveryMode() {
- const isShip = document.querySelector('input[name="deliveryMethod"]:checked').value === 'SHIP';
- const addrContainer = document.getElementById('address-container');
- const addrInput = document.getElementById('cust-address');
+ const deliveryMethod = document.querySelector('input[name="deliveryMethod"]:checked').value;
+ const addressContainer = document.getElementById('address-container');
+ const addressInput = document.getElementById('cust-address');
 
- if (isShip) {
- addrContainer.style.display = 'block';
- addrInput.required = true;
+ if (deliveryMethod === 'PICKUP') {
+ addressContainer.style.display = 'none';
+ addressInput.removeAttribute('required');
  } else {
- addrContainer.style.display = 'none';
- addrInput.required = false;
+ addressContainer.style.display = 'block';
+ addressInput.setAttribute('required', 'true');
  }
  }
 
@@ -970,76 +949,92 @@
  phone: document.getElementById('cust-phone').value,
  address: document.getElementById('cust-address').value
  };
- localStorage.setItem('phucgiaky_cust_info', JSON.stringify(info));
+ localStorage.setItem('pgk_cust_info', JSON.stringify(info));
  }
 
  function loadCustomerInfo() {
- const saved = localStorage.getItem('phucgiaky_cust_info');
+ const saved = localStorage.getItem('pgk_cust_info');
  if (saved) {
  try {
  const info = JSON.parse(saved);
- if (info.name) document.getElementById('cust-name').value = info.name;
- if (info.phone) document.getElementById('cust-phone').value = info.phone;
- if (info.address) document.getElementById('cust-address').value = info.address;
- } catch (e) {}
+ document.getElementById('cust-name').value = info.name || '';
+ document.getElementById('cust-phone').value = info.phone || '';
+ document.getElementById('cust-address').value = info.address || '';
+ } catch(e) {}
  }
  }
 
- // TẠO ĐƠN HÀNG
- function createOrder() {
- const cartArray = Object.values(cart);
- if (cartArray.length === 0) {
- alert("Giỏ hàng đang trống! Vui lòng chọn món trước khi đặt.");
- return;
- }
-
+ function generateOrderText() {
  const name = document.getElementById('cust-name').value.trim();
  const phone = document.getElementById('cust-phone').value.trim();
  const method = document.querySelector('input[name="deliveryMethod"]:checked').value;
  const address = document.getElementById('cust-address').value.trim();
  const note = document.getElementById('cust-note').value.trim();
 
- const subTotal = cartArray.reduce((sum, item) => sum + (item.price * item.qty), 0);
- const discountAmount = Math.round(subTotal * (discountPercent / 100));
+ let itemsText = '';
+ let subTotal = 0;
+ let idx = 1;
+
+ for (let id in cart) {
+ const qty = cart[id];
+ const item = menuData.find(f => f.id == id);
+ if (item) {
+ const itemTotal = item.price * qty;
+ subTotal += itemTotal;
+ itemsText += `${idx}. ${item.name} x${qty} = ${itemTotal.toLocaleString('vi-VN')}đ\n`;
+ idx++;
+ }
+ }
+
+ const discountAmount = Math.round(subTotal * (appliedDiscountPercent / 100));
  const grandTotal = subTotal - discountAmount;
 
- let text = `🧧 ĐƠN HÀNG ẨM THỰC PHÚC GIA KÝ (福家记)\n`;
- text += `-----------------------------------\n`;
+ let text = `🚩 ĐƠN HÀNG ẨM THỰC PHÚC GIA KÝ (福家记) 🚩\n`;
+ text += `------------------------------------\n`;
  text += `👤 Khách hàng: ${name}\n`;
- text += `📞 Điện thoại: ${phone}\n`;
- text += `🚚 Hình thức: ${method === 'SHIP' ? 'Giao tận nơi' : 'Khách đến lấy'}\n`;
- if (method === 'SHIP') text += `📍 Địa chỉ: ${address}\n`;
- if (note) text += `📝 Ghi chú: ${note}\n`;
- text += `-----------------------------------\n`;
- text += `📋 DANH SÁCH MÓN:\n`;
-
- cartArray.forEach((i, idx) => {
- text += `${idx + 1}. ${i.name} x${i.qty} = ${formatVND(i.price * i.qty)}\n`;
- });
-
- text += `-----------------------------------\n`;
- text += `💰 Tạm tính: ${formatVND(subTotal)}\n`;
- if (discountPercent > 0) {
- text += `🎉 Giảm giá (${discountPercent}%): -${formatVND(discountAmount)}\n`;
+ text += `📞 SĐT: ${phone}\n`;
+ text += `Hình thức: ${method === 'SHIP' ? '🚚 Giao tận nơi' : '🏪 Khách đến lấy'}\n`;
+ if (method === 'SHIP') {
+ text += `🏠 Địa chỉ: ${address}\n`;
  }
- text += `💵 TỔNG CỘNG: ${formatVND(grandTotal)}`;
+ if (note) {
+ text += `📝 Ghi chú: ${note}\n`;
+ }
+ text += `------------------------------------\n`;
+ text += `📋 DANH SÁCH MÓN:\n${itemsText}`;
+ text += `------------------------------------\n`;
+ text += `Tạm tính: ${subTotal.toLocaleString('vi-VN')}đ\n`;
+ if (appliedDiscountPercent > 0) {
+ text += `Giảm giá (${appliedDiscountPercent}%): -${discountAmount.toLocaleString('vi-VN')}đ\n`;
+ }
+ text += `👉 TỔNG CỘNG MÓN: ${grandTotal.toLocaleString('vi-VN')}đ\n`;
+ text += `------------------------------------\n`;
+ text += `Cảm ơn Quý Khách đã ủng hộ Phúc Gia Ký!`;
 
- createdOrderText = text;
- document.getElementById('order-text-output').value = text;
+ return text;
+ }
+
+ function createOrder() {
+ if (Object.keys(cart).length === 0) {
+ alert("Giỏ hàng của bạn đang trống! Vui lòng chọn món trước.");
+ return;
+ }
+ const orderText = generateOrderText();
+ document.getElementById('order-text-output').value = orderText;
  document.getElementById('order-success-area').style.display = 'block';
-
  copyOrderText(false);
  }
 
  function copyOrderText(showAlert = true) {
- if (!createdOrderText) return;
- navigator.clipboard.writeText(createdOrderText).then(() => {
- if (showAlert) alert("📋 Đã sao chép nội dung đơn hàng vào bộ nhớ tạm!");
- }).catch(() => {
+ const text = document.getElementById('order-text-output').value;
+ if (!text) return;
+ navigator.clipboard.writeText(text).then(() => {
+ if (showAlert) alert("📋 Đã sao chép đơn hàng vào khay nhớ tạm!");
+ }).catch(err => {
  const area = document.getElementById('order-text-output');
  area.select();
  document.execCommand('copy');
- if (showAlert) alert("📋 Đã sao chép nội dung đơn hàng!");
+ if (showAlert) alert("📋 Đã sao chép đơn hàng!");
  });
  }
 
@@ -1054,20 +1049,21 @@
  }
 
  function sendSMS() {
- copyOrderText(false);
- window.open(`sms:${SHOP_PHONE}?body=${encodeURIComponent(createdOrderText)}`, '_blank');
+ const text = document.getElementById('order-text-output').value;
+ window.open(`sms:${SHOP_PHONE}?body=${encodeURIComponent(text)}`, '_self');
  }
 
  function callShop() {
- window.location.href = `tel:${SHOP_PHONE}`;
+ window.open(`tel:${SHOP_PHONE}`, '_self');
  }
 
  function nativeShare() {
+ const text = document.getElementById('order-text-output').value;
  if (navigator.share) {
  navigator.share({
- title: 'Đơn hàng Phúc Gia Ký',
- text: createdOrderText
- }).catch(() => {});
+ title: 'Đơn hàng Ẩm Thực Phúc Gia Ký',
+ text: text
+ }).catch(err => {});
  } else {
  copyOrderText(true);
  }
