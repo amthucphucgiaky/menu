@@ -467,7 +467,7 @@
 
  <!-- NÚT GIỎ HÀNG NỔI -->
  <div class="cart-float-btn" onclick="openCart()">
- 🛒 <span>Giỏ hàng</span>
+ 🛍 <span>Giỏ hàng</span>
  <span class="cart-badge" id="cart-count">0</span>
  </div>
 
@@ -506,16 +506,16 @@
 
  <!-- THÔNG TIN KHÁCH HÀNG -->
  <form class="customer-form" id="order-form" onsubmit="event.preventDefault(); createOrder();">
- <h4 style="color: var(--primary-red); margin-top: 5px;">📝 Thông tin nhận hàng</h4>
+ <h4 style="color: var(--primary-red); margin-top: 5px;">📝 Thông tin khách hàng</h4>
  <input type="text" id="cust-name" placeholder="Họ và tên (*)" required oninput="saveCustomerInfo()">
  <input type="tel" id="cust-phone" placeholder="Số điện thoại (*)" required oninput="saveCustomerInfo()">
  
  <div class="radio-group">
  <label class="radio-option">
- <input type="radio" name="deliveryMethod" value="SHIP" checked onchange="toggleDeliveryMode()"> 🚚 Giao tận nơi (Có phí ship)
+ <input type="radio" name="deliveryMethod" value="SHIP" checked onchange="toggleDeliveryMode()"> Giao tận nơi (Có phí)
  </label>
  <label class="radio-option">
- <input type="radio" name="deliveryMethod" value="PICKUP" onchange="toggleDeliveryMode()"> 🏪 Khách đến lấy
+ <input type="radio" name="deliveryMethod" value="PICKUP" onchange="toggleDeliveryMode()"> Khách đến lấy
  </label>
  </div>
  
@@ -525,7 +525,7 @@
  
  <textarea id="cust-note" rows="2" placeholder="Ghi chú thêm (ví dụ: Không cay, ít hành...)"></textarea>
 
- <button type="submit" class="btn-confirm" id="submit-btn">📲 XÁC NHẬN ĐẶT MÓN</button>
+ <button type="submit" class="btn-confirm" id="submit-btn">📲 XÁC NHẬN VÀ GỞI ĐƠN PHÍA DƯỚI</button>
  </form>
 
  <!-- KHU VỰC SAU KHI TẠO ĐƠN -->
