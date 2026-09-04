@@ -305,7 +305,7 @@ header {
       <div class="share-grid">
         <button class="btn-share btn-copy" onclick="copyOrderText(true)">📋 Sao chép lại</button>
         <button class="btn-share btn-zalo" onclick="sendZalo()">💬 Mở Zalo & Dán</button>
-        <button class="btn-share btn-mes" onclick="sendMessenger()">💬 Mở Messenger</button>
+        <button class="btn-share btn-mes" onclick="sendMessenger()">💬 Mở Messenger & Dán</button>
         <button class="btn-share btn-sms" onclick="sendSMS()">📱 Gửi SMS</button>
         <button class="btn-share btn-call" onclick="callShop()">☎️ Gọi quán</button>
         <button class="btn-share btn-native" onclick="nativeShare()">📤 Chia sẻ đơn hàng</button>
@@ -599,96 +599,96 @@ const menuData = [
     image: "https://github.com/amthucphucgiaky/menu/blob/main/B%C3%A1nh%20Bao%20X%C3%BAc%20X%C3%ADch%20Ph%C3%B4%20Mai%20-%20H%E1%BA%A5p%20(1%20c%C3%A1i%20l%E1%BB%9Bn).png?raw=true",
     isOut: false
   },
-  {
-    id: 31,
-    name: "Há Cảo Tôm Thịt - Hấp (4 viên trung)",
-    category: "Món Hấp",
-    price: 35000,
-    desc: "Vỏ mỏng mềm, nhân tôm thịt đậm đà (món dự kiến bổ sung).",
-    image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300",
-    isOut: true
-  },
-  {
-    id: 32,
-    name: "Há Cảo Trứng Cút - Hấp (4 viên trung)",
-    category: "Món Hấp",
-    price: 35000,
-    desc: "Vỏ mỏng mềm, nhân trứng cút béo bùi (món dự kiến bổ sung).",
-    image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300",
-    isOut: true
-  },
-  {
-    id: 33,
-    name: "Há Cảo Nấm Hương - Hấp (4 viên trung)",
-    category: "Món Hấp",
-    price: 35000,
-    desc: "Vỏ mỏng mềm, nhân nấm hương thơm ngọt (món dự kiến bổ sung).",
-    image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300",
-    isOut: true
-  },
-  {
-    id: 34,
-    name: "Xíu Mại Gà - Hấp (4 viên trung)",
-    category: "Món Hấp",
-    price: 35000,
-    desc: "Nhân gà thơm ngọt, vỏ mỏng mềm (món dự kiến bổ sung).",
-    image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300",
-    isOut: true
-  },
-  {
-    id: 35,
-    name: "Sủi Cảo Gà - Hấp (4 viên trung)",
-    category: "Món Hấp",
-    price: 45000,
-    desc: "Vỏ mỏng mềm, nhân gà đậm đà (món dự kiến bổ sung).",
-    image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300",
-    isOut: true
-  },
-  {
-    id: 36,
-    name: "Há Cảo Cua - Hấp (4 viên trung)",
-    category: "Món Hấp",
-    price: 45000,
-    desc: "Vỏ mỏng mềm, nhân cua ngọt thanh (món dự kiến bổ sung).",
-    image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300",
-    isOut: true
-  },
-  {
-    id: 37,
-    name: "Bánh Bao Kim Sa - Hấp (1 cái)",
-    category: "Món Hấp",
-    price: 25000,
-    desc: "Bánh bao nhân trứng muối chảy vàng (món dự kiến bổ sung).",
-    image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300",
-    isOut: true
-  },
-  {
-    id: 38,
-    name: "Bánh Bao Chay Nấm - Hấp (1 cái)",
-    category: "Món Hấp",
-    price: 20000,
-    desc: "Bánh bao chay nhân nấm thanh đạm (món dự kiến bổ sung).",
-    image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300",
-    isOut: true
-  },
-  {
-    id: 39,
-    name: "Chân Gà Rút Xương Hấp Tàu Xì",
-    category: "Món Hấp",
-    price: 55000,
-    desc: "Chân gà rút xương mềm, thấm vị tàu xì (món dự kiến bổ sung).",
-    image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300",
-    isOut: true
-  },
-  {
-    id: 40,
-    name: "Há Cảo Thập Cẩm Đặc Biệt - Hấp (3 viên lớn)",
-    category: "Món Hấp",
-    price: 55000,
-    desc: "Nhân thập cẩm đặc biệt, viên lớn (món dự kiến bổ sung).",
-    image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300",
-    isOut: true
-  },
+//  {
+//    id: 31,
+//    name: "Há Cảo Tôm Thịt - Hấp (4 viên trung)",
+//    category: "Món Hấp",
+//    price: 35000,
+//    desc: "Vỏ mỏng mềm, nhân tôm thịt đậm đà (món dự kiến bổ sung).",
+//    image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300",
+//    isOut: true
+//  },
+//  {
+//    id: 32,
+//    name: "Há Cảo Trứng Cút - Hấp (4 viên trung)",
+//    category: "Món Hấp",
+//    price: 35000,
+//    desc: "Vỏ mỏng mềm, nhân trứng cút béo bùi (món dự kiến bổ sung).",
+//    image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300",
+//    isOut: true
+//  },
+//  {
+//    id: 33,
+//    name: "Há Cảo Nấm Hương - Hấp (4 viên trung)",
+//    category: "Món Hấp",
+//    price: 35000,
+//    desc: "Vỏ mỏng mềm, nhân nấm hương thơm ngọt (món dự kiến bổ sung).",
+//    image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300",
+//    isOut: true
+//  },
+//  {
+//    id: 34,
+//    name: "Xíu Mại Gà - Hấp (4 viên trung)",
+//    category: "Món Hấp",
+//    price: 35000,
+//    desc: "Nhân gà thơm ngọt, vỏ mỏng mềm (món dự kiến bổ sung).",
+//    image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300",
+//    isOut: true
+//  },
+//  {
+//    id: 35,
+//    name: "Sủi Cảo Gà - Hấp (4 viên trung)",
+//    category: "Món Hấp",
+//    price: 45000,
+//    desc: "Vỏ mỏng mềm, nhân gà đậm đà (món dự kiến bổ sung).",
+//    image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300",
+//    isOut: true
+//  },
+//  {
+//    id: 36,
+//    name: "Há Cảo Cua - Hấp (4 viên trung)",
+//    category: "Món Hấp",
+//    price: 45000,
+//    desc: "Vỏ mỏng mềm, nhân cua ngọt thanh (món dự kiến bổ sung).",
+//    image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300",
+//    isOut: true
+//  },
+//  {
+//    id: 37,
+//    name: "Bánh Bao Kim Sa - Hấp (1 cái)",
+//    category: "Món Hấp",
+//    price: 25000,
+//    desc: "Bánh bao nhân trứng muối chảy vàng (món dự kiến bổ sung).",
+//    image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300",
+//    isOut: true
+//  },
+//  {
+//    id: 38,
+//    name: "Bánh Bao Chay Nấm - Hấp (1 cái)",
+//    category: "Món Hấp",
+//    price: 20000,
+//    desc: "Bánh bao chay nhân nấm thanh đạm (món dự kiến bổ sung).",
+//    image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300",
+//    isOut: true
+//  },
+//  {
+//    id: 39,
+//    name: "Chân Gà Rút Xương Hấp Tàu Xì",
+//    category: "Món Hấp",
+//    price: 55000,
+//    desc: "Chân gà rút xương mềm, thấm vị tàu xì (món dự kiến bổ sung).",
+//    image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300",
+//    isOut: true
+//  },
+//  {
+//    id: 40,
+//    name: "Há Cảo Thập Cẩm Đặc Biệt - Hấp (3 viên lớn)",
+//    category: "Món Hấp",
+//    price: 55000,
+//    desc: "Nhân thập cẩm đặc biệt, viên lớn (món dự kiến bổ sung).",
+//    image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300",
+//    isOut: true
+//  },
   {
     id: 41,
     name: "Hoành Thánh Lá - Chiên (6 lá)",
@@ -759,7 +759,7 @@ const menuData = [
     price: 35000,
     desc: "Xíu mại rong biển thanh cua chiên giòn, béo đậm đà.",
     image: "https://github.com/amthucphucgiaky/menu/blob/main/X%C3%ADu%20M%E1%BA%A1i%20Rong%20Bi%E1%BB%83n%20Thanh%20Cua%20-%20Chi%C3%AAn.jpg?raw=true",
-    isOut: false
+    isOut: true
   },
   {
     id: 49,
@@ -830,45 +830,45 @@ const menuData = [
     category: "Món Chiên",
     price: 22000,
     desc: "Vỏ chiên giòn rụm, nhân xúc xích phô Mai béo ngậy.",
-    image: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=300",
+    image: "https://github.com/amthucphucgiaky/menu/blob/main/B%C3%A1nh%20Bao%20X%C3%BAc%20X%C3%ADch%20Ph%C3%B4%20Mai%20-%20Chi%C3%AAn.png?raw=true",
     isOut: false
   },
-  {
-    id: 57,
-    name: "Há Cảo Tôm - Chiên (4 viên trung)",
-    category: "Món Chiên",
-    price: 35000,
-    desc: "Há cảo tôm chiên vàng giòn (món dự kiến bổ sung).",
-    image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300",
-    isOut: true
-  },
-  {
-    id: 58,
-    name: "Há Cảo Thịt - Chiên (4 viên trung)",
-    category: "Món Chiên",
-    price: 35000,
-    desc: "Há cảo thịt chiên giòn đậm đà (món dự kiến bổ sung).",
-    image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300",
-    isOut: true
-  },
-  {
-    id: 59,
-    name: "Bánh Xếp Tôm Thịt - Chiên (5 viên)",
-    category: "Món Chiên",
-    price: 45000,
-    desc: "Bánh xếp tôm thịt chiên giòn (món dự kiến bổ sung).",
-    image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300",
-    isOut: true
-  },
-  {
-    id: 60,
-    name: "Hoành Thánh Nhân Thịt - Chiên (6 lá)",
-    category: "Món Chiên",
-    price: 32000,
-    desc: "Hoành thánh nhân thịt chiên giòn rụm (món dự kiến bổ sung).",
-    image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300",
-    isOut: true
-  },
+//  {
+//    id: 57,
+//    name: "Há Cảo Tôm - Chiên (4 viên trung)",
+//    category: "Món Chiên",
+//    price: 35000,
+//    desc: "Há cảo tôm chiên vàng giòn (món dự kiến bổ sung).",
+//    image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300",
+//    isOut: true
+//  },
+//  {
+//    id: 58,
+//    name: "Há Cảo Thịt - Chiên (4 viên trung)",
+//    category: "Món Chiên",
+//    price: 35000,
+//    desc: "Há cảo thịt chiên giòn đậm đà (món dự kiến bổ sung).",
+//    image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300",
+//    isOut: true
+//  },
+//  {
+//    id: 59,
+//    name: "Bánh Xếp Tôm Thịt - Chiên (5 viên)",
+//    category: "Món Chiên",
+//    price: 45000,
+//    desc: "Bánh xếp tôm thịt chiên giòn (món dự kiến bổ sung).",
+//    image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300",
+//    isOut: true
+//  },
+//  {
+//    id: 60,
+//    name: "Hoành Thánh Nhân Thịt - Chiên (6 lá)",
+//    category: "Món Chiên",
+//    price: 32000,
+//    desc: "Hoành thánh nhân thịt chiên giòn rụm (món dự kiến bổ sung).",
+//    image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300",
+//    isOut: true
+//  },
   {
     id: 61,
     name: "Mì Cay Hoành Thánh Lá Nhân Thịt Tứ Xuyên (6 lá)",
@@ -1013,402 +1013,402 @@ const menuData = [
     image: "https://github.com/amthucphucgiaky/menu/blob/main/M%C3%AC%20G%C3%A0%20H%E1%BA%AFc%20Kim%20Th%E1%BA%A3o%20%C4%90%E1%BA%B7t%20Bi%E1%BB%87t%20(G%C3%A0%20%C3%81c%20nguy%C3%AAn%20con,%20B%C3%A0o%20ng%C6%B0,%20T%C3%B4m,%20S%C3%B2%20%C4%91i%E1%BB%87p).png?raw=true",
     isOut: false
   },
-  {
-    id: 77,
-    name: "Mì Cay Xíu Mại Gà Tứ Xuyên (4 viên)",
-    category: "Mì Tươi",
-    price: 49000,
-    desc: "Mì cay xíu mại gà Tứ Xuyên (món dự kiến bổ sung).",
-    image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300",
-    isOut: true
-  },
-  {
-    id: 78,
-    name: "Mì Nước Hoành Thánh Tôm",
-    category: "Mì Tươi",
-    price: 45000,
-    desc: "Mì nước hoành thánh tôm thanh ngọt (món dự kiến bổ sung).",
-    image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300",
-    isOut: true
-  },
-  {
-    id: 79,
-    name: "Mì Xào Bò Lúc Lắc",
-    category: "Mì Tươi",
-    price: 65000,
-    desc: "Mì xào bò lúc lắc đậm đà (món dự kiến bổ sung).",
-    image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300",
-    isOut: true
-  },
-  {
-    id: 80,
-    name: "Mì Gà Ác Tiềm Thuốc Bắc",
-    category: "Mì Tươi",
-    price: 99000,
-    desc: "Mì gà ác tiềm thuốc bắc bổ dưỡng (món dự kiến bổ sung).",
-    image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300",
-    isOut: true
-  },
+//  {
+//    id: 77,
+//    name: "Mì Cay Xíu Mại Gà Tứ Xuyên (4 viên)",
+//    category: "Mì Tươi",
+//    price: 49000,
+//    desc: "Mì cay xíu mại gà Tứ Xuyên (món dự kiến bổ sung).",
+//    image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300",
+//    isOut: true
+//  },
+//  {
+//    id: 78,
+//    name: "Mì Nước Hoành Thánh Tôm",
+//    category: "Mì Tươi",
+//    price: 45000,
+//    desc: "Mì nước hoành thánh tôm thanh ngọt (món dự kiến bổ sung).",
+//    image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300",
+//    isOut: true
+//  },
+//  {
+//    id: 79,
+//    name: "Mì Xào Bò Lúc Lắc",
+//    category: "Mì Tươi",
+//    price: 65000,
+//    desc: "Mì xào bò lúc lắc đậm đà (món dự kiến bổ sung).",
+//    image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300",
+//    isOut: true
+//  },
+//  {
+//    id: 80,
+//    name: "Mì Gà Ác Tiềm Thuốc Bắc",
+//    category: "Mì Tươi",
+//    price: 99000,
+//    desc: "Mì gà ác tiềm thuốc bắc bổ dưỡng (món dự kiến bổ sung).",
+//    image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300",
+//    isOut: true
+//  },
   {
     id: 81,
-    name: "Miến Dong Cua Cà Mau Xào Sa Tế",
+    name: "Miến Cay Hoành Thánh Lá Nhân Thịt Tứ Xuyên (6 lá)",
     category: "Miến Dong",
-    price: 75000,
-    desc: "Sợi miến dong dai ngon xào cùng thịt cua tươi và sốt sa tế.",
-    image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300",
+    price: 44000,
+    desc: "Thơm nồng, nhân thịt đậm đà, lá mềm thấm vị cay.",
+    image: "https://github.com/amthucphucgiaky/menu/blob/main/Mi%E1%BA%BFn%20Cay%20Ho%C3%A0nh%20Th%C3%A1nh%20L%C3%A1%20Nh%C3%A2n%20Th%E1%BB%8Bt%20T%E1%BB%A9%20Xuy%C3%AAn.png?raw=true",
     isOut: false
   },
   {
     id: 82,
-    name: "Miến Dong Lươn Đồng Giòn Rụm",
+    name: "Miến Cay Xíu Mại Thịt Cuộn Tứ Xuyên (6 viên nhỏ)",
     category: "Miến Dong",
-    price: 70000,
-    desc: "Lươn đồng chiên giòn thơm phức hòa quyện sợi miến dong dai.",
-    image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300",
+    price: 49000,
+    desc: "Xíu mại béo ngậy, thịt cuộn đậm đà, thấm cay Tứ Xuyên.",
+    image: "https://github.com/amthucphucgiaky/menu/blob/main/Mi%E1%BA%BFn%20Cay%20X%C3%ADu%20M%E1%BA%A1i%20Th%E1%BB%8Bt%20Cu%E1%BB%99n%20T%E1%BB%A9%20Xuy%C3%AAn%20(5%20vi%C3%AAn).png?raw=true",
     isOut: false
   },
   {
     id: 83,
-    name: "Miến Dong Măng Gà Mềm Mượt",
+    name: "Miến Cay Xíu Mại Tôm Tứ Xuyên (4 viên trung)",
     category: "Miến Dong",
-    price: 60000,
-    desc: "Thịt gà xé kết hợp măng tươi ngọt đặm nước hầm.",
-    image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300",
+    price: 54000,
+    desc: "Xíu mại tôm giòn ngọt, béo ngậy, thấm vị cay Tứ Xuyên.",
+    image: "https://github.com/amthucphucgiaky/menu/blob/main/Mi%E1%BA%BFn%20Cay%20X%C3%ADu%20M%E1%BA%A1i%20T%C3%B4m%20T%E1%BB%A9%20Xuy%C3%AAn%20(4%20vi%C3%AAn%20trung).png?raw=true",
     isOut: false
   },
   {
     id: 84,
-    name: "Miến Dong Xào Hải Sản Thập Cẩm",
+    name: "Miến Cay Xíu Mại Thanh Cua Tứ Xuyên (4 viên trung)",
     category: "Miến Dong",
-    price: 72000,
-    desc: "Tôm, mực, chả cá xào đượm gia vị cùng miến dong.",
-    image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300",
+    price: 54000,
+    desc: "Xíu mại thanh cua béo ngọt, mềm ngậy, thấm vị cay Tứ Xuyên.",
+    image: "https://github.com/amthucphucgiaky/menu/blob/main/Mi%E1%BA%BFn%20Cay%20X%C3%ADu%20M%E1%BA%A1i%20Thanh%20Cua%20T%E1%BB%A9%20Xuy%C3%AAn%20(4%20vi%C3%AAn%20trung).png?raw=true",
     isOut: false
   },
   {
     id: 85,
-    name: "Miến Dong Súp Bò Băm Nấm Mèo",
+    name: "Miến Cay Xíu Mại Trứng Cút Tứ Xuyên (4 viên trung)",
     category: "Miến Dong",
-    price: 62000,
-    desc: "Nước súp thanh đậm đà thơm mùi nấm mèo băm nhỏ.",
-    image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300",
+    price: 54000,
+    desc: "Xíu mại trứng cút bùi béo, đậm đà, thấm vị cay Tứ Xuyên.",
+    image: "https://github.com/amthucphucgiaky/menu/blob/main/Mi%E1%BA%BFn%20Cay%20X%C3%ADu%20M%E1%BA%A1i%20Tr%E1%BB%A9ng%20C%C3%BAt%20T%E1%BB%A9%20Xuy%C3%AAn%20(4%20vi%C3%AAn%20trung).png?raw=true",
     isOut: false
   },
   {
     id: 86,
-    name: "Miến Dong Trộn Hàn Quốc Japchae",
+    name: "Miến Cay Xíu Mại Trứng Muối Tứ Xuyên (4 viên trung)",
     category: "Miến Dong",
-    price: 65000,
-    desc: "Sợi miến dai mềm trộn dầu vừng, thịt bò và rau củ.",
-    image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300",
+    price: 54000,
+    desc: "Xíu mại trứng muối bùi béo, đậm đà, thấm vị cay Tứ Xuyên.",
+    image: "https://github.com/amthucphucgiaky/menu/blob/main/Mi%E1%BA%BFn%20Cay%20X%C3%ADu%20M%E1%BA%A1i%20Tr%E1%BB%A9ng%20Mu%E1%BB%91i%20T%E1%BB%A9%20Xuy%C3%AAn%20(4%20vi%C3%AAn%20trung).png?raw=true",
     isOut: false
   },
   {
     id: 87,
-    name: "Miến Dong Xào Thịt Bò Dầu Hào",
+    name: "Miến Cay Xíu Mại Rong Biển Thanh Cua Tứ Xuyên (4 viên trung)",
     category: "Miến Dong",
-    price: 68000,
-    desc: "Thịt bò xào mềm ngấm sốt dầu hào đậm đà.",
-    image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300",
+    price: 54000,
+    desc: "Xíu mại thanh cua cuộn rong biển đậm đà, thấm vị cay Tứ Xuyên.",
+    image: "https://github.com/amthucphucgiaky/menu/blob/main/Mi%E1%BA%BFn%20Cay%20X%C3%ADu%20M%E1%BA%A1i%20Rong%20Bi%E1%BB%83n%20Thanh%20Cua%20T%E1%BB%A9%20Xuy%C3%AAn.jpg?raw=true",
     isOut: false
   },
   {
     id: 88,
-    name: "Miến Dong Nước Súp Vịt Tiềm",
+    name: "Miến Cay Sủi Cảo Tôm Tứ Xuyên (4 viên trung)",
     category: "Miến Dong",
-    price: 82000,
-    desc: "Nước dùng thảo mộc bổ dưỡng kết hợp sợi miến dong dai.",
-    image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300",
+    price: 54000,
+    desc: "Sủi cáo tôm giòn ngọt, đậm đà, thấm vị cay Tứ Xuyên.",
+    image: "https://github.com/amthucphucgiaky/menu/blob/main/Mi%E1%BA%BFn%20Cay%20S%E1%BB%A7i%20C%E1%BA%A3o%20M%E1%BB%B1c%20T%E1%BB%A9%20Xuy%C3%AAn%20(3%20vi%C3%AAn%20trung).png?raw=true",
     isOut: false
   },
   {
     id: 89,
-    name: "Miến Dong Xào Lòng Gà Trứng Non",
+    name: "Miến Cay Sủi Cảo Mực Tứ Xuyên (4 viên trung)",
     category: "Miến Dong",
-    price: 65000,
-    desc: "Trứng non béo ngậy xào cùng lòng gà giòn sần sật.",
-    image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300",
+    price: 54000,
+    desc: "Sủi cảo mực giòn sần sật, đậm đà, thấm vị cay Tứ Xuyên.",
+    image: "https://github.com/amthucphucgiaky/menu/blob/main/Mi%E1%BA%BFn%20Cay%20S%E1%BB%A7i%20C%E1%BA%A3o%20M%E1%BB%B1c%20T%E1%BB%A9%20Xuy%C3%AAn%20(3%20vi%C3%AAn%20trung).png?raw=true",
     isOut: false
   },
   {
     id: 90,
-    name: "Miến Dong Tôm Hùm Sốt Cua PGK-90",
+    name: "Miến Cay Sủi Cảo Sò Điệp Tứ Xuyên (4 viên trung)",
     category: "Miến Dong",
-    price: 120000,
-    desc: "Thịt tôm hùm béo ngọt hòa quyện sốt cua đậm đà.",
-    image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300",
+    price: 54000,
+    desc: "Sủi cảo sò điệp ngọt thanh, đậm đà, thấm vị cay Tứ Xuyên.",
+    image: "https://github.com/amthucphucgiaky/menu/blob/main/Mi%E1%BA%BFn%20Cay%20S%E1%BB%A7i%20C%E1%BA%A3o%20M%E1%BB%B1c%20T%E1%BB%A9%20Xuy%C3%AAn%20(3%20vi%C3%AAn%20trung).png?raw=true",
     isOut: false
   },
   {
     id: 91,
-    name: "Miến Dong Chay Nấm Rơm PGK-91",
+    name: "Miến Cay Sủi Cảo Thập Cẩm Tứ Xuyên (4 viên trung)",
     category: "Miến Dong",
-    price: 48000,
-    desc: "Món chay thanh đạm với nấm rơm tươi và củ cải.",
-    image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300",
+    price: 54000,
+    desc: "Sủi cảo thập cẩm giòn ngọt, đậm đà, thấm vị cay Tứ Xuyên.",
+    image: "https://github.com/amthucphucgiaky/menu/blob/main/Mi%E1%BA%BFn%20Cay%20S%E1%BB%A7i%20C%E1%BA%A3o%20M%E1%BB%B1c%20T%E1%BB%A9%20Xuy%C3%AAn%20(3%20vi%C3%AAn%20trung).png?raw=true",
     isOut: false
   },
   {
     id: 92,
-    name: "Miến Dong Nước Bò Viên Ngon PGK-92",
+    name: "Miến Cay Rong Biển Cuộn Tôm Thịt Tứ Xuyên (2 viên lớn)",
     category: "Miến Dong",
-    price: 58000,
-    desc: "Bò viên giòn sần sật trong nước dùng trong ngọt.",
-    image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300",
+    price: 59000,
+    desc: "Rong biển cuộn tôm thịt giòn ngọt, thấm vị cay Tứ Xuyên.",
+    image: "https://github.com/amthucphucgiaky/menu/blob/main/Mi%E1%BA%BFn%20Cay%20Rong%20Bi%E1%BB%83n%20Cu%E1%BB%99n%20T%C3%B4m%20Th%E1%BB%8Bt%20T%E1%BB%A9%20Xuy%C3%AAn%20%20(2%20vi%C3%AAn%20l%E1%BB%9Bn).png?raw=true",
     isOut: false
   },
   {
     id: 93,
-    name: "Miến Dong Xào Mực Sa Tế PGK-93",
+    name: "Miến Cay Hoành Thánh Cuộn Tôm Thịt Tứ Xuyên (2 viên lớn)",
     category: "Miến Dong",
-    price: 70000,
-    desc: "Mực tươi xào sa tế cay nồng thơm lừng.",
-    image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300",
+    price: 59000,
+    desc: "Hoành thánh cuộn tôm thịt giòn ngọt, thấm vị cay Tứ Xuyên.",
+    image: "https://github.com/amthucphucgiaky/menu/blob/main/Mi%E1%BA%BFn%20Cay%20Ho%C3%A0nh%20Th%C3%A1nh%20Cu%E1%BB%99n%20T%C3%B4m%20Th%E1%BB%8Bt%20T%E1%BB%A9%20Xuy%C3%AAn%20(2%20vi%C3%AAn%20l%E1%BB%9Bn).png?raw=true",
     isOut: false
   },
   {
     id: 94,
-    name: "Miến Dong Súp Sườn Sụn PGK-94",
+    name: "Miến Gà Cay Tứ Xuyên (Gà Ác nguyên con)",
     category: "Miến Dong",
-    price: 65000,
-    desc: "Sườn sụn giòn sần sật hầm mềm thơm ngon.",
-    image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300",
+    price: 94000,
+    desc: "Thịt gà ác mềm ngọt, bổ dưỡng, thấm vị cay Tứ Xuyên.",
+    image: "https://github.com/amthucphucgiaky/menu/blob/main/Mi%E1%BA%BFn%20G%C3%A0%20Cay%20T%E1%BB%A9%20Xuy%C3%AAn%20(G%C3%A0%20%C3%81c%20nguy%C3%AAn%20con).png?raw=true",
     isOut: false
   },
   {
     id: 95,
-    name: "Miến Dong Xào Tay Cầm Nồi Đất PGK-95",
+    name: "Miến Gà Hắc Kim Thảo (Gà Ác nguyên con)",
     category: "Miến Dong",
-    price: 78000,
-    desc: "Giữ trọn độ nóng hổi và mùi thơm nức trong nồi đất.",
-    image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300",
+    price: 104000,
+    desc: "Gà ác mềm ngọt, bổ dưỡng, đậm đà vị thảo mộc Hắc Kim Thảo.",
+    image: "https://github.com/amthucphucgiaky/menu/blob/main/Mi%E1%BA%BFn%20G%C3%A0%20H%E1%BA%AFc%20Kim%20Th%E1%BA%A3o%20(G%C3%A0%20%C3%81c%20nguy%C3%AAn%20con).png?raw=true",
     isOut: false
   },
   {
     id: 96,
-    name: "Miến Dong Súp Bào Ngư PGK-96",
+    name: "Miến Gà Hắc Kim Thảo Đặt Biệt (Gà Ác nguyên con, Bào ngư, Tôm, Sò điệp)",
     category: "Miến Dong",
-    price: 95000,
-    desc: "Bào ngư hầm bổ dưỡng ngấm trọn sợi miến.",
-    image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300",
+    price: 184000,
+    desc: "Gà ác mềm ngọt cùng hải sản tươi ngon, đậm đà vị thảo mộc.",
+    image: "https://github.com/amthucphucgiaky/menu/blob/main/Mi%E1%BA%BFn%20G%C3%A0%20H%E1%BA%AFc%20Kim%20Th%E1%BA%A3o%20%C4%90%E1%BA%B7t%20Bi%E1%BB%87t.png?raw=true",
     isOut: false
   },
-  {
-    id: 97,
-    name: "Miến Dong Trộn Bơ Cay Tôm Tươi PGK-97",
-    category: "Miến Dong",
-    price: 68000,
-    desc: "Sốt bơ cay ngậy phủ lên tôm tươi ngọt thịt.",
-    image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300",
-    isOut: false
-  },
-  {
-    id: 98,
-    name: "Miến Dong Nước Cốt Dừa Hải Sản PGK-98",
-    category: "Miến Dong",
-    price: 75000,
-    desc: "Hương vị nước cốt dừa béo ngậy độc đáo.",
-    image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300",
-    isOut: false
-  },
-  {
-    id: 99,
-    name: "Miến Dong Xào Rau Củ Ngũ Sắc PGK-99",
-    category: "Miến Dong",
-    price: 52000,
-    desc: "Rau củ tươi giòn màu sắc bắt mắt thanh nhẹ.",
-    image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300",
-    isOut: false
-  },
-  {
-    id: 100,
-    name: "Miến Dong Phúc Gia Thượng Hạng PGK-100",
-    category: "Miến Dong",
-    price: 88000,
-    desc: "Sự kết hợp hoàn hảo giữa tôm, cua, lươn và bò.",
-    image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300",
-    isOut: false
-  },
+//  {
+//    id: 97,
+//    name: "Miến Dong Trộn Bơ Cay Tôm Tươi PGK-97",
+//    category: "Miến Dong",
+//    price: 68000,
+//    desc: "Sốt bơ cay ngậy phủ lên tôm tươi ngọt thịt.",
+//    image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300",
+//    isOut: false
+//  },
+//  {
+//    id: 98,
+//    name: "Miến Dong Nước Cốt Dừa Hải Sản PGK-98",
+//    category: "Miến Dong",
+//    price: 75000,
+ //   desc: "Hương vị nước cốt dừa béo ngậy độc đáo.",
+ //   image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300",
+//    isOut: false
+//  },
+//  {
+//    id: 99,
+//    name: "Miến Dong Xào Rau Củ Ngũ Sắc PGK-99",
+//    category: "Miến Dong",
+//    price: 52000,
+//    desc: "Rau củ tươi giòn màu sắc bắt mắt thanh nhẹ.",
+//    image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300",
+//    isOut: false
+//  },
+//  {
+//    id: 100,
+//    name: "Miến Dong Phúc Gia Thượng Hạng PGK-100",
+//    category: "Miến Dong",
+//    price: 88000,
+//    desc: "Sự kết hợp hoàn hảo giữa tôm, cua, lươn và bò.",
+//    image: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300",
+//    isOut: false
+//  },
   {
     id: 101,
-    name: "Nui Ống Xào Bò Lúc Lắc",
+    name: "Nui Cay Hoành Thánh Lá Nhân Thịt Tứ Xuyên (6 lá)",
     category: "Nui Ống",
-    price: 60000,
-    desc: "Thịt bò Úc cắt khối xào mềm cùng nui ống và ớt đà lạt.",
-    image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300",
+    price: 39000,
+    desc: "Hoành thánh lá mềm mượt, nhân thịt đậm đà, thấm vị cay Tứ Xuyên.",
+    image: "https://github.com/amthucphucgiaky/menu/blob/main/Nui%20Cay%20Ho%C3%A0nh%20Th%C3%A1nh%20L%C3%A1%20Nh%C3%A2n%20Th%E1%BB%8Bt%20T%E1%BB%A9%20Xuy%C3%AAn%20(6%20l%C3%A1%20cu%E1%BB%99n%20).jpg?raw=true",
     isOut: false
   },
   {
     id: 102,
-    name: "Nui Ống Súp Xương Ốc Heo",
+    name: "Nui Cay Xíu Mại Thịt Cuộn Tứ Xuyên (6 viên nhỏ)",
     category: "Nui Ống",
-    price: 55000,
-    desc: "Xương ống hầm mềm mọt nước, nui ống mềm mại dễ ăn.",
-    image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300",
+    price: 45000,
+    desc: "Xíu mại thịt cuộn mềm ngậy, đậm đà, thấm vị cay Tứ Xuyên.",
+    image: "https://github.com/amthucphucgiaky/menu/blob/main/Nui%20Cay%20X%C3%ADu%20M%E1%BA%A1i%20Th%E1%BB%8Bt%20Cu%E1%BB%99n%20T%E1%BB%A9%20Xuy%C3%AAn%20(6%20vi%C3%AAn%20nh%E1%BB%8F).jpg?raw=true",
     isOut: false
   },
   {
     id: 103,
-    name: "Nui Ống Xào Hải Sản Sốt Cà",
+    name: "Nui Cay Xíu Mại Thanh Cua Tứ Xuyên (4 viên trung)",
     category: "Nui Ống",
-    price: 65000,
-    desc: "Nui xào đượm sốt cà chua chua ngọt cùng hải sản.",
-    image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300",
+    price: 49000,
+    desc: "Xíu mại thanh cua béo ngọt, mềm ngậy, thấm vị cay Tứ Xuyên.",
+    image: "https://github.com/amthucphucgiaky/menu/blob/main/Nui%20Cay%20X%C3%ADu%20M%E1%BA%A1i%20Thanh%20Cua%20T%E1%BB%A9%20Xuy%C3%AAn%20(4%20vi%C3%AAn%20trung).png?raw=true",
     isOut: false
   },
   {
     id: 104,
-    name: "Nui Ống Đút Lò Phô Mai Bò Băm",
+    name: "Nui Cay Xíu Mại Tôm Tứ Xuyên (4 viên trung)",
     category: "Nui Ống",
-    price: 72000,
-    desc: "Lớp phô Mai Mozzarella kéo sợi béo ngậy đút lò thơm nức.",
-    image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300",
+    price: 49000,
+    desc: "Xíu mại tôm giòn ngọt, đậm đà, thấm vị cay Tứ Xuyên.",
+    image: "https://github.com/amthucphucgiaky/menu/blob/main/Nui%20Cay%20X%C3%ADu%20M%E1%BA%A1i%20T%C3%B4m%20T%E1%BB%A9%20Xuy%C3%AAn%20(4%20vi%C3%AAn%20trung).jpg?raw=true",
     isOut: false
   },
   {
     id: 105,
-    name: "Nui Ống Súp Gà Xé Nấm Hương",
+    name: "Nui Cay Xíu Mại Trứng Cút Tứ Xuyên (4 viên trung)",
     category: "Nui Ống",
-    price: 52000,
-    desc: "Súp nước ngọt thanh từ gà và nấm hương tự nhiên.",
-    image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300",
+    price: 49000,
+    desc: "Xíu mại trứng cút bùi béo, đậm đà, thấm vị cay Tứ Xuyên.",
+    image: "https://github.com/amthucphucgiaky/menu/blob/main/Nui%20Cay%20X%C3%ADu%20M%E1%BA%A1i%20Tr%E1%BB%A9ng%20C%C3%BAt%20T%E1%BB%A9%20Xuy%C3%AAn%20(4%20vi%C3%AAn%20trung).jpg?raw=true",
     isOut: false
   },
   {
     id: 106,
-    name: "Nui Ống Xào Giòn Tôm Thịt",
+    name: "Nui Cay Xíu Mại Trứng Muối Tứ Xuyên (4 viên trung)",
     category: "Nui Ống",
-    price: 62000,
-    desc: "Nui chiên giòn rụm xào cùng tôm tươi và rau củ.",
-    image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300",
+    price: 49000,
+    desc: "Xíu mại trứng muối bùi béo, đậm đà, thấm vị cay Tứ Xuyên.",
+    image: "https://github.com/amthucphucgiaky/menu/blob/main/Nui%20Cay%20X%C3%ADu%20M%E1%BA%A1i%20Tr%E1%BB%A9ng%20Mu%E1%BB%91i%20T%E1%BB%A9%20Xuy%C3%AAn%20(4%20vi%C3%AAn%20trung).jpg?raw=true",
     isOut: false
   },
   {
     id: 107,
-    name: "Nui Ống Súp Mọc Trứng Cút",
+    name: "Nui Cay Xíu Mại Rong Biển Thanh Cua (4 viên trung)",
     category: "Nui Ống",
-    price: 50000,
-    desc: "Mọc heo tự làm dai ngon tròn vị kết hợp trứng cút.",
-    image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300",
+    price: 49000,
+    desc: "Xíu mại thanh cua cuộn rong biển đậm đà, thấm vị cay Tứ Xuyên.",
+    image: "https://github.com/amthucphucgiaky/menu/blob/main/Nui%20Cay%20X%C3%ADu%20M%E1%BA%A1i%20Rong%20Bi%E1%BB%83n%20Thanh%20Cua.jpg?raw=true",
     isOut: false
   },
   {
     id: 108,
-    name: "Nui Ống Xào Xá Xíu Dầu Hào",
+    name: "Nui Cay Sủi Cảo Tôm Tứ Xuyên (4 viên trung)",
     category: "Nui Ống",
-    price: 58000,
-    desc: "Thịt xá xíu đậm đà quyện nui ống dai mềm.",
-    image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300",
+    price: 49000,
+    desc: "Sủi cảo tôm giòn ngọt, đậm đà, thấm vị cay Tứ Xuyên.",
+    image: "https://github.com/amthucphucgiaky/menu/blob/main/Nui%20Cay%20S%E1%BB%A7i%20C%E1%BA%A3o%20M%E1%BB%B1c%20T%E1%BB%A9%20Xuy%C3%AAn%20(4%20vi%C3%AAn%20trung).png?raw=true",
     isOut: false
   },
   {
     id: 109,
-    name: "Nui Ống Xào Kem Bơ Nấm Truffle",
+    name: "Nui Cay Sủi Cảo Mực Tứ Xuyên (4 viên trung)",
     category: "Nui Ống",
-    price: 78000,
-    desc: "Phong cách Âu - Á kết hợp độc đáo béo thơm.",
-    image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300",
+    price: 49000,
+    desc: "Sủi cảo mực giòn sần sật, đậm đà, thấm vị cay Tứ Xuyên.",
+    image: "https://github.com/amthucphucgiaky/menu/blob/main/Nui%20Cay%20S%E1%BB%A7i%20C%E1%BA%A3o%20M%E1%BB%B1c%20T%E1%BB%A9%20Xuy%C3%AAn%20(4%20vi%C3%AAn%20trung).png?raw=true",
     isOut: false
   },
   {
     id: 110,
-    name: "Nui Ống Súp Tôm Tươi Bách Hoa PGK-110",
+    name: "Nui Cay Sủi Cảo Sò Điệp Tứ Xuyên (4 viên trung)",
     category: "Nui Ống",
-    price: 62000,
-    desc: "Tôm bách hoa ngọt đậm đà trong tô súp nóng.",
-    image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300",
+    price: 49000,
+    desc: "Sủi cảo sò điệp ngọt thanh, đậm đà, thấm vị cay Tứ Xuyên.",
+    image: "https://github.com/amthucphucgiaky/menu/blob/main/Nui%20Cay%20S%E1%BB%A7i%20C%E1%BA%A3o%20M%E1%BB%B1c%20T%E1%BB%A9%20Xuy%C3%AAn%20(4%20vi%C3%AAn%20trung).png?raw=true",
     isOut: false
   },
   {
     id: 111,
-    name: "Nui Ống Chay Sốt Cà Chua PGK-111",
+    name: "Nui Cay Sủi Cảo Thập Cẩm Tứ Xuyên (4 viên trung)",
     category: "Nui Ống",
-    price: 42000,
-    desc: "Món ăn thanh đạm bổ dưỡng cho người ăn chay.",
-    image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300",
+    price: 49000,
+    desc: "Sủi cảo thập cẩm giòn ngọt, đậm đà, thấm vị cay Tứ Xuyên.",
+    image: "https://github.com/amthucphucgiaky/menu/blob/main/Nui%20Cay%20S%E1%BB%A7i%20C%E1%BA%A3o%20M%E1%BB%B1c%20T%E1%BB%A9%20Xuy%C3%AAn%20(4%20vi%C3%AAn%20trung).png?raw=true",
     isOut: false
   },
   {
     id: 112,
-    name: "Nui Ống Xào Sa Tế Mực Ống PGK-112",
+    name: "Nui Cay Rong Biển Cuộn Tôm Thịt Tứ Xuyên (2 viên lớn)",
     category: "Nui Ống",
-    price: 65000,
-    desc: "Mực ống giòn sần sật xào sa tế cay nồng.",
-    image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300",
+    price: 55000,
+    desc: "Rong biển cuộn tôm thịt giòn ngọt, thấm vị cay Tứ Xuyên.",
+    image: "https://github.com/amthucphucgiaky/menu/blob/main/Nui%20Cay%20Rong%20Bi%E1%BB%83n%20Cu%E1%BB%99n%20T%C3%B4m%20Th%E1%BB%8Bt%20T%E1%BB%A9%20Xuy%C3%AAn%20%20(2%20vi%C3%AAn%20l%E1%BB%9Bn).jpg?raw=true",
     isOut: false
   },
   {
     id: 113,
-    name: "Nui Ống Súp Giò Lợn Bơ Mịn PGK-113",
+    name: "Nui Cay Hoành Thánh Cuộn Tôm Thịt Tứ Xuyên (2 viên lớn)",
     category: "Nui Ống",
-    price: 60000,
-    desc: "Giò lợn béo ngậy hầm mềm róc xương.",
-    image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300",
+    price: 55000,
+    desc: "Hoành thánh cuộn tôm thịt giòn ngọt, thấm vị cay Tứ Xuyên.",
+    image: "https://github.com/amthucphucgiaky/menu/blob/main/Nui%20Cay%20Ho%C3%A0nh%20Th%C3%A1nh%20Cu%E1%BB%99n%20T%C3%B4m%20Th%E1%BB%8Bt%20T%E1%BB%A9%20Xuy%C3%AAn%20(2%20vi%C3%AAn%20l%E1%BB%9Bn).jpg?raw=true",
     isOut: false
   },
   {
     id: 114,
-    name: "Nui Ống Xào Cay Tứ Xuyên PGK-114",
+    name: "Nui Gà Cay Tứ Xuyên (Gà Ác nguyên con)",
     category: "Nui Ống",
-    price: 62000,
-    desc: "Gia vị cay tê nồng đậm chuẩn vùng Tứ Xuyên.",
-    image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300",
+    price: 89000,
+    desc: "Gà ác mềm ngọt, thấm đượm vị cay Tứ Xuyên đậm đà.",
+    image: "https://github.com/amthucphucgiaky/menu/blob/main/Nui%20G%C3%A0%20Cay%20T%E1%BB%A9%20Xuy%C3%AAn%20(G%C3%A0%20%C3%81c%20nguy%C3%AAn%20con).jpg?raw=true",
     isOut: false
   },
   {
     id: 115,
-    name: "Nui Ống Súp Cua Tuyết PGK-115",
+    name: "Nui Gà Hắc Kim Thảo (Gà Ác nguyên con)",
     category: "Nui Ống",
-    price: 70000,
-    desc: "Thịt cua tuyết ngọt mọng hòa quyện súp đậm đà.",
-    image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300",
+    price: 99000,
+    desc: "Gà ác mềm ngọt, thấm đượm vị thảo mộc bổ dưỡng.",
+    image: "https://github.com/amthucphucgiaky/menu/blob/main/Nui%20G%C3%A0%20H%E1%BA%AFc%20Kim%20Th%E1%BA%A3o%20(G%C3%A0%20%C3%81c%20nguy%C3%AAn%20con).jpg?raw=true",
     isOut: false
   },
   {
     id: 116,
-    name: "Nui Ống Đút Lò Hải Sản Phô Mai PGK-116",
+    name: "Nui Gà Hắc Kim Thảo Đặt Biệt (Gà Ác nguyên con, Bào ngư, Tôm, Sò điệp)",
     category: "Nui Ống",
-    price: 75000,
-    desc: "Tôm mực thơm lừng đút lò phủ phô mai béo ngậy.",
-    image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300",
+    price: 179000,
+    desc: "Gà ác mềm ngọt cùng hải sản tươi ngon, đậm đà vị thảo mộc bổ dưỡng.",
+    image: "https://github.com/amthucphucgiaky/menu/blob/main/Nui%20G%C3%A0%20H%E1%BA%AFc%20Kim%20Th%E1%BA%A3o%20%C4%90%E1%BA%B7t%20Bi%E1%BB%87t.jpg?raw=true",
     isOut: false
   },
-  {
-    id: 117,
-    name: "Nui Ống Xào Bò Băm Trứng Ốp PGK-117",
-    category: "Nui Ống",
-    price: 58000,
-    desc: "Trứng ốp lòng đào béo ngậy chảy trên nui xào.",
-    image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300",
-    isOut: false
-  },
-  {
-    id: 118,
-    name: "Nui Ống Súp Bò Viên Thượng Hạng PGK-118",
-    category: "Nui Ống",
-    price: 55000,
-    desc: "Bò viên giòn sần sật nguyên chất thơm ngon.",
-    image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300",
-    isOut: false
-  },
-  {
-    id: 119,
-    name: "Nui Ống Xào Xúc Xích Đức PGK-119",
-    category: "Nui Ống",
-    price: 50000,
-    desc: "Xúc xích Đức thơm bùi xào nui ống đậm đà.",
-    image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300",
-    isOut: false
-  },
-  {
-    id: 120,
-    name: "Nui Ống Phúc Gia Đặc Cảnh PGK-120",
-    category: "Nui Ống",
-    price: 80000,
-    desc: "Món nui xào tổng hợp hải sản bò xá xíu độc quyền.",
-    image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300",
-    isOut: false
-  },
+//  {
+//    id: 117,
+//    name: "Nui Ống Xào Bò Băm Trứng Ốp PGK-117",
+//    category: "Nui Ống",
+//    price: 58000,
+//    desc: "Trứng ốp lòng đào béo ngậy chảy trên nui xào.",
+//    image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300",
+//    isOut: false
+//  },
+//  {
+//    id: 118,
+//    name: "Nui Ống Súp Bò Viên Thượng Hạng PGK-118",
+//    category: "Nui Ống",
+//    price: 55000,
+//    desc: "Bò viên giòn sần sật nguyên chất thơm ngon.",
+//    image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300",
+//    isOut: false
+//  },
+//  {
+//    id: 119,
+//    name: "Nui Ống Xào Xúc Xích Đức PGK-119",
+//    category: "Nui Ống",
+//    price: 50000,
+//    desc: "Xúc xích Đức thơm bùi xào nui ống đậm đà.",
+//    image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300",
+//    isOut: false
+//  },
+//  {
+//    id: 120,
+//    name: "Nui Ống Phúc Gia Đặc Cảnh PGK-120",
+//    category: "Nui Ống",
+//    price: 80000,
+//    desc: "Món nui xào tổng hợp hải sản bò xá xíu độc quyền.",
+//    image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300",
+//    isOut: false
+//  },
   {
     id: 121,
     name: "Súp Hải Sản Bào Ngư Thượng Hạng",
