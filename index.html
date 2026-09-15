@@ -257,7 +257,7 @@ header {
     <button class="btn-clear-cart" onclick="clearCart()">🗑️ Xóa toàn bộ giỏ hàng</button>
 
     <div class="promo-box">
-      <input type="text" id="promo-code-input" placeholder="Mã khuyến mãi (VD: PHUCGIAKY555)">
+      <input type="text" id="promo-code-input" placeholder="Mã khuyến mãi">
       <button type="button" onclick="applyPromoCode()">Áp dụng</button>
     </div>
     <div class="promo-message" id="promo-msg"></div>
@@ -363,7 +363,7 @@ const menuData = [
     price: 35000,
     desc: "Vỏ mỏng mềm, nhân hẹ thơm nồng, thanh nhẹ.(4 viên trung)",
     image: "https://github.com/amthucphucgiaky/menu/blob/main/H%C3%A1%20C%E1%BA%A3o%20H%E1%BA%B9%20-%20H%E1%BA%A5p%20(4%20vi%C3%AAn%20trung).png?raw=true",
-    isOut: false
+    isOut: true
   },
   {
     id: 5,
@@ -408,7 +408,7 @@ const menuData = [
     price: 35000,
     desc: "Vỏ mỏng mềm, nhân trứng muối béo bùi đậm đà.(4 viên trung)",
     image: "https://github.com/amthucphucgiaky/menu/blob/main/H%C3%A1%20C%E1%BA%A3o%20Tr%E1%BB%A9ng%20Mu%E1%BB%91i%20-%20H%E1%BA%A5p%20(4%20vi%C3%AAn%20trung).jpg?raw=true",
-    isOut: false
+    isOut: true
   },
   {
     id: 10,
@@ -471,7 +471,7 @@ const menuData = [
     price: 35000,
     desc: "Nhân tôm giòn ngọt, vỏ mỏng thơm mọng.(4 viên trung)",
     image: "https://github.com/amthucphucgiaky/menu/blob/main/X%C3%ADu%20M%E1%BA%A1i%20T%C3%B4m%20-%20H%E1%BA%A5p%20(4%20vi%C3%AAn%20trung).png?raw=true",
-    isOut: false
+    isOut: true
   },
   {
     id: 17,
@@ -489,7 +489,7 @@ const menuData = [
     price: 35000,
     desc: "Nhân trứng muối béo bùi, vỏ mỏng thơm mềm.(4 viên trung)",
     image: "https://github.com/amthucphucgiaky/menu/blob/main/X%C3%ADu%20M%E1%BA%A1i%20Tr%E1%BB%A9ng%20Mu%E1%BB%91i%20-%20H%E1%BA%A5p%20(4%20vi%C3%AAn%20trung).png?raw=true",
-    isOut: false
+    isOut: true
   },
   {
     id: 19,
@@ -696,7 +696,7 @@ const menuData = [
     price: 30000,
     desc: "Hoành thánh chiên giòn rụm, thơm ngon khó cưỡng.",
     image: "https://github.com/amthucphucgiaky/menu/blob/main/Ho%C3%A0nh%20Th%C3%A1nh%20L%C3%A1%20-%20Chi%C3%AAn%20(6%20l%C3%A1).png?raw=true",
-    isOut: false
+    isOut: true
   },
   {
     id: 42,
@@ -705,7 +705,7 @@ const menuData = [
     price: 30000,
     desc: "Xíu mại mini chiên vàng rụm, giòn đậm đà.",
     image: "https://github.com/amthucphucgiaky/menu/blob/main/X%C3%ADu%20M%E1%BA%A1i%20Mini%20-%20Chi%C3%AAn%20(6%20vi%C3%AAn%20nh%E1%BB%8F).png?raw=true",
-    isOut: false
+    isOut: true
   },
   {
     id: 43,
@@ -732,7 +732,7 @@ const menuData = [
     price: 35000,
     desc: "Xíu mại tôm chiên vàng giòn, nhân ngọt đậm đà.",
     image: "https://github.com/amthucphucgiaky/menu/blob/main/X%C3%ADu%20M%E1%BA%A1i%20T%C3%B4m%20-%20Chi%C3%AAn%20(4%20vi%C3%AAn%20trung).png?raw=true",
-    isOut: false
+    isOut: true
   },
   {
     id: 46,
@@ -750,7 +750,7 @@ const menuData = [
     price: 35000,
     desc: "Xíu mại trứng muối chiên giòn, nhân béo mặn bùi.",
     image: "https://github.com/amthucphucgiaky/menu/blob/main/X%C3%ADu%20M%E1%BA%A1i%20Tr%E1%BB%A9ng%20Mu%E1%BB%91i%20-%20Chi%C3%AAn%20(4%20vi%C3%AAn%20trung).png?raw=true",
-    isOut: false
+    isOut: true
   },
   {
     id: 48,
@@ -876,7 +876,7 @@ const menuData = [
     price: 39000,
     desc: "Mì cay hoành thánh Tứ Xuyên cay nồng, đậm đà.",
     image: "https://github.com/amthucphucgiaky/menu/blob/main/M%C3%AC%20Cay%20Ho%C3%A0nh%20Th%C3%A1nh%20L%C3%A1%20Nh%C3%A2n%20Th%E1%BB%8Bt%20T%E1%BB%A9%20Xuy%C3%AAn%20(6%20l%C3%A1%20cu%E1%BB%99n%20).png?raw=true",
-    isOut: false
+    isOut: true
   },
   {
     id: 62,
@@ -903,7 +903,7 @@ const menuData = [
     price: 49000,
     desc: "Mì cay xíu mại tôm Tứ Xuyên cay nồng, tôm ngọt đậm.",
     image: "https://github.com/amthucphucgiaky/menu/blob/main/M%C3%AC%20Cay%20X%C3%ADu%20M%E1%BA%A1i%20T%C3%B4m%20T%E1%BB%A9%20Xuy%C3%AAn%20(4%20vi%C3%AAn%20trung).png?raw=true",
-    isOut: false
+    isOut: true
   },
   {
     id: 65,
@@ -921,7 +921,7 @@ const menuData = [
     price: 49000,
     desc: "Mì cay xíu mại trứng muối Tứ Xuyên cay nồng, béo bùi.",
     image: "https://github.com/amthucphucgiaky/menu/blob/main/M%C3%AC%20Cay%20X%C3%ADu%20M%E1%BA%A1i%20Tr%E1%BB%A9ng%20Mu%E1%BB%91i%20T%E1%BB%A9%20Xuy%C3%AAn%20(4%20vi%C3%AAn%20trung).png?raw=true",
-    isOut: false
+    isOut: true
   },
   {
     id: 67,
@@ -1056,7 +1056,7 @@ const menuData = [
     price: 44000,
     desc: "Thơm nồng, nhân thịt đậm đà, lá mềm thấm vị cay.",
     image: "https://github.com/amthucphucgiaky/menu/blob/main/Mi%E1%BA%BFn%20Cay%20Ho%C3%A0nh%20Th%C3%A1nh%20L%C3%A1%20Nh%C3%A2n%20Th%E1%BB%8Bt%20T%E1%BB%A9%20Xuy%C3%AAn.png?raw=true",
-    isOut: false
+    isOut: true
   },
   {
     id: 82,
